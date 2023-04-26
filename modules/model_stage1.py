@@ -1,5 +1,6 @@
-#encoding=utf-8
+# encoding=utf-8
 import os
+from joblib import parallel_backend
 import scipy.io
 import numpy as np
 from collections import OrderedDict
@@ -15,9 +16,10 @@ from functools import reduce
    We need add each attribute branch one by one 
 '''
 
+
 def append_params(params, module, prefix):
     for child in module.children():
-        for k,p in child._parameters.items():
+        for k, p in child._parameters.items():
             if p is None: continue
 
             if isinstance(child, nn.BatchNorm2d):
@@ -42,61 +44,120 @@ def set_optimizer(model, lr_base, lr_mult, train_all=False, momentum=0.9, w_deca
         for l, m in lr_mult.items():
             if k.startswith(l):
                 lr = lr_base * m
-        param_list.append({'params': [p], 'lr':lr})
-    optimizer = optim.SGD(param_list, lr = lr, momentum=momentum, weight_decay=w_decay)
+        param_list.append({'params': [p], 'lr': lr})
+    optimizer = optim.SGD(param_list, lr=lr, momentum=momentum, weight_decay=w_decay)
     return optimizer
 
 
 class MDNet(nn.Module):
-    def __init__(self, model_path=None, K=1):
-        super(MDNet, self).__init__()
-        self.K = K
-        #backbone
-        self.layers_v = nn.Sequential(OrderedDict([
-                ('conv1', nn.Sequential(nn.Conv2d(3, 96, kernel_size=7, stride=2),nn.ReLU(inplace=True),nn.LocalResponseNorm(2),nn.MaxPool2d(kernel_size=3, stride=2))),
-                ('conv2', nn.Sequential(nn.Conv2d(96, 256, kernel_size=5, stride=2),nn.ReLU(inplace=True),nn.LocalResponseNorm(2),nn.MaxPool2d(kernel_size=3, stride=2))),
-                ('conv3', nn.Sequential(nn.Conv2d(256, 512, kernel_size=3, stride=1),nn.ReLU()))]))
-        self.layers_i = nn.Sequential(OrderedDict([
-                ('conv1', nn.Sequential(nn.Conv2d(3, 96, kernel_size=7, stride=2),nn.ReLU(inplace=True),nn.LocalResponseNorm(2),nn.MaxPool2d(kernel_size=3, stride=2))),
-                ('conv2', nn.Sequential(nn.Conv2d(96, 256, kernel_size=5, stride=2),nn.ReLU(inplace=True),nn.LocalResponseNorm(2),nn.MaxPool2d(kernel_size=3, stride=2))),
-                ('conv3', nn.Sequential(nn.Conv2d(256, 512, kernel_size=3, stride=1),nn.ReLU()))]))
-        self.fc = nn.Sequential(OrderedDict([
-                ('fc4',   nn.Sequential(nn.Linear(512 * 3 * 3 * 2, 512),nn.ReLU(inplace=True))),
-                ('fc5',   nn.Sequential(nn.Dropout(0.5),nn.Linear(512, 512),nn.ReLU(inplace=True)))]))
-       
-        self.parallel1 = nn.Sequential(OrderedDict([
-                ('parallel1_conv1',nn.Sequential(nn.Conv2d(3, 32, kernel_size=5, stride=2),nn.ReLU(),)), 
-                ('parallel1_conv2',nn.Sequential(nn.Conv2d(32, 96, kernel_size=4, stride=2)))]))   
-        
-        self.paralle1_skconv=nn.Sequential(OrderedDict([
-                ('parallel1_skconv_global_pool',nn.AdaptiveAvgPool2d(1)),    
-                ('parallel1_skconv_fc1',nn.Sequential(nn.Conv2d(96,32,1,bias=False),   
-                                       nn.ReLU(inplace=True))),  
-                ('parallel1_skconv_fc2',nn.Sequential(nn.Conv2d(32,96*2,1,1,bias=False))),  
-        ])) 
-        
-        self.parallel2 = nn.Sequential(OrderedDict([
-                ('parallel2_conv1',nn.Sequential(nn.Conv2d(96, 256, kernel_size=3, stride=2),nn.MaxPool2d(kernel_size=8, stride=1)))]))  #5*5
-        
-        self.paralle2_skconv=nn.Sequential(OrderedDict([
-                ('parallel2_skconv_global_pool',nn.AdaptiveAvgPool2d(1)),    
-                ('parallel2_skconv_fc1',nn.Sequential(nn.Conv2d(256,32,1,bias=False),   
-                                       nn.ReLU(inplace=True))),       
-                ('parallel2_skconv_fc2',nn.Sequential(nn.Conv2d(32,256*2,1,1,bias=False))),  
-        ]))
-      
-        self.parallel3 = nn.Sequential(OrderedDict([
-                ('parallel3_conv1',nn.Sequential(nn.Conv2d(256, 512, kernel_size=1, stride=1),nn.MaxPool2d(kernel_size=3, stride=1)))]))
-      
-        self.paralle3_skconv=nn.Sequential(OrderedDict([
-                ('parallel3_skconv_global_pool',nn.AdaptiveAvgPool2d(1)),    
-                ('parallel3_skconv_fc1',nn.Sequential(nn.Conv2d(512,64,1,bias=False),   
-                                       nn.ReLU(inplace=True))),       
-                ('parallel3_skconv_fc2',nn.Sequential(nn.Conv2d(64,512*2,1,1,bias=False))),  
-        ]))
+    def __init__(self, model_path=None, num_branches=1):
+        """_summary_
 
-        self.branches = nn.ModuleList([nn.Sequential(nn.Dropout(0.5),nn.Linear(512, 2)) for _ in range(K)])
+        Args:
+            model_path (_type_, optional): _description_. Defaults to None.
+            num_branches (int, optional): _description_. Defaults to 1.
+
+        Raises:
+            RuntimeError: _description_
+        """
+        super(MDNet, self).__init__()
+        self.num_branches = num_branches
+        # backbone
+        self.layers_v = nn.Sequential(OrderedDict([
+            ('conv1',nn.Sequential(
+                nn.Conv2d(3, 96, kernel_size=7, stride=2), 
+                nn.ReLU(inplace=True), 
+                nn.LocalResponseNorm(2),
+                nn.MaxPool2d(kernel_size=3, stride=2))),
+            
+            ('conv2',nn.Sequential(
+                nn.Conv2d(96, 256, kernel_size=5, stride=2), 
+                nn.ReLU(inplace=True), 
+                nn.LocalResponseNorm(2),
+                nn.MaxPool2d(kernel_size=3, stride=2))),
+            
+            ('conv3', nn.Sequential(
+                nn.Conv2d(256, 512, kernel_size=3, stride=1), 
+                nn.ReLU()))]))
         
+        self.layers_i = nn.Sequential(OrderedDict([
+            ('conv1',nn.Sequential(
+                 nn.Conv2d(3, 96, kernel_size=7, stride=2), 
+                 nn.ReLU(inplace=True), 
+                 nn.LocalResponseNorm(2),
+                 nn.MaxPool2d(kernel_size=3, stride=2))),
+            
+            ('conv2',nn.Sequential(
+                nn.Conv2d(96, 256, kernel_size=5, stride=2), 
+                nn.ReLU(inplace=True), 
+                nn.LocalResponseNorm(2),
+                nn.MaxPool2d(kernel_size=3, stride=2))),
+            
+            ('conv3', nn.Sequential(
+                nn.Conv2d(256, 512, kernel_size=3, stride=1), 
+                nn.ReLU()))]))
+        
+        self.fc = nn.Sequential(OrderedDict([
+            ('fc4', nn.Sequential(
+                nn.Linear(512 * 3 * 3 * 2, 512), 
+                nn.ReLU(inplace=True))),
+            
+            ('fc5', nn.Sequential(
+                nn.Dropout(0.5), 
+                nn.Linear(512, 512), 
+                nn.ReLU(inplace=True)))]))
+
+        self.parallel1 = nn.Sequential(OrderedDict([
+            ('parallel1_conv1', nn.Sequential(
+                nn.Conv2d(3, 32, kernel_size=5, stride=2), 
+                nn.ReLU(), )),  # 5*5 kernel
+            
+            ('parallel1_conv2', nn.Sequential(
+                nn.Conv2d(32, 96, kernel_size=4, stride=2)))]))  # 4*4 kernel
+
+        self.paralle1_skconv = nn.Sequential(OrderedDict([
+            ('parallel1_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+            
+            ('parallel1_skconv_fc1', nn.Sequential(
+                nn.Conv2d(96, 32, 1, bias=False),
+                nn.ReLU(inplace=True))),
+            
+            ('parallel1_skconv_fc2', nn.Sequential(
+                nn.Conv2d(32, 96 * 2, 1, 1, bias=False)))]))
+
+        self.parallel2 = nn.Sequential(OrderedDict([
+            ('parallel2_conv1', nn.Sequential(
+                nn.Conv2d(96, 256, kernel_size=3, stride=2),
+                nn.MaxPool2d(kernel_size=8, stride=1)))]))
+
+        self.paralle2_skconv = nn.Sequential(OrderedDict([
+            ('parallel2_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+            
+            ('parallel2_skconv_fc1', nn.Sequential(
+                nn.Conv2d(256, 32, 1, bias=False),
+                nn.ReLU(inplace=True))),
+            ('parallel2_skconv_fc2', nn.Sequential(
+                nn.Conv2d(32, 256 * 2, 1, 1, bias=False)))]))
+
+        self.parallel3 = nn.Sequential(OrderedDict([
+            ('parallel3_conv1', nn.Sequential(
+                 nn.Conv2d(256, 512, kernel_size=1, stride=1), 
+                 nn.MaxPool2d(kernel_size=3, stride=1)))]))
+
+        self.paralle3_skconv = nn.Sequential(OrderedDict([
+            ('parallel3_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+            
+            ('parallel3_skconv_fc1', nn.Sequential(
+                nn.Conv2d(512, 64, 1, bias=False),
+                nn.ReLU(inplace=True))),
+            ('parallel3_skconv_fc2', nn.Sequential(
+                nn.Conv2d(64, 512 * 2, 1, 1, bias=False)))]))
+        self.paralle_layers = [self.parallel1, self.parallel2, self.parallel3,
+                               self.paralle1_skconv, self.paralle2_skconv, self.paralle3_skconv]
+
+        self.branches = nn.ModuleList([nn.Sequential(
+            nn.Dropout(0.5), nn.Linear(512, 2)) for _ in range(num_branches)])
+
         for m in self.fc.modules():
             if isinstance(m, nn.Linear):
                 nn.init.normal_(m.weight, 0, 0.01)
@@ -105,32 +166,14 @@ class MDNet(nn.Module):
             if isinstance(m, nn.Linear):
                 nn.init.normal_(m.weight, 0, 0.01)
                 nn.init.constant_(m.bias, 0)
-        
-        for m in self.parallel1.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-                nn.init.constant_(m.bias, 0.1)
-        for m in self.parallel2.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-                nn.init.constant_(m.bias, 0.1)
-        for m in self.parallel3.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-                nn.init.constant_(m.bias, 0.1)
-        for m in self.paralle1_skconv.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-                #nn.init.constant_(m.bias, 0.1)
-        for m in self.paralle2_skconv.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-                #nn.init.constant_(m.bias, 0.1)
-        for m in self.paralle3_skconv.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-                #nn.init.constant_(m.bias, 0.1)
-        
+
+        for i, layer in enumerate(self.paralle_layers):
+            for m in layer.modules():
+                if isinstance(m, nn.Conv2d):
+                    nn.init.normal_(m.weight, 0, 0.01)
+                    if i < 3:
+                        nn.init.constant_(m.bias, 0.1)
+
         if model_path is not None:
             if os.path.splitext(model_path)[1] == '.pth':
                 self.load_model(model_path)
@@ -143,38 +186,27 @@ class MDNet(nn.Module):
     def build_param_dict(self):
         self.params = OrderedDict()
         for name, module in self.layers_v.named_children():
-            append_params(self.params, module, 'layers_v'+name)
+            append_params(self.params, module, 'layers_v' + name)
         for name, module in self.layers_i.named_children():
-            append_params(self.params, module, 'layers_i'+name)
+            append_params(self.params, module, 'layers_i' + name)
         for name, module in self.fc.named_children():
             append_params(self.params, module, name)
         for k, module in enumerate(self.branches):
-            append_params(self.params, module, 'fc6_%d'%(k))
+            append_params(self.params, module, 'fc6_%d' % (k))
         
-        for name, module in self.parallel1.named_children():
-            append_params(self.params, module, name)
-        for name,module in self.paralle1_skconv.named_children():
-            if 'pool' in name:
-                continue
-            append_params(self.params,module,name)
-       
-        for name, module in self.parallel2.named_children():
-            append_params(self.params, module, name)
-    
-        for name,module in self.paralle2_skconv.named_children():
-            if 'pool' in name:
-                continue
-            append_params(self.params,module,name)
-        
-        for name, module in self.parallel3.named_children():
-            append_params(self.params, module, name)
-    
-        for name,module in self.paralle3_skconv.named_children():
-            if 'pool' in name:
-                continue
-            append_params(self.params,module,name)
-        
+        for i, layer in enumerate(self.paralle_layers):
+            for name, module in layer.named_children():
+                if i > 2 and 'pool' in name:
+                    continue
+                append_params(self.params, module, name)
+
+
     def set_learnable_params(self, layers):
+        """set learnable params in selected layers before training
+
+        Args:
+            layers (_type_): selected layers that usually belong to backbone
+        """
         for k, p in self.params.items():
             if any([k.startswith(l) for l in layers]):
                 p.requires_grad = True
@@ -182,13 +214,18 @@ class MDNet(nn.Module):
                 p.requires_grad = False
 
     def get_learnable_params(self):
+        """get learnable params in every layer before training
+
+        Returns:
+            params (list[]): learnable params in every layer
+        """
         params = OrderedDict()
         for k, p in self.params.items():
             if p.requires_grad:
                 params[k] = p
-        print('get_learnable_params',params.keys())
+        print('get_learnable_params', params.keys())
         return params
-    
+
     def get_all_params(self):
         params = OrderedDict()
         for k, p in self.params.items():
@@ -199,71 +236,71 @@ class MDNet(nn.Module):
         # forward model from in_layer to out_layer
         run = False
         x = x1
-        for (name_v, module_v),(name_i, module_i) in zip(self.layers_v.named_children(),self.layers_i.named_children()):
-            output=[] 
+        for (name_v, module_v), (name_i, module_i) in zip(self.layers_v.named_children(),
+                                                          self.layers_i.named_children()):
+            output = []
             if name_v == in_layer:
                 run = True
             if run:
-                if name_v in ['conv1','conv2','conv3']:
+                if name_v in ['conv1', 'conv2', 'conv3']:
                     if name_v == 'conv1':
-                        x1_paralle = self.parallel1(x1)  
-                        x2_paralle = self.parallel1(x2)  
-                        batch_size=x1.size(0)
-                        output.append(x1_paralle)    
-                        output.append(x2_paralle)
-                        U=reduce(lambda x,y:x+y,output)
-                        a_b=self.paralle1_skconv(U)
-                        a_b=a_b.reshape(batch_size,2,96,-1) 
-                        a_b=nn.Softmax(dim=1)(a_b)     
-                       
-                        a_b=list(a_b.chunk(2,dim=1))
-                        a_b=list(map(lambda x:x.reshape(batch_size,96,1,1),a_b)) 
-                        V=list(map(lambda x,y:x*y,output,a_b))   
-                        V=reduce(lambda x,y:x+y,V)               
+                        # x
+                        x1_paralle, x2_paralle = self.parallel1(x1), self.parallel1(x2)
+                        batch_size = x1.size(0)
+                        output.append(x1_paralle, x2_paralle)
+                        U = reduce(lambda x, y: x + y, output)
+                        a_b = self.paralle1_skconv(U)
+                        a_b = a_b.reshape(batch_size, 2, 96, -1)
+                        a_b = nn.Softmax(dim=1)(a_b)
+
+                        a_b = list(a_b.chunk(2, dim=1))
+                        a_b = list(map(lambda x: x.reshape(batch_size, 96, 1, 1), a_b))
+                        V = list(map(lambda x, y: x * y, output, a_b))
+                        V = reduce(lambda x, y: x + y, V)
                     elif name_v == 'conv2':
                         x1_paralle = self.parallel2(x1)
                         x2_paralle = self.parallel2(x2)
-                        batch_size=x1.size(0)
-                        output.append(x1_paralle)    
+                        batch_size = x1.size(0)
+                        output.append(x1_paralle)
                         output.append(x2_paralle)
-                        U=reduce(lambda x,y:x+y,output)
-                        a_b=self.paralle2_skconv(U)
-                        a_b=a_b.reshape(batch_size,2,256,-1) 
-                        a_b=nn.Softmax(dim=1)(a_b)     
-                        
-                        a_b=list(a_b.chunk(2,dim=1))
-                        a_b=list(map(lambda x:x.reshape(batch_size,256,1,1),a_b)) 
-                        V=list(map(lambda x,y:x*y,output,a_b))  
-                        V=reduce(lambda x,y:x+y,V)               
+                        U = reduce(lambda x, y: x + y, output)
+                        a_b = self.paralle2_skconv(U)
+                        a_b = a_b.reshape(batch_size, 2, 256, -1)
+                        a_b = nn.Softmax(dim=1)(a_b)
+
+                        a_b = list(a_b.chunk(2, dim=1))
+                        a_b = list(map(lambda x: x.reshape(batch_size, 256, 1, 1), a_b))
+                        V = list(map(lambda x, y: x * y, output, a_b))
+                        V = reduce(lambda x, y: x + y, V)
                     else:
                         x1_paralle = self.parallel3(x1)
                         x2_paralle = self.parallel3(x2)
-                        batch_size=x1.size(0)
-                        output.append(x1_paralle)    
+                        batch_size = x1.size(0)
+                        output.append(x1_paralle)
                         output.append(x2_paralle)
-                        U=reduce(lambda x,y:x+y,output)
-                        a_b=self.paralle3_skconv(U)    
-                        a_b=a_b.reshape(batch_size,2,512,-1) 
-                        a_b=nn.Softmax(dim=1)(a_b)     
-                        
-                        a_b=list(a_b.chunk(2,dim=1))
-                        a_b=list(map(lambda x:x.reshape(batch_size,512,1,1),a_b)) 
-                        V=list(map(lambda x,y:x*y,output,a_b))  
-                        V=reduce(lambda x,y:x+y,V)               
+                        U = reduce(lambda x, y: x + y, output)
+                        a_b = self.paralle3_skconv(U)
+                        a_b = a_b.reshape(batch_size, 2, 512, -1)
+                        a_b = nn.Softmax(dim=1)(a_b)
+
+                        a_b = list(a_b.chunk(2, dim=1))
+                        a_b = list(map(lambda x: x.reshape(batch_size, 512, 1, 1), a_b))
+                        V = list(map(lambda x, y: x * y, output, a_b))
+                        V = reduce(lambda x, y: x + y, V)
                 x1 = module_v(x1)
-                x1=x1+V
+                x1 = x1 + V
                 x2 = module_i(x2)
-                x2=x2+V
+                x2 = x2 + V
                 if name_v == 'conv3':
-                    x = torch.cat((x1,x2),1)
-                    x = x.contiguous().view(x.size(0), -1)  
+                    x = torch.cat((x1, x2), 1)
+                    x = x.contiguous().view(x.size(0), -1)
                 if name_v == out_layer:
                     return x
-        x = self.fc(x)   
-        x = self.branches[k](x) 
-        if out_layer=='fc6':
+        x = self.fc(x)
+        x = self.branches[k](x)
+        if out_layer == 'fc6':
             return x
-        elif out_layer=='fc6_softmax':
+        elif out_layer == 'fc6_softmax':
             return F.softmax(x, dim=1)
 
     def load_model(self, model_path):
@@ -282,12 +319,12 @@ class MDNet(nn.Module):
             pretrain_parm['layers_v'] = OrderedDict()
             pretrain_parm['layers_i'] = OrderedDict()
             pretrain_parm['fc'] = OrderedDict()
-            for k,v in shared_layers.items():
+            for k, v in shared_layers.items():
                 if 'conv' in k:
                     pretrain_parm['layers_v'][k] = v
                     pretrain_parm['layers_i'][k] = v
                 elif k == 'fc4.0.weight':
-                    pretrain_parm['fc'][k] = torch.cat((v,v),1)
+                    pretrain_parm['fc'][k] = torch.cat((v, v), 1)
                 else:
                     pretrain_parm['fc'][k] = v
             self.layers_v.load_state_dict(pretrain_parm['layers_v'])

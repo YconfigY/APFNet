@@ -4,9 +4,9 @@ from PIL import Image
 import torch
 import torch.utils.data as data
 import sys
-sys.path.insert(0,'/home/zhuli/xuewanlin/cat/MDNet_CAT_SK_Trans/modules/')
-from sample_generator import SampleGenerator
-from utils import crop_image2
+
+from modules.sample_generator import SampleGenerator
+from modules.utils import crop_image2
 
 
 class RegionDataset(data.Dataset):
@@ -34,9 +34,9 @@ class RegionDataset(data.Dataset):
 
         image_v = Image.open(self.img_list_v[0]).convert('RGB')
         self.pos_generator = SampleGenerator('uniform', image_v.size,
-                opts['trans_pos'], opts['scale_pos'])
+                                             opts['trans_pos'], opts['scale_pos'])
         self.neg_generator = SampleGenerator('uniform', image_v.size,
-                opts['trans_neg'], opts['scale_neg'])
+                                             opts['trans_neg'], opts['scale_neg'])
 
     def __iter__(self):
         return self
@@ -54,7 +54,8 @@ class RegionDataset(data.Dataset):
         neg_regions_v = np.empty((0, 3, self.crop_size, self.crop_size), dtype='float32')
         pos_regions_i = np.empty((0, 3, self.crop_size, self.crop_size), dtype='float32')
         neg_regions_i = np.empty((0, 3, self.crop_size, self.crop_size), dtype='float32')
-        for i, (img_path_v, img_path_i, bbox) in enumerate(zip(self.img_list_v[idx], self.img_list_i[idx], self.gt[idx])):
+        for i, (img_path_v, img_path_i, bbox) in enumerate(
+                zip(self.img_list_v[idx], self.img_list_i[idx], self.gt[idx])):
             image_v = Image.open(img_path_v).convert('RGB')
             image_v = np.asarray(image_v)
             image_i = Image.open(img_path_i).convert('RGB')
@@ -67,7 +68,7 @@ class RegionDataset(data.Dataset):
 
             pos_regions_v = np.concatenate((pos_regions_v, self.extract_regions(image_v, pos_examples)), axis=0)
             neg_regions_v = np.concatenate((neg_regions_v, self.extract_regions(image_v, neg_examples)), axis=0)
-            
+
             pos_regions_i = np.concatenate((pos_regions_i, self.extract_regions(image_i, pos_examples)), axis=0)
             neg_regions_i = np.concatenate((neg_regions_i, self.extract_regions(image_i, neg_examples)), axis=0)
 
@@ -83,7 +84,7 @@ class RegionDataset(data.Dataset):
         regions = np.zeros((len(samples), self.crop_size, self.crop_size, 3), dtype='uint8')
         for i, sample in enumerate(samples):
             regions[i] = crop_image2(image, sample, self.crop_size, self.padding,
-                    self.flip, self.rotate, self.blur)
+                                     self.flip, self.rotate, self.blur)
         regions = regions.transpose(0, 3, 1, 2)
         regions = regions.astype('float32') - 128.
         return regions
