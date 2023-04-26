@@ -78,7 +78,8 @@ class MDNet(nn.Module):
             
             ('conv3', nn.Sequential(
                 nn.Conv2d(256, 512, kernel_size=3, stride=1), 
-                nn.ReLU()))]))
+                nn.ReLU()))
+            ]))
         
         self.layers_i = nn.Sequential(OrderedDict([
             ('conv1',nn.Sequential(
@@ -95,7 +96,8 @@ class MDNet(nn.Module):
             
             ('conv3', nn.Sequential(
                 nn.Conv2d(256, 512, kernel_size=3, stride=1), 
-                nn.ReLU()))]))
+                nn.ReLU()))
+            ]))
         
         self.fc = nn.Sequential(OrderedDict([
             ('fc4', nn.Sequential(
@@ -152,6 +154,7 @@ class MDNet(nn.Module):
                 nn.ReLU(inplace=True))),
             ('parallel3_skconv_fc2', nn.Sequential(
                 nn.Conv2d(64, 512 * 2, 1, 1, bias=False)))]))
+        
         self.paralle_layers = [self.parallel1, self.parallel2, self.parallel3,
                                self.paralle1_skconv, self.paralle2_skconv, self.paralle3_skconv]
 
@@ -232,10 +235,10 @@ class MDNet(nn.Module):
             params[k] = p
         return params
 
-    def forward(self, x1, x2, k=0, in_layer='conv1', out_layer='fc6'):
+    def forward(self, img_v, img_i, k=0, in_layer='conv1', out_layer='fc6'):
         # forward model from in_layer to out_layer
         run = False
-        x = x1
+        img = img_v
         for (name_v, module_v), (name_i, module_i) in zip(self.layers_v.named_children(),
                                                           self.layers_i.named_children()):
             output = []
@@ -244,25 +247,26 @@ class MDNet(nn.Module):
             if run:
                 if name_v in ['conv1', 'conv2', 'conv3']:
                     if name_v == 'conv1':
-                        # x
-                        x1_paralle, x2_paralle = self.parallel1(x1), self.parallel1(x2)
-                        batch_size = x1.size(0)
-                        output.append(x1_paralle, x2_paralle)
+                        img_v_parallel, img_i_parallel = self.parallel1(img_v), self.parallel1(img_i)
+                        batch_size = img_v.size(0)
+                        output.append(img_v_parallel)
+                        output.append(img_i_parallel)
+                        # Operation of element-wise addition for output
                         U = reduce(lambda x, y: x + y, output)
                         a_b = self.paralle1_skconv(U)
-                        a_b = a_b.reshape(batch_size, 2, 96, -1)
+                        a_b = a_b.reshape(batch_size, 2, 96, -1)  # [N,192,1,1]->[N,2,96,1]
                         a_b = nn.Softmax(dim=1)(a_b)
-
+                        # Splits a_b into 2 chunks, [N,2,96,1]->[[N,1,96,1], [N,1,96,1]]
                         a_b = list(a_b.chunk(2, dim=1))
-                        a_b = list(map(lambda x: x.reshape(batch_size, 96, 1, 1), a_b))
-                        V = list(map(lambda x, y: x * y, output, a_b))
-                        V = reduce(lambda x, y: x + y, V)
+                        a_b = list(map(lambda x: x.reshape(batch_size, 96, 1, 1), a_b))  # [N,1,96,1]->[N,96,1,1]
+                        # Operation of element-wise multiplication between output and a_b
+                        V = list(map(lambda x, y: x * y, output, a_b))  
+                        V = reduce(lambda x, y: x + y, V)  # operation of element-wise addition for V
                     elif name_v == 'conv2':
-                        x1_paralle = self.parallel2(x1)
-                        x2_paralle = self.parallel2(x2)
-                        batch_size = x1.size(0)
-                        output.append(x1_paralle)
-                        output.append(x2_paralle)
+                        img_v_paralle, img_i_paralle = self.parallel2(img_v), self.parallel2(img_i)
+                        batch_size = img_v.size(0)
+                        output.append(img_v_paralle)
+                        output.append(img_i_paralle)
                         U = reduce(lambda x, y: x + y, output)
                         a_b = self.paralle2_skconv(U)
                         a_b = a_b.reshape(batch_size, 2, 256, -1)
@@ -273,11 +277,10 @@ class MDNet(nn.Module):
                         V = list(map(lambda x, y: x * y, output, a_b))
                         V = reduce(lambda x, y: x + y, V)
                     else:
-                        x1_paralle = self.parallel3(x1)
-                        x2_paralle = self.parallel3(x2)
-                        batch_size = x1.size(0)
-                        output.append(x1_paralle)
-                        output.append(x2_paralle)
+                        img_v_paralle, img_i_paralle = self.parallel3(img_v), self.parallel3(img_i)
+                        batch_size = img_v.size(0)
+                        output.append(img_v_paralle)
+                        output.append(img_i_paralle)
                         U = reduce(lambda x, y: x + y, output)
                         a_b = self.paralle3_skconv(U)
                         a_b = a_b.reshape(batch_size, 2, 512, -1)
@@ -287,12 +290,12 @@ class MDNet(nn.Module):
                         a_b = list(map(lambda x: x.reshape(batch_size, 512, 1, 1), a_b))
                         V = list(map(lambda x, y: x * y, output, a_b))
                         V = reduce(lambda x, y: x + y, V)
-                x1 = module_v(x1)
-                x1 = x1 + V
-                x2 = module_i(x2)
-                x2 = x2 + V
+                img_v = module_v(img_v)
+                img_v = img_v + V
+                img_i = module_i(img_i)
+                img_i = img_i + V
                 if name_v == 'conv3':
-                    x = torch.cat((x1, x2), 1)
+                    x = torch.cat((img_v, img_i), 1)
                     x = x.contiguous().view(x.size(0), -1)
                 if name_v == out_layer:
                     return x

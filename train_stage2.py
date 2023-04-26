@@ -88,6 +88,7 @@ def train_mdnet(opts):
     evaluator = Precision()
     optimizer = set_optimizer(model, opts['lr'], opts['lr_mult'])
     best_score = 0.
+    
     # Main trainig loop
     for i in range(opts['n_cycles']):
         print('==== Start Cycle {:d}/{:d} ===='.format(i + 1, opts['n_cycles']))
