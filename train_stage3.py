@@ -11,15 +11,17 @@ import logging
 
 #sys.path.insert(0,'.')
 #from data_prov import RegionDataset
-sys.path.insert(0,'./modules')
 #from model import MDNet, set_optimizer, BCELoss, Precision
-from model_stage3 import MDNet, set_optimizer, BCELoss, Precision
-sys.path.insert(0,'./pretrain')
-#Rememeber to change the pretrain_option for stage3
-from pretrain_option import *
-from data_prov import RegionDataset
+from modules.model_stage3 import MDNet, set_optimizer, BCELoss, Precision
 
-os.environ["CUDA_VISIBLE_DEVICES"] = '0'
+#Rememeber to change the pretrain_option for stage3
+from pretrain.pretrain_option import *
+from pretrain.data_prov import RegionDataset
+
+
+set_type_list = ['ALL', 'FM', 'SC', 'OCC', 'ILL', 'TC']
+os.environ["CUDA_VISIBLE_DEVICES"] = '1'
+
 
 def get_logger(filename, verbosity=1, name=None):
     level_dict = {0: logging.DEBUG, 1: logging.INFO, 2: logging.WARNING}
@@ -40,61 +42,43 @@ def get_logger(filename, verbosity=1, name=None):
     return logger
 
 
+def init_datasets(opts):
+    """Init dataset
+
+    Args:
+        opts (list): operations
+
+    Returns:
+        dataset (list): dataset for trainning and testing
+        num_data (int): the number of the length of dataset
+    """
+    # set image directory
+    dataset_path = ""
+    dataset_names = ['RGBT234', 'GTOT']
+    for dataset_name in dataset_names:
+
+        if opts['set_type'].split('_')[0] in dataset_name and \
+        opts['set_type'].split('_')[1] in set_type_list:
+            img_home = os.path.join(dataset_path, dataset_name)
+            data_list = './pretrain/data/' + opts['set_type'] +'.pkl'
+    # open images list and generate dataset depend on list
+    with open(data_list, 'rb') as fp:
+        data = pickle.load(fp)
+    len_data = len(data)
+    dataset = [None] * len_data
+    for k, seq in enumerate(data.values()):
+        dataset[k] = RegionDataset(seq['images_v'], seq['images_i'], seq['gt'], opts)
+    
+    return dataset, len_data
+
 
 def train_mdnet(opts):
 
     # Init dataset
-    ## set image directory
-    if opts['set_type'] == 'RGBT234_ALL':
-        img_home = '/DATA/liulei/RGBT234/'  
-        data_path = './pretrain/data/RGBT234_ALL.pkl'
-    #********************************************
-    elif opts['set_type'] == 'GTOT_ALL':
-        img_home = '/DATA/zhuli/GTOT_withannotation/GTOT/'
-        data_path = './pretrain/data/GTOT_ALL.pkl'
-    #*********************************************
-    elif opts['set_type'] == 'RGBT234_FM':
-        img_home = '/DATA/liulei/RGBT234/'
-        data_path = './pretrain/data/RGBT234_FM.pkl'
-    elif opts['set_type'] == 'RGBT234_SC':
-        img_home = '/DATA/liulei/RGBT234/'
-        data_path = './pretrain/data/RGBT234_SC.pkl'
-    elif opts['set_type'] == 'RGBT234_OCC':
-        img_home = '/DATA/liulei/RGBT234/'        
-        data_path = './pretrain/data/RGBT234_OCC.pkl'
-    elif opts['set_type'] == 'RGBT234_ILL':
-        img_home = '/DATA/liulei/RGBT234/'
-        data_path = './pretrain/data/RGBT234_ILL.pkl'
-    elif opts['set_type'] == 'RGBT234_TC':
-        img_home = '/DATA/liulei/RGBT234/'   
-        data_path = './pretrain/data/RGBT234_TC.pkl'
-    #************************************************
-    elif opts['set_type'] == 'GTOT_FM':
-        img_home = '/DATA/zhuli/GTOT_withannotation/GTOT/'
-        data_path = './pretrain/data/GTOT_FM.pkl'
-    elif opts['set_type'] == 'GTOT_SC':
-        img_home = '/DATA/zhuli/GTOT_withannotation/GTOT/'
-        data_path = './pretrain/data/GTOT_SC.pkl'
-    elif opts['set_type'] == 'GTOT_OCC':
-        img_home = '/DATA/zhuli/GTOT_withannotation/GTOT/'
-        data_path = './pretrain/data/GTOT_OCC.pkl'
-    elif opts['set_type'] == 'GTOT_ILL':
-        img_home = '/DATA/zhuli/GTOT_withannotation/GTOT/'
-        data_path = './pretrain/data/GTOT_ILL.pkl'
-    elif opts['set_type'] == 'GTOT_TC':
-        img_home = '/DATA/zhuli/GTOT_withannotation/GTOT/'
-        data_path = './pretrain/data/GTOT_TC.pkl'
-    #*****************************************************
-
-    with open(data_path, 'rb') as fp:
-        data = pickle.load(fp)
-    K = len(data)
-    dataset = [None] * K
-    for k, seq in enumerate(data.values()):
-        dataset[k] = RegionDataset(seq['images_v'], seq['images_i'], seq['gt'], opts)
+    dataset, len_data = init_datasets(opts)
 
     # Init model
-    model = MDNet(opts['init_model_path'], K)
+    model = MDNet(opts['init_model_path'], len_data)
     if opts['use_gpu']:
         model = model.cuda()
     model.set_learnable_params(opts['ft_layers'])
@@ -116,8 +100,8 @@ def train_mdnet(opts):
 
         # Training
         model.train()
-        prec = np.zeros(K)
-        k_list = np.random.permutation(K)
+        prec = np.zeros(len_data)
+        k_list = np.random.permutation(len_data)
         for j, k in enumerate(k_list):
             tic = time.time()
             # training
