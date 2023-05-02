@@ -1,5 +1,4 @@
 import numpy as np
-from PIL import Image
 
 from modules.utils.utils import overlap_ratio
 
