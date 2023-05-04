@@ -24,39 +24,19 @@ class MDNet(nn.Module):
         super(MDNet, self).__init__()
         self.K = K
         # backbone
-        self.layers_v = nn.Sequential(OrderedDict([
+        self.layers_v, self.layers_i = [nn.Sequential(OrderedDict([
             ('conv1', nn.Sequential(
                 nn.Conv2d(3, 96, kernel_size=7, stride=2), 
                 nn.ReLU(inplace=True), 
                 nn.LocalResponseNorm(2),
                 nn.MaxPool2d(kernel_size=3, stride=2))),
-            
             ('conv2', nn.Sequential(
-                nn.Conv2d(96, 256, kernel_size=5, stride=2), 
-                nn.ReLU(inplace=True), 
-                nn.LocalResponseNorm(2),
+                nn.Conv2d(96, 256, kernel_size=5, stride=2),
+                nn.ReLU(inplace=True), nn.LocalResponseNorm(2),
                 nn.MaxPool2d(kernel_size=3, stride=2))),
-            
             ('conv3', nn.Sequential(
                 nn.Conv2d(256, 512, kernel_size=3, stride=1), 
-                nn.ReLU()))]))
-        
-        self.layers_i = nn.Sequential(OrderedDict([
-            ('conv1',nn.Sequential(
-                nn.Conv2d(3, 96, kernel_size=7, stride=2), 
-                nn.ReLU(inplace=True), 
-                nn.LocalResponseNorm(2),
-                nn.MaxPool2d(kernel_size=3, stride=2))),
-            
-            ('conv2', nn.Sequential(
-                 nn.Conv2d(96, 256, kernel_size=5, stride=2), 
-                 nn.ReLU(inplace=True), 
-                 nn.LocalResponseNorm(2),
-                 nn.MaxPool2d(kernel_size=3, stride=2))),
-            
-            ('conv3', nn.Sequential(
-                nn.Conv2d(256, 512, kernel_size=3, stride=1), 
-                nn.ReLU()))]))
+                nn.ReLU()))])) for _ in range(2)]
         
         self.fc = nn.Sequential(OrderedDict([
             ('fc4', nn.Sequential(
@@ -71,74 +51,40 @@ class MDNet(nn.Module):
         # the first branch to fuse
         self.parallel1 = nn.ModuleList([nn.Sequential(OrderedDict([  # 0:FM 1:OCC 2:SC 3:TC 4:ILL
             ('parallel1_conv1', nn.Sequential(
-                nn.Conv2d(3, 32, kernel_size=5, stride=2), 
-                nn.ReLU())),
+                nn.Conv2d(3, 32, kernel_size=5, stride=2), nn.ReLU())),
             ('parallel1_conv2', nn.Sequential(
-                nn.Conv2d(32, 96, kernel_size=4, stride=2)))])) 
-                                        for _ in range(5)])
-
-        self.parallel1_skconv = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel1_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('parallel1_skconv_fc1', nn.Sequential(
-                nn.Conv2d(96, 32, 1, bias=False),
-                nn.ReLU(inplace=True))),
-            ('parallel1_skconv_fc2', nn.Sequential(
-                nn.Conv2d(32, 96 * 2, 1, 1, bias=False)))])) 
-                                               for _ in range(5)])
+                nn.Conv2d(32, 96, kernel_size=4, stride=2)))])) for _ in range(5)])
 
         self.parallel2 = nn.ModuleList([nn.Sequential(OrderedDict([
             ('parallel2_conv1', nn.Sequential(
                 nn.Conv2d(96, 256, kernel_size=3, stride=2), 
-                nn.MaxPool2d(kernel_size=8, stride=1)))])) 
-                                        for _ in range(5)])
-
-        self.parallel2_skconv = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel2_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('parallel2_skconv_fc1', nn.Sequential(
-                nn.Conv2d(256, 32, 1, bias=False),
-                nn.ReLU(inplace=True))),
-            ('parallel2_skconv_fc2', nn.Sequential(
-                nn.Conv2d(32, 256 * 2, 1, 1, bias=False)))])) 
-                                               for _ in range(5)])
+                nn.MaxPool2d(kernel_size=8, stride=1)))])) for _ in range(5)])
+        
         self.parallel3 = nn.ModuleList([nn.Sequential(OrderedDict([
             ('parallel3_conv1', nn.Sequential(
                 nn.Conv2d(256, 512, kernel_size=1, stride=1), 
-                nn.MaxPool2d(kernel_size=3, stride=1)))])) 
-                                        for _ in range(5)])
-
-        self.parallel3_skconv = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel3_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('parallel3_skconv_fc1', nn.Sequential(
-                nn.Conv2d(512, 64, 1, bias=False),
+                nn.MaxPool2d(kernel_size=3, stride=1)))])) for _ in range(5)])
+        
+        self.parallel1_skconv, self.parallel2_skconv, self.parallel3_skconv = \
+            [nn.ModuleList([nn.Sequential(OrderedDict([
+            (f'parallel{_layer_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+            (f'parallel{_layer_indx+1}_skconv_fc1', nn.Sequential(
+                nn.Conv2d(_channel_b, _channel_a, 1, bias=False),
                 nn.ReLU(inplace=True))),
-            ('parallel3_skconv_fc2', nn.Sequential(
-                nn.Conv2d(64, 512 * 2, 1, 1, bias=False)))])) 
-                                               for _ in range(5)])
-
+            (f'parallel{_layer_indx+1}_skconv_fc2', nn.Sequential(
+                nn.Conv2d(_channel_a, _channel_b * 2, 1, 1, bias=False)))])) for _ in range(5)])
+             for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[32,256],[64,512]])]
+        
         # filter the five challenge information
-        self.ensemble1_skconv = nn.Sequential(OrderedDict([
-            ('ensemble1_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('ensemble1_skconv_fc1', nn.Sequential(
-                nn.Conv2d(96, 32 * 5, 1, bias=False),
-                nn.ReLU(inplace=True))),
-            ('ensemble1_skconv_fc2', nn.Sequential(
-                nn.Conv2d(32 * 5, 96 * 5, 1, 1, bias=False)))]))
-
-        self.ensemble2_skconv = nn.Sequential(OrderedDict([
-            ('ensemble2_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('ensemble2_skconv_fc1', nn.Sequential(
-                nn.Conv2d(256, 64 * 5, 1, bias=False),
-                nn.ReLU(inplace=True))),
-            ('ensemble2_skconv_fc2', nn.Sequential(
-                nn.Conv2d(64 * 5, 256 * 5, 1, 1, bias=False)))]))
-
-        self.ensemble3_skconv = nn.Sequential(OrderedDict([
-            ('ensemble3_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('ensemble3_skconv_fc1', nn.Sequential(
-                nn.Conv2d(512, 128 * 5, 1, bias=False),
-                nn.ReLU(inplace=True))),
-            ('ensemble3_skconv_fc2', nn.Sequential(
-                nn.Conv2d(128 * 5, 512 * 5, 1, 1, bias=False)))]))
+        self.ensemble1_skconv, self.ensemble2_skconv, self.ensemble3_skconv = [
+            nn.Sequential(OrderedDict([
+                (f'ensemble{_layer_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+                (f'ensemble{_layer_indx+1}_skconv_fc1', nn.Sequential(
+                    nn.Conv2d(_channel_b, _channel_a * 5, 1, bias=False), 
+                    nn.ReLU(inplace=True))),
+                (f'ensemble{_layer_indx+1}_skconv_fc2', nn.Sequential(
+                    nn.Conv2d(_channel_a * 5, _channel_b * 5, 1, 1, bias=False)))]))
+            for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[64,256],[128,512]])]
 
         # fc6
         self.branches = nn.ModuleList([nn.Sequential(
@@ -186,8 +132,8 @@ class MDNet(nn.Module):
         for k, module in enumerate(self.branches):
             append_params(self.params, module, 'fc6_%d' % (k))
         # add new architecher
-        for i, paralle_block in enumerate(self.paralle_blockes):
-            for name, module in paralle_block.named_children():
+        for i, block in enumerate(self.blockes):
+            for name, module in block.named_children():
                 if i > 2 and 'pool' in name:
                     continue
                 append_params(self.params, module, name)
@@ -227,6 +173,9 @@ class MDNet(nn.Module):
         parallel_skconv_dict = {'conv1': self.parallel1_skconv,
                                 'conv2': self.parallel2_skconv,
                                 'conv3': self.parallel3_skconv}
+        ensemble_skconv_dict = {'conv1': self.ensemble1_skconv,
+                                'conv2': self.ensemble2_skconv,
+                                'conv3': self.ensemble3_skconv}
         channel_dict = {'conv1': 96, 'conv2': 256, 'conv3': 512}
         for (name_v, module_v), (name_i, module_i) in zip(
             self.layers_v.named_children(),self.layers_i.named_children()):
@@ -259,7 +208,7 @@ class MDNet(nn.Module):
                     # input to ensemble for x1: ALL1
                     batch_size = img_v.size(0)
                     U = reduce(lambda x, y: x + y, V_out)
-                    a_b = self.ensemble1_skconv(U)
+                    a_b = ensemble_skconv_dict[name_v](U)
                     a_b = a_b.reshape(batch_size, 5, channel_dict[name_v], -1)
                     a_b = nn.Softmax(dim=1)(a_b)
                     a_b = list(a_b.chunk(5, dim=1))

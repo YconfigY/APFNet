@@ -1,5 +1,7 @@
 # encoding=utf-8
 import os
+from uu import encode
+from matplotlib.transforms import Transform
 import scipy.io
 import numpy as np
 from collections import OrderedDict
@@ -9,6 +11,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from functools import reduce
 import math
+from models.model_stage2 import challenge_list
 
 
 '''
@@ -37,330 +40,114 @@ class MDNet(nn.Module):
         super(MDNet, self).__init__()
         self.K = K
         # backbone
-        self.layers_v = nn.Sequential(OrderedDict([
-            ('conv1',
-             nn.Sequential(nn.Conv2d(3, 96, kernel_size=7, stride=2), nn.ReLU(inplace=True), nn.LocalResponseNorm(2),
-                           nn.MaxPool2d(kernel_size=3, stride=2))),
-            ('conv2',
-             nn.Sequential(nn.Conv2d(96, 256, kernel_size=5, stride=2), nn.ReLU(inplace=True), nn.LocalResponseNorm(2),
-                           nn.MaxPool2d(kernel_size=3, stride=2))),
-            ('conv3', nn.Sequential(nn.Conv2d(256, 512, kernel_size=3, stride=1), nn.ReLU()))]))
-        self.layers_i = nn.Sequential(OrderedDict([
-            ('conv1',
-             nn.Sequential(nn.Conv2d(3, 96, kernel_size=7, stride=2), nn.ReLU(inplace=True), nn.LocalResponseNorm(2),
-                           nn.MaxPool2d(kernel_size=3, stride=2))),
-            ('conv2',
-             nn.Sequential(nn.Conv2d(96, 256, kernel_size=5, stride=2), nn.ReLU(inplace=True), nn.LocalResponseNorm(2),
-                           nn.MaxPool2d(kernel_size=3, stride=2))),
-            ('conv3', nn.Sequential(nn.Conv2d(256, 512, kernel_size=3, stride=1), nn.ReLU()))]))
+        self.layers_v, self.layers_i = [nn.Sequential(OrderedDict([
+            ('conv1', nn.Sequential(
+                nn.Conv2d(3, 96, kernel_size=7, stride=2), 
+                nn.ReLU(inplace=True), 
+                nn.LocalResponseNorm(2),
+                nn.MaxPool2d(kernel_size=3, stride=2))),
+            ('conv2', nn.Sequential(
+                nn.Conv2d(96, 256, kernel_size=5, stride=2),
+                nn.ReLU(inplace=True), nn.LocalResponseNorm(2),
+                nn.MaxPool2d(kernel_size=3, stride=2))),
+            ('conv3', nn.Sequential(
+                nn.Conv2d(256, 512, kernel_size=3, stride=1), 
+                nn.ReLU()))])) for _ in range(2)]
+        
         self.fc = nn.Sequential(OrderedDict([
-            ('fc4', nn.Sequential(nn.Linear(512 * 3 * 3 * 2, 512), nn.ReLU(inplace=True))),
-            ('fc5', nn.Sequential(nn.Dropout(0.5), nn.Linear(512, 512), nn.ReLU(inplace=True)))]))
-
+            ('fc4', nn.Sequential( nn.Linear(512 * 3 * 3 * 2, 512),  nn.ReLU(inplace=True))),
+            ('fc5', nn.Sequential(nn.Dropout(0.5), nn.Linear(512, 512),  nn.ReLU(inplace=True)))]))
+        
+        # the first branch to fuse
         self.parallel1 = nn.ModuleList([nn.Sequential(OrderedDict([  # 0:FM 1:OCC 2:SC 3:TC 4:ILL
-            ('parallel1_conv1', nn.Sequential(nn.Conv2d(3, 32, kernel_size=5, stride=2), nn.ReLU())),
-            ('parallel1_conv2', nn.Sequential(nn.Conv2d(32, 96, kernel_size=4, stride=2)))])) for _ in range(5)])
-
-        self.parallel1_skconv = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel1_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('parallel1_skconv_fc1', nn.Sequential(nn.Conv2d(96, 32, 1, bias=False),
-                                                   nn.ReLU(inplace=True))),
-            ('parallel1_skconv_fc2', nn.Sequential(nn.Conv2d(32, 96 * 2, 1, 1, bias=False)))])) for _ in range(5)])
+            ('parallel1_conv1', nn.Sequential(
+                nn.Conv2d(3, 32, kernel_size=5, stride=2), nn.ReLU())),
+            ('parallel1_conv2', nn.Sequential(
+                nn.Conv2d(32, 96, kernel_size=4, stride=2)))])) for _ in range(5)])
 
         self.parallel2 = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel2_conv1',
-             nn.Sequential(nn.Conv2d(96, 256, kernel_size=3, stride=2), nn.MaxPool2d(kernel_size=8, stride=1)))])) for _
-            in range(5)])
-
-        self.parallel2_skconv = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel2_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('parallel2_skconv_fc1', nn.Sequential(nn.Conv2d(256, 32, 1, bias=False),
-                                                   nn.ReLU(inplace=True))),
-            ('parallel2_skconv_fc2', nn.Sequential(nn.Conv2d(32, 256 * 2, 1, 1, bias=False)))])) for _ in range(5)])
+            ('parallel2_conv1', nn.Sequential(
+                nn.Conv2d(96, 256, kernel_size=3, stride=2), 
+                nn.MaxPool2d(kernel_size=8, stride=1)))])) for _ in range(5)])
+        
         self.parallel3 = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel3_conv1',
-             nn.Sequential(nn.Conv2d(256, 512, kernel_size=1, stride=1), nn.MaxPool2d(kernel_size=3, stride=1)))])) for
-            _ in range(5)])
+            ('parallel3_conv1', nn.Sequential(
+                nn.Conv2d(256, 512, kernel_size=1, stride=1), 
+                nn.MaxPool2d(kernel_size=3, stride=1)))])) for _ in range(5)])
+        
+        self.parallel1_skconv, self.parallel2_skconv, self.parallel3_skconv = \
+            [nn.ModuleList([nn.Sequential(OrderedDict([
+            (f'parallel{_layer_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+            (f'parallel{_layer_indx+1}_skconv_fc1', nn.Sequential(
+                nn.Conv2d(_channel_b, _channel_a, 1, bias=False),
+                nn.ReLU(inplace=True))),
+            (f'parallel{_layer_indx+1}_skconv_fc2', nn.Sequential(
+                nn.Conv2d(_channel_a, _channel_b * 2, 1, 1, bias=False)))])) for _ in range(5)])
+             for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[32,256],[64,512]])]
+        
+        # filter the five challenge information
+        self.ensemble1_skconv, self.ensemble2_skconv, self.ensemble3_skconv = [
+            nn.Sequential(OrderedDict([
+                (f'ensemble{_layer_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+                (f'ensemble{_layer_indx+1}_skconv_fc1', nn.Sequential(
+                    nn.Conv2d(_channel_b, _channel_a * 5, 1, bias=False), 
+                    nn.ReLU(inplace=True))),
+                (f'ensemble{_layer_indx+1}_skconv_fc2', nn.Sequential(
+                    nn.Conv2d(_channel_a * 5, _channel_b * 5, 1, 1, bias=False)))]))
+            for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[64,256],[128,512]])]
 
-        self.parallel3_skconv = nn.ModuleList([nn.Sequential(OrderedDict([
-            ('parallel3_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('parallel3_skconv_fc1', nn.Sequential(nn.Conv2d(512, 64, 1, bias=False),
-                                                   nn.ReLU(inplace=True))),
-            ('parallel3_skconv_fc2', nn.Sequential(nn.Conv2d(64, 512 * 2, 1, 1, bias=False)))])) for _ in range(5)])
-
-        self.ensemble1_skconv = nn.Sequential(OrderedDict([
-            ('ensemble1_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('ensemble1_skconv_fc1', nn.Sequential(nn.Conv2d(96, 32 * 5, 1, bias=False),
-                                                   nn.ReLU(inplace=True))),
-            ('ensemble1_skconv_fc2', nn.Sequential(nn.Conv2d(32 * 5, 96 * 5, 1, 1, bias=False)))]))
-
-        self.ensemble2_skconv = nn.Sequential(OrderedDict([
-            ('ensemble2_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('ensemble2_skconv_fc1', nn.Sequential(nn.Conv2d(256, 64 * 5, 1, bias=False),
-                                                   nn.ReLU(inplace=True))),
-            ('ensemble2_skconv_fc2', nn.Sequential(nn.Conv2d(64 * 5, 256 * 5, 1, 1, bias=False)))]))
-
-        self.ensemble3_skconv = nn.Sequential(OrderedDict([
-            ('ensemble3_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            ('ensemble3_skconv_fc1', nn.Sequential(nn.Conv2d(512, 128 * 5, 1, bias=False),
-                                                   nn.ReLU(inplace=True))),
-            ('ensemble3_skconv_fc2', nn.Sequential(nn.Conv2d(128 * 5, 512 * 5, 1, 1, bias=False)))]))
-
-        # We add Encoders and Decoders here.
-        # a layer has there encoders and decoders.
-        #####################################
-        self.transformer1_encoder1 = nn.Sequential(OrderedDict([
-            ('transformer1_encoder1_WK', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_encoder1_WV', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_encoder1_fc_reduce', nn.Sequential(nn.Conv2d(96, 32, 1, 1, bias=False))),
-            ('transformer1_encoder1_fc_rise', nn.Sequential(nn.Conv2d(32, 96, 1)))
-        ]))
-        self.transformer1_encoder2 = nn.Sequential(OrderedDict([
-            ('transformer1_encoder2_WK', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_encoder2_WV', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_encoder2_fc_reduce', nn.Sequential(nn.Conv2d(96, 32, 1, 1, bias=False))),
-            ('transformer1_encoder2_fc_rise', nn.Sequential(nn.Conv2d(32, 96, 1)))
-        ]))
-        self.transformer1_encoder3 = nn.Sequential(OrderedDict([
-            ('transformer1_encoder3_WK', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_encoder3_WV', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_encoder3_fc_reduce', nn.Sequential(nn.Conv2d(96, 32, 1, 1, bias=False))),
-            ('transformer1_encoder3_fc_rise', nn.Sequential(nn.Conv2d(32, 96, 1)))
-        ]))
-        ###################################################
-        self.transformer1_decoder1 = nn.Sequential(OrderedDict([
-            ('transformer1_decoder1_WK', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_decoder1_WV', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_decoder1_fc_reduce', nn.Sequential(nn.Conv2d(96, 32, 1, 1, bias=False))),
-            ('transformer1_decoder1_fc_rise', nn.Sequential(nn.Conv2d(32, 96, 1)))
-        ]))
-        self.transformer1_decoder2 = nn.Sequential(OrderedDict([
-            ('transformer1_decoder2_WK', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_decoder2_WV', nn.Sequential(nn.Linear(32, 32))),
-            ('transformer1_decoder2_fc_reduce', nn.Sequential(nn.Conv2d(96, 32, 1, 1, bias=False))),
-            ('transformer1_decoder2_fc_rise', nn.Sequential(nn.Conv2d(32, 96, 1)))
-        ]))
-        ############################################################
-
-        ######################################
-        self.transformer2_encoder1 = nn.Sequential(OrderedDict([
-            ('transformer2_encoder1_WK', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_encoder1_WV', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_encoder1_fc_reduce', nn.Sequential(nn.Conv2d(256, 64, 1, 1, bias=False))),
-            ('transformer2_encoder1_fc_rise', nn.Sequential(nn.Conv2d(64, 256, 1)))
-        ]))
-        self.transformer2_encoder2 = nn.Sequential(OrderedDict([
-            ('transformer2_encoder2_WK', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_encoder2_WV', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_encoder2_fc_reduce', nn.Sequential(nn.Conv2d(256, 64, 1, 1, bias=False))),
-            ('transformer2_encoder2_fc_rise', nn.Sequential(nn.Conv2d(64, 256, 1)))
-        ]))
-        self.transformer2_encoder3 = nn.Sequential(OrderedDict([
-            ('transformer2_encoder3_WK', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_encoder3_WV', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_encoder3_fc_reduce', nn.Sequential(nn.Conv2d(256, 64, 1, 1, bias=False))),
-            ('transformer2_encoder3_fc_rise', nn.Sequential(nn.Conv2d(64, 256, 1)))
-        ]))
-
-        self.transformer2_decoder1 = nn.Sequential(OrderedDict([
-            ('transformer2_decoder1_WK', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_decoder1_WV', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_decoder1_fc_reduce', nn.Sequential(nn.Conv2d(256, 64, 1, 1, bias=False))),
-            ('transformer2_decoder1_fc_rise', nn.Sequential(nn.Conv2d(64, 256, 1)))
-        ]))
-        self.transformer2_decoder2 = nn.Sequential(OrderedDict([
-            ('transformer2_decoder2_WK', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_decoder2_WV', nn.Sequential(nn.Linear(64, 64))),
-            ('transformer2_decoder2_fc_reduce', nn.Sequential(nn.Conv2d(256, 64, 1, 1, bias=False))),
-            ('transformer2_decoder2_fc_rise', nn.Sequential(nn.Conv2d(64, 256, 1)))
-        ]))
-
-        ################################################
-        self.transformer3_encoder1 = nn.Sequential(OrderedDict([
-            ('transformer3_encoder1_WK', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_encoder1_WV', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_encoder1_fc_reduce', nn.Sequential(nn.Conv2d(512, 128, 1, 1, bias=False))),
-            ('transformer3_encoder1_fc_rise', nn.Sequential(nn.Conv2d(128, 512, 1)))
-        ]))
-        self.transformer3_encoder2 = nn.Sequential(OrderedDict([
-            ('transformer3_encoder2_WK', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_encoder2_WV', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_encoder2_fc_reduce', nn.Sequential(nn.Conv2d(512, 128, 1, 1, bias=False))),
-            ('transformer3_encoder2_fc_rise', nn.Sequential(nn.Conv2d(128, 512, 1)))
-        ]))
-        self.transformer3_encoder3 = nn.Sequential(OrderedDict([
-            ('transformer3_encoder3_WK', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_encoder3_WV', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_encoder3_fc_reduce', nn.Sequential(nn.Conv2d(512, 128, 1, 1, bias=False))),
-            ('transformer3_encoder3_fc_rise', nn.Sequential(nn.Conv2d(128, 512, 1)))
-        ]))
-
-        self.transformer3_decoder1 = nn.Sequential(OrderedDict([
-            ('transformer3_decoder1_WK', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_decoder1_WV', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_decoder1_fc_reduce', nn.Sequential(nn.Conv2d(512, 128, 1, 1, bias=False))),
-            ('transformer3_decoder1_fc_rise', nn.Sequential(nn.Conv2d(128, 512, 1)))
-        ]))
-        self.transformer3_decoder2 = nn.Sequential(OrderedDict([
-            ('transformer3_decoder2_WK', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_decoder2_WV', nn.Sequential(nn.Linear(128, 128))),
-            ('transformer3_decoder2_fc_reduce', nn.Sequential(nn.Conv2d(512, 128, 1, 1, bias=False))),
-            ('transformer3_decoder2_fc_rise', nn.Sequential(nn.Conv2d(128, 512, 1)))
-        ]))
+        # We add Encoders and Decoders here. And a layer has there encoders and two decoders.
+        self.transformer1_encoder1, self.transformer1_encoder2, self.transformer1_encoder3, \
+            self.transformer1_decoder1, self.transformer1_decoder2, \
+            self.transformer2_encoder1, self.transformer2_encoder2, self.transformer2_encoder3, \
+            self.transformer2_decoder1, self.transformer2_decoder2, \
+            self.transformer3_encoder1, self.transformer3_encoder2, self.transformer3_encoder3, \
+            self.transformer3_decoder1, self.transformer3_decoder2 = [
+                nn.Sequential(OrderedDict([
+                    (f'transformer{_layer_indx+1}_{_name}_WK',
+                     nn.Sequential(nn.Linear(_channel_a, _channel_a))),
+                    (f'transformer{_layer_indx+1}_{_name}_WV', 
+                     nn.Sequential(nn.Linear(_channel_a, _channel_a))),
+                    (f'transformer{_layer_indx+1}_{_name}_fc_reduce', 
+                     nn.Sequential(nn.Conv2d(_channel_b, _channel_a, 1, 1, bias=False))),
+                    (f'transformer{_layer_indx+1}_{_name}_fc_rise', 
+                     nn.Sequential(nn.Conv2d(_channel_a, _channel_b, 1)))]))
+                for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[64,256],[128,512]])
+                for _name in ['encoder1', 'encoder2', 'encoder3', 'decoder1', 'decoder2']]
 
         # multi branch
-        self.branches = nn.ModuleList([nn.Sequential(nn.Dropout(0.5), nn.Linear(512, 2)) for _ in range(K)])
+        self.branches = nn.ModuleList([nn.Sequential(nn.Dropout(0.5), nn.Linear(512, 2)) 
+                                       for _ in range(K)])
 
+        self.blockes = [self.parallel1, self.parallel2, self.parallel3,
+                        self.parallel1_skconv, self.parallel2_skconv, self.parallel3_skconv,
+                        self.ensemble1_skconv, self.ensemble2_skconv, self.ensemble3_skconv]
 
-        self.Transformer_Encoder = [[self.transformer1_encoder1, 
-                                     self.transformer1_encoder2, 
-                                     self.transformer1_encoder3],
-                                    [self.transformer2_encoder1, 
-                                     self.transformer2_encoder2, 
-                                     self.transformer2_encoder3],
-                                    [self.transformer3_encoder1, 
-                                     self.transformer3_encoder2, 
-                                     self.transformer3_encoder3]]
-
-        self.Transformer_Decoder = [[self.transformer1_decoder1, self.transformer1_decoder2],
-                                    [self.transformer2_decoder1, self.transformer2_decoder2]]
-
+        self.Transformer = [[self.transformer1_encoder1, self.transformer1_encoder2,
+                             self.transformer1_encoder3, 
+                             self.transformer1_decoder1, self.transformer1_decoder2],
+                            [self.transformer2_encoder1, self.transformer2_encoder2, 
+                             self.transformer2_encoder3, 
+                             self.transformer2_decoder1, self.transformer2_decoder2],
+                            [self.transformer3_encoder1, self.transformer3_encoder2, 
+                             self.transformer3_encoder3, 
+                             self.transformer3_decoder1, self.transformer3_decoder2]]
+        
+        # init branches weight and bias
         for m in self.branches.modules():
             if isinstance(m, nn.Linear):
                 nn.init.normal_(m.weight, 0, 0.01)
                 nn.init.constant_(m.bias, 0)
-
-        for m in self.transformer1_encoder1.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer1_encoder2.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer1_encoder3.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer1_decoder1.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer1_decoder2.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        # for m in self.transformer1_FFN.modules():
-        #     if isinstance(m, nn.Conv2d):
-        #         nn.init.normal_(m.weight, 0, 0.01)
-        #     if isinstance(m, nn.Linear):
-        #         m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-        #         if m.bias is not None:
-        #            m.bias.data.zero_()
-
-        # initialize the second layer
-        for m in self.transformer2_encoder1.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer2_encoder2.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer2_encoder3.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer2_decoder1.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer2_decoder2.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        # for m in self.transformer2_FFN.modules():
-        #     if isinstance(m, nn.Conv2d):
-        #         nn.init.normal_(m.weight, 0, 0.01)
-        #     if isinstance(m, nn.Linear):
-        #         m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-        #         if m.bias is not None:
-        #            m.bias.data.zero_()
-
-        # initialize the third layer
-        for m in self.transformer3_encoder1.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer3_encoder2.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer3_encoder3.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-
-        for m in self.transformer3_decoder1.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        for m in self.transformer3_decoder2.modules():
-            if isinstance(m, nn.Conv2d):
-                nn.init.normal_(m.weight, 0, 0.01)
-            if isinstance(m, nn.Linear):
-                m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-                if m.bias is not None:
-                    m.bias.data.zero_()
-        # for m in self.transformer3_FFN.modules():
-        #     if isinstance(m, nn.Conv2d):
-        #         nn.init.normal_(m.weight, 0, 0.01)
-        #     if isinstance(m, nn.Linear):
-        #         m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
-        #         if m.bias is not None:
-        #            m.bias.data.zero_()
+        # init transformer weight and bias
+        for _units in self.Transformer:
+            for _unit in _units:
+                for m in _unit.modules():
+                    if isinstance(m, nn.Conv2d):
+                        nn.init.normal_(m.weight, 0, 0.01)
+                    if isinstance(m, nn.Linear):
+                        m.weight.data.normal_(0, math.sqrt(2. / m.out_features))
+                        if m.bias is not None:
+                            m.bias.data.zero_()
 
         if model_path is not None:
             if os.path.splitext(model_path)[1] == '.pth':
@@ -370,6 +157,7 @@ class MDNet(nn.Module):
             else:
                 raise RuntimeError('Unkown model format: {:s}'.format(model_path))
         self.build_param_dict()
+
 
     def build_param_dict(self):
         self.params = OrderedDict()
@@ -381,92 +169,18 @@ class MDNet(nn.Module):
             append_params(self.params, module, name)
         for k, module in enumerate(self.branches):
             append_params(self.params, module, 'fc6_%d' % (k))
-
-        for k, module in enumerate(self.parallel1):
-            for name, model in module.named_children():
-                if 'pool' in name:
+        # add new architecher
+        for i, block in enumerate(self.blockes):
+            for name, module in block.named_children():
+                if i > 2 and 'pool' in name:
                     continue
-                append_params(self.params, model, name + '_%d' % (k))
-        for k, module in enumerate(self.parallel2):
-            for name, model in module.named_children():
-                if 'pool' in name:
-                    continue
-                append_params(self.params, model, name + '_%d' % (k))
-        for k, module in enumerate(self.parallel3):
-            for name, model in module.named_children():
-                if 'pool' in name:
-                    continue
-                append_params(self.params, model, name + '_%d' % (k))
-
-        for k, module in enumerate(self.parallel1_skconv):
-            for name, model in module.named_children():
-                if 'pool' in name:
-                    continue
-                append_params(self.params, model, name + '_%d' % (k))
-
-        for k, module in enumerate(self.parallel2_skconv):
-            for name, model in module.named_children():
-                if 'pool' in name:
-                    continue
-                append_params(self.params, model, name + '_%d' % (k))
-
-        for k, module in enumerate(self.parallel3_skconv):
-            for name, model in module.named_children():
-                if 'pool' in name:
-                    continue
-                append_params(self.params, model, name + '_%d' % (k))
-        #############################################################
-        # the last ALL modeles
-        for name, module in self.ensemble1_skconv.named_children():
-            if 'pool' in name:
-                continue
-            append_params(self.params, module, name)
-        for name, module in self.ensemble2_skconv.named_children():
-            if 'pool' in name:
-                continue
-            append_params(self.params, module, name)
-        for name, module in self.ensemble3_skconv.named_children():
-            if 'pool' in name:
-                continue
-            append_params(self.params, module, name)
-
+                append_params(self.params, module, name)
         # add Transformer
-        for name, module in self.transformer1_encoder1.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer1_encoder2.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer1_encoder3.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer1_decoder1.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer1_decoder2.named_children():
-            append_params(self.params, module, name)
-        # for name, module in self.transformer1_FFN.named_children():
-        #     append_params(self.params, module, name)
-        for name, module in self.transformer2_encoder1.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer2_encoder2.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer2_encoder3.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer2_decoder1.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer2_decoder2.named_children():
-            append_params(self.params, module, name)
-        # for name, module in self.transformer2_FFN.named_children():
-        #     append_params(self.params, module, name)
-        for name, module in self.transformer3_encoder1.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer3_encoder2.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer3_encoder3.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer3_decoder1.named_children():
-            append_params(self.params, module, name)
-        for name, module in self.transformer3_decoder2.named_children():
-            append_params(self.params, module, name)
-        # for name, module in self.transformer3_FFN.named_children():
-        #     append_params(self.params, module, name)
+        for _units in self.Transformer:
+            for _unit in _units:
+                for _name, _module in _unit.named_children():
+                    append_params(self.params, _module, _name)
+
 
     def set_learnable_params(self, layers):
         for k, p in self.params.items():
@@ -474,6 +188,7 @@ class MDNet(nn.Module):
                 p.requires_grad = True
             else:
                 p.requires_grad = False
+
 
     def get_learnable_params(self):
         params = OrderedDict()
@@ -483,6 +198,7 @@ class MDNet(nn.Module):
         print('get_learnable_params', params.keys())
         return params
 
+
     def get_all_params(self):
         params = OrderedDict()
         for k, p in self.params.items():
@@ -491,32 +207,32 @@ class MDNet(nn.Module):
 
 
     # self-atttention
-    def Self_Attention(self, layer_index, type_index, x):
+    def self_attention(self, layer_index, type_index, x):
         # layer_index = 0(layer1)、1(layer2)、2(layer3)
         # layer_index : vis:0  inf:1  agg:2
         dict = {'layer1':0, 'layer2':1, 'layer3':2,
                 'vis':0, 'inf':1, 'agg':2}
         layer_i, type_i = dict[layer_index], dict[type_index]
         
-        x_1 = self.Transformer_Encoder[layer_i][type_i][2](x)
+        x_1 = self.Transformer[layer_i][type_i][2](x)
         batch, dim, w, h = x_1.shape
         x_1 = x_1.permute(0, 2, 3, 1)
         x_k = x_1.reshape(batch, w * h, dim)
         x_v = x_1.reshape(batch, w * h, dim)
         x_q = x_1.reshape(batch, w * h, dim)
 
-        w_k = self.Transformer_Encoder[layer_i][type_i][0](x_k)
+        w_k = self.Transformer[layer_i][type_i][0](x_k)
         w_k = F.normalize(w_k, p=2, dim=-1)
         w_k = w_k.permute(0, 1, 2)
 
-        w_q = self.Transformer_Encoder[layer_i][type_i][0](x_q)
+        w_q = self.Transformer[layer_i][type_i][0](x_q)
         w_q = F.normalize(w_q, p=2, dim=-1)
         w_q = w_q.permute(0, 2, 1)
 
         dot_prod = torch.bmm(w_q, w_k)
         affinity = F.softmax(dot_prod * 30, dim=-1)
 
-        w_v = self.Transformer_Encoder[layer_i][type_i][1](x_v)
+        w_v = self.Transformer[layer_i][type_i][1](x_v)
         w_v = F.normalize(w_v, p=2, dim=-1)
         w_v = w_v.permute(0, 2, 1)
 
@@ -525,38 +241,38 @@ class MDNet(nn.Module):
         # output=self.transformer1_FFN[1](nn.Dropout(0.2)(F.relu(((self.transformer1_FFN[0](output))))))
         # output=output.permute(0,2,1)
         output = output.reshape(batch, dim, w, h)
-        output = self.Transformer_Encoder[layer_i][type_i][3](output)
+        output = self.Transformer[layer_i][type_i][3](output)
         x = x + output
         return x
 
 
     # Cross Attention
-    def Cross_Attention(self, layer_index, type_index, x, V):
+    def cross_attention(self, layer_index, type_index, x, V):
         dict = {'layer1':0, 'layer2':1, 'layer3':2,
-                'visagg':0, 'infagg':1}
+                'visagg':3, 'infagg':4}
         layer_i, type_i = dict[layer_index], dict[type_index]
         
-        x_1 = self.Transformer_Decoder[layer_i][type_i][2](x)
+        x_1 = self.Transformer[layer_i][type_i][2](x)
         batch, dim, w, h = x_1.shape
-        V_1 = self.Transformer_Decoder[layer_i][type_i][2](V)
+        V_1 = self.Transformer[layer_i][type_i][2](V)
         x_1 = x_1.permute(0, 2, 3, 1)
         V_1 = V_1.permute(0, 2, 3, 1)
         x_k = x_1.reshape(batch, w * h, dim)
         x_v = x_1.reshape(batch, w * h, dim)
         V_q = V_1.reshape(batch, w * h, dim)
 
-        w_k = self.Transformer_Decoder[layer_i][type_i][0](x_k)
+        w_k = self.Transformer[layer_i][type_i][0](x_k)
         w_k = F.normalize(w_k, p=2, dim=-1)
         w_k = w_k.permute(0, 1, 2)
 
-        w_q = self.Transformer_Decoder[layer_i][type_i][0](V_q)
+        w_q = self.Transformer[layer_i][type_i][0](V_q)
         w_q = F.normalize(w_q, p=2, dim=-1)
         w_q = w_q.permute(0, 2, 1)
 
         dot_prod = torch.bmm(w_q, w_k)
         affinity = F.softmax(dot_prod * 30, dim=-1)
 
-        w_v = self.Transformer_Decoder[layer_i][type_i][1](x_v)
+        w_v = self.Transformer[layer_i][type_i][1](x_v)
         w_v = F.normalize(w_v, p=2, dim=-1)
         w_v = w_v.permute(0, 2, 1)
 
@@ -565,7 +281,7 @@ class MDNet(nn.Module):
         # output=self.transformer1_FFN[1](nn.Dropout(0.2)(F.relu(((self.transformer1_FFN[0](output))))))
         # output=output.permute(0,2,1)
         output = output.reshape(batch, dim, w, h)
-        output = self.Transformer_Decoder[layer_i][type_i][3](output)
+        output = self.Transformer[layer_i][type_i][3](output)
         x = x + output
         return x
     
@@ -578,6 +294,9 @@ class MDNet(nn.Module):
         parallel_skconv_dict = {'conv1': self.parallel1_skconv,
                                 'conv2': self.parallel2_skconv,
                                 'conv3': self.parallel3_skconv}
+        ensemble_skconv_dict = {'conv1': self.ensemble1_skconv,
+                                'conv2': self.ensemble2_skconv,
+                                'conv3': self.ensemble3_skconv}
         layer_dict = {'conv1': 'layer1', 'conv2': 'layer2', 'conv3': 'layer3'}
         channel_dict = {'conv1': 96, 'conv2': 256, 'conv3': 512}
         for (name_v, module_v), (name_i, module_i) in zip(
@@ -587,7 +306,7 @@ class MDNet(nn.Module):
             if run:
                 if name_v in ['conv1', 'conv2', 'conv3']:
                     V_out =[]
-                    for i in range(5):  # 0:FM 1:OCC 2:SC 3:TC 4:ILL
+                    for i in range(len(challenge_list)):  # 0:FM 1:OCC 2:SC 3:TC 4:ILL
                         output = []
                         img_v_parallel = parallel_dict[name_v][i](img_v)  #107*107->25*25->5*5->3*3
                         img_i_parallel = parallel_dict[name_v][i](img_i)
@@ -612,22 +331,23 @@ class MDNet(nn.Module):
                     # input to ensemble for x1: ALL1
                     batch_size = img_v.size(0)
                     U = reduce(lambda x, y: x + y, V_out)
-                    a_b = self.ensemble1_skconv(U)
+                    a_b = ensemble_skconv_dict[name_v](U)
                     a_b = a_b.reshape(batch_size, 5, channel_dict[name_v], -1)
                     a_b = nn.Softmax(dim=1)(a_b)
                     a_b = list(a_b.chunk(5, dim=1))
-                    a_b = list(map(lambda x: x.reshape(batch_size, channel_dict[name_v], 1, 1), a_b))
+                    a_b = list(map(lambda x: x.reshape(batch_size, 
+                                                       channel_dict[name_v], 1, 1), a_b))
                     V = list(map(lambda x, y: x * y, V_out, a_b))
                     V = reduce(lambda x, y: x + y, V)
                     torch.cuda.empty_cache()
                 
                     img_v = module_v(img_v)
                     img_i = module_i(img_i)
-                    img_v = self.Self_Attention(layer_dict[name_v], 'vis', img_v)
-                    img_i = self.Self_Attention(layer_dict[name_v], 'inf', img_i)
-                    V = self.Self_Attention(layer_dict[name_v], 'agg', V)
-                    img_v = self.Cross_Attention(layer_dict[name_v], 'visagg', img_v, V)
-                    img_i = self.Cross_Attention(layer_dict[name_v], 'infagg', img_i, V)
+                    img_v = self.self_attention(layer_dict[name_v], 'vis', img_v)
+                    img_i = self.self_attention(layer_dict[name_v], 'inf', img_i)
+                    V = self.self_attention(layer_dict[name_v], 'agg', V)
+                    img_v = self.cross_attention(layer_dict[name_v], 'visagg', img_v, V)
+                    img_i = self.cross_attention(layer_dict[name_v], 'infagg', img_i, V)
                 
                 img = torch.cat((img_v, img_v), 1)
                 img = img.contiguous().view(img.size(0), -1)
