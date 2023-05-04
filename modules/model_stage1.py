@@ -118,6 +118,7 @@ class MDNet(nn.Module):
                 raise RuntimeError('Unkown model format: {:s}'.format(model_path))
         self.build_param_dict()
 
+
     def build_param_dict(self):
         self.params = OrderedDict()
         for name, module in self.layers_v.named_children():
@@ -148,6 +149,7 @@ class MDNet(nn.Module):
             else:
                 p.requires_grad = False
 
+
     def get_learnable_params(self):
         """Get learnable params in every layer before training
 
@@ -161,11 +163,13 @@ class MDNet(nn.Module):
         print('get_learnable_params', params.keys())
         return params
 
+
     def get_all_params(self):
         params = OrderedDict()
         for k, p in self.params.items():
             params[k] = p
         return params
+
 
     def forward(self, img_v, img_i, k=0, in_layer='conv1', out_layer='fc6'):
         """Forward model from in_layer to out_layer
@@ -230,6 +234,7 @@ class MDNet(nn.Module):
         elif out_layer == 'fc6_softmax':
             return F.softmax(x, dim=1)
 
+
     def load_model(self, model_path):
         states = torch.load(model_path)
         try:
@@ -258,6 +263,7 @@ class MDNet(nn.Module):
             self.layers_i.load_state_dict(pretrain_parm['layers_i'])
             self.fc.load_state_dict(pretrain_parm['fc'])
             print('load VID model end.')
+
 
     def load_mat_model(self, matfile):
         mat = scipy.io.loadmat(matfile)

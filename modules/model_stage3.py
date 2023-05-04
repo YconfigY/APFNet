@@ -12,7 +12,7 @@ import torch.nn.functional as F
 from functools import reduce
 import math
 from models.model_stage2 import challenge_list
-
+from utils.utils import variable_name_2_str
 
 '''
    Complete network structure: Encoder and Decoder were added on a two-phase basis
@@ -58,8 +58,8 @@ class MDNet(nn.Module):
             ('fc4', nn.Sequential( nn.Linear(512 * 3 * 3 * 2, 512),  nn.ReLU(inplace=True))),
             ('fc5', nn.Sequential(nn.Dropout(0.5), nn.Linear(512, 512),  nn.ReLU(inplace=True)))]))
         
-        # the first branch to fuse
-        self.parallel1 = nn.ModuleList([nn.Sequential(OrderedDict([  # 0:FM 1:OCC 2:SC 3:TC 4:ILL
+        # the first branch to fuse (0:FM 1:OCC 2:SC 3:TC 4:ILL)
+        self.parallel1 = nn.ModuleList([nn.Sequential(OrderedDict([  
             ('parallel1_conv1', nn.Sequential(
                 nn.Conv2d(3, 32, kernel_size=5, stride=2), nn.ReLU())),
             ('parallel1_conv2', nn.Sequential(
@@ -77,24 +77,24 @@ class MDNet(nn.Module):
         
         self.parallel1_skconv, self.parallel2_skconv, self.parallel3_skconv = \
             [nn.ModuleList([nn.Sequential(OrderedDict([
-            (f'parallel{_layer_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-            (f'parallel{_layer_indx+1}_skconv_fc1', nn.Sequential(
+            (f'parallel{_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+            (f'parallel{_indx+1}_skconv_fc1', nn.Sequential(
                 nn.Conv2d(_channel_b, _channel_a, 1, bias=False),
                 nn.ReLU(inplace=True))),
-            (f'parallel{_layer_indx+1}_skconv_fc2', nn.Sequential(
+            (f'parallel{_indx+1}_skconv_fc2', nn.Sequential(
                 nn.Conv2d(_channel_a, _channel_b * 2, 1, 1, bias=False)))])) for _ in range(5)])
-             for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[32,256],[64,512]])]
+             for _indx, (_channel_a, _channel_b) in enumerate([[32,96],[32,256],[64,512]])]
         
         # filter the five challenge information
         self.ensemble1_skconv, self.ensemble2_skconv, self.ensemble3_skconv = [
             nn.Sequential(OrderedDict([
-                (f'ensemble{_layer_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
-                (f'ensemble{_layer_indx+1}_skconv_fc1', nn.Sequential(
+                (f'ensemble{_indx+1}_skconv_global_pool', nn.AdaptiveAvgPool2d(1)),
+                (f'ensemble{_indx+1}_skconv_fc1', nn.Sequential(
                     nn.Conv2d(_channel_b, _channel_a * 5, 1, bias=False), 
                     nn.ReLU(inplace=True))),
-                (f'ensemble{_layer_indx+1}_skconv_fc2', nn.Sequential(
+                (f'ensemble{_indx+1}_skconv_fc2', nn.Sequential(
                     nn.Conv2d(_channel_a * 5, _channel_b * 5, 1, 1, bias=False)))]))
-            for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[64,256],[128,512]])]
+            for _indx, (_channel_a, _channel_b) in enumerate([[32,96],[64,256],[128,512]])]
 
         # We add Encoders and Decoders here. And a layer has there encoders and two decoders.
         self.transformer1_encoder1, self.transformer1_encoder2, self.transformer1_encoder3, \
@@ -104,15 +104,15 @@ class MDNet(nn.Module):
             self.transformer3_encoder1, self.transformer3_encoder2, self.transformer3_encoder3, \
             self.transformer3_decoder1, self.transformer3_decoder2 = [
                 nn.Sequential(OrderedDict([
-                    (f'transformer{_layer_indx+1}_{_name}_WK',
+                    (f'transformer{_indx+1}_{_name}_WK',
                      nn.Sequential(nn.Linear(_channel_a, _channel_a))),
-                    (f'transformer{_layer_indx+1}_{_name}_WV', 
+                    (f'transformer{_indx+1}_{_name}_WV', 
                      nn.Sequential(nn.Linear(_channel_a, _channel_a))),
-                    (f'transformer{_layer_indx+1}_{_name}_fc_reduce', 
+                    (f'transformer{_indx+1}_{_name}_fc_reduce', 
                      nn.Sequential(nn.Conv2d(_channel_b, _channel_a, 1, 1, bias=False))),
-                    (f'transformer{_layer_indx+1}_{_name}_fc_rise', 
+                    (f'transformer{_indx+1}_{_name}_fc_rise', 
                      nn.Sequential(nn.Conv2d(_channel_a, _channel_b, 1)))]))
-                for _layer_indx, (_channel_a, _channel_b) in enumerate([[32,96],[64,256],[128,512]])
+                for _indx, (_channel_a, _channel_b) in enumerate([[32,96],[64,256],[128,512]])
                 for _name in ['encoder1', 'encoder2', 'encoder3', 'decoder1', 'decoder2']]
 
         # multi branch
@@ -123,7 +123,7 @@ class MDNet(nn.Module):
                         self.parallel1_skconv, self.parallel2_skconv, self.parallel3_skconv,
                         self.ensemble1_skconv, self.ensemble2_skconv, self.ensemble3_skconv]
 
-        self.Transformer = [[self.transformer1_encoder1, self.transformer1_encoder2,
+        self.transformer = [[self.transformer1_encoder1, self.transformer1_encoder2,
                              self.transformer1_encoder3, 
                              self.transformer1_decoder1, self.transformer1_decoder2],
                             [self.transformer2_encoder1, self.transformer2_encoder2, 
@@ -139,7 +139,7 @@ class MDNet(nn.Module):
                 nn.init.normal_(m.weight, 0, 0.01)
                 nn.init.constant_(m.bias, 0)
         # init transformer weight and bias
-        for _units in self.Transformer:
+        for _units in self.transformer:
             for _unit in _units:
                 for m in _unit.modules():
                     if isinstance(m, nn.Conv2d):
@@ -175,8 +175,8 @@ class MDNet(nn.Module):
                 if i > 2 and 'pool' in name:
                     continue
                 append_params(self.params, module, name)
-        # add Transformer
-        for _units in self.Transformer:
+        # add transformer
+        for _units in self.transformer:
             for _unit in _units:
                 for _name, _module in _unit.named_children():
                     append_params(self.params, _module, _name)
@@ -214,25 +214,25 @@ class MDNet(nn.Module):
                 'vis':0, 'inf':1, 'agg':2}
         layer_i, type_i = dict[layer_index], dict[type_index]
         
-        x_1 = self.Transformer[layer_i][type_i][2](x)
+        x_1 = self.transformer[layer_i][type_i][2](x)
         batch, dim, w, h = x_1.shape
         x_1 = x_1.permute(0, 2, 3, 1)
         x_k = x_1.reshape(batch, w * h, dim)
         x_v = x_1.reshape(batch, w * h, dim)
         x_q = x_1.reshape(batch, w * h, dim)
 
-        w_k = self.Transformer[layer_i][type_i][0](x_k)
+        w_k = self.transformer[layer_i][type_i][0](x_k)
         w_k = F.normalize(w_k, p=2, dim=-1)
         w_k = w_k.permute(0, 1, 2)
 
-        w_q = self.Transformer[layer_i][type_i][0](x_q)
+        w_q = self.transformer[layer_i][type_i][0](x_q)
         w_q = F.normalize(w_q, p=2, dim=-1)
         w_q = w_q.permute(0, 2, 1)
 
         dot_prod = torch.bmm(w_q, w_k)
         affinity = F.softmax(dot_prod * 30, dim=-1)
 
-        w_v = self.Transformer[layer_i][type_i][1](x_v)
+        w_v = self.transformer[layer_i][type_i][1](x_v)
         w_v = F.normalize(w_v, p=2, dim=-1)
         w_v = w_v.permute(0, 2, 1)
 
@@ -241,7 +241,7 @@ class MDNet(nn.Module):
         # output=self.transformer1_FFN[1](nn.Dropout(0.2)(F.relu(((self.transformer1_FFN[0](output))))))
         # output=output.permute(0,2,1)
         output = output.reshape(batch, dim, w, h)
-        output = self.Transformer[layer_i][type_i][3](output)
+        output = self.transformer[layer_i][type_i][3](output)
         x = x + output
         return x
 
@@ -252,27 +252,27 @@ class MDNet(nn.Module):
                 'visagg':3, 'infagg':4}
         layer_i, type_i = dict[layer_index], dict[type_index]
         
-        x_1 = self.Transformer[layer_i][type_i][2](x)
+        x_1 = self.transformer[layer_i][type_i][2](x)
         batch, dim, w, h = x_1.shape
-        V_1 = self.Transformer[layer_i][type_i][2](V)
+        V_1 = self.transformer[layer_i][type_i][2](V)
         x_1 = x_1.permute(0, 2, 3, 1)
         V_1 = V_1.permute(0, 2, 3, 1)
         x_k = x_1.reshape(batch, w * h, dim)
         x_v = x_1.reshape(batch, w * h, dim)
         V_q = V_1.reshape(batch, w * h, dim)
 
-        w_k = self.Transformer[layer_i][type_i][0](x_k)
+        w_k = self.transformer[layer_i][type_i][0](x_k)
         w_k = F.normalize(w_k, p=2, dim=-1)
         w_k = w_k.permute(0, 1, 2)
 
-        w_q = self.Transformer[layer_i][type_i][0](V_q)
+        w_q = self.transformer[layer_i][type_i][0](V_q)
         w_q = F.normalize(w_q, p=2, dim=-1)
         w_q = w_q.permute(0, 2, 1)
 
         dot_prod = torch.bmm(w_q, w_k)
         affinity = F.softmax(dot_prod * 30, dim=-1)
 
-        w_v = self.Transformer[layer_i][type_i][1](x_v)
+        w_v = self.transformer[layer_i][type_i][1](x_v)
         w_v = F.normalize(w_v, p=2, dim=-1)
         w_v = w_v.permute(0, 2, 1)
 
@@ -281,7 +281,7 @@ class MDNet(nn.Module):
         # output=self.transformer1_FFN[1](nn.Dropout(0.2)(F.relu(((self.transformer1_FFN[0](output))))))
         # output=output.permute(0,2,1)
         output = output.reshape(batch, dim, w, h)
-        output = self.Transformer[layer_i][type_i][3](output)
+        output = self.transformer[layer_i][type_i][3](output)
         x = x + output
         return x
     
@@ -361,6 +361,7 @@ class MDNet(nn.Module):
         elif out_layer == 'fc6_softmax':
             return F.softmax(img, dim=1)
 
+
     def load_model(self, model_path):
         states = torch.load(model_path)
         try:
@@ -398,6 +399,7 @@ class MDNet(nn.Module):
             self.layers_i.load_state_dict(pretrain_parm['layers_i'])
             self.fc.load_state_dict(pretrain_parm['fc'])
             print('load VID model end.')
+
 
     def load_mat_model(self, matfile):
         mat = scipy.io.loadmat(matfile)

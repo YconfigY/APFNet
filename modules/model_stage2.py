@@ -234,6 +234,7 @@ class MDNet(nn.Module):
         elif out_layer == 'fc6_softmax':
             return F.softmax(img, dim=1)
 
+
     def load_model(self, model_path):
         states = torch.load(model_path)
         print('load LanYangYang model.')
@@ -256,6 +257,7 @@ class MDNet(nn.Module):
             self.parallel3_skconv[i].load_state_dict(torch.load(state_dict_path)['parallel3_skconv'])
             
         print('load LanYangYang model end.')
+
 
     def load_mat_model(self, matfile):
         mat = scipy.io.loadmat(matfile)
