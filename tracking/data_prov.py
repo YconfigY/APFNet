@@ -1,12 +1,13 @@
-import sys
+import time
 import numpy as np
-from PIL import Image
 
 import torch
 import torch.utils.data as data
-sys.path.insert(0, '../modules')
-from utils import crop_image2
-import pdb
+
+from concurrent import futures
+
+from utils.utils import crop_image2
+from utils.config import cfg
 
 class RegionExtractor():
     def __init__(self, image_v, image_i, samples, opts):
@@ -33,10 +34,10 @@ class RegionExtractor():
             index = self.index[self.pointer:next_pointer]
             self.pointer = next_pointer
             regions_v, regions_i = self.extract_regions(index)
-            #pdb.set_trace()
             regions_v = torch.from_numpy(regions_v)
             regions_i = torch.from_numpy(regions_i)
             return regions_v, regions_i
+
     next = __next__
 
     def extract_regions(self, index):
@@ -45,8 +46,6 @@ class RegionExtractor():
         for i, sample in enumerate(self.samples[index]):
             regions_v[i] = crop_image2(self.image_v, sample, self.crop_size, self.padding)
             regions_i[i] = crop_image2(self.image_i, sample, self.crop_size, self.padding)
-        regions_v = regions_v.transpose(0, 3, 1, 2)
-        regions_v = regions_v.astype('float32') - 128.
-        regions_i = regions_i.transpose(0, 3, 1, 2)
-        regions_i = regions_i.astype('float32') - 128.
+        regions_v = regions_v.transpose(0, 3, 1, 2).astype('float32') - 128.
+        regions_i = regions_i.transpose(0, 3, 1, 2).astype('float32') - 128.
         return regions_v, regions_i

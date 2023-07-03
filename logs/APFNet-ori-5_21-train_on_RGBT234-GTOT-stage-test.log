@@ -1,0 +1,103 @@
+[2023-05-24 12:32:18,266][test.py][line:396][INFO] tracker name:tracker_1 seq index:0 seq name:BlackCar start track
+[2023-05-24 12:35:24,124][test.py][line:413][INFO] tracker name:tracker_1 seq index:0 seq name:BlackCar aver IoU:0.422 total mIoU:0.422 fps:0.647
+[2023-05-24 12:35:24,170][test.py][line:396][INFO] tracker name:tracker_1 seq index:1 seq name:BlackSwan1 start track
+[2023-05-24 12:38:47,933][test.py][line:413][INFO] tracker name:tracker_1 seq index:1 seq name:BlackSwan1 aver IoU:0.632 total mIoU:0.527 fps:0.662
+[2023-05-24 12:38:47,982][test.py][line:396][INFO] tracker name:tracker_1 seq index:2 seq name:BlueCar start track
+[2023-05-24 12:41:50,575][test.py][line:413][INFO] tracker name:tracker_1 seq index:2 seq name:BlueCar aver IoU:0.591 total mIoU:0.548 fps:0.652
+[2023-05-24 12:41:50,626][test.py][line:396][INFO] tracker name:tracker_1 seq index:3 seq name:Crossing start track
+[2023-05-24 12:45:09,373][test.py][line:413][INFO] tracker name:tracker_1 seq index:3 seq name:Crossing aver IoU:0.779 total mIoU:0.606 fps:0.653
+[2023-05-24 12:45:09,422][test.py][line:396][INFO] tracker name:tracker_1 seq index:4 seq name:crowdNig start track
+[2023-05-24 12:47:38,981][test.py][line:396][INFO] tracker name:tracker_2 seq index:10 seq name:Gathering start track
+[2023-05-24 12:49:40,416][test.py][line:413][INFO] tracker name:tracker_1 seq index:4 seq name:crowdNig aver IoU:0.794 total mIoU:0.644 fps:0.645
+[2023-05-24 12:49:40,466][test.py][line:396][INFO] tracker name:tracker_1 seq index:5 seq name:Cycling start track
+[2023-05-24 12:54:25,763][test.py][line:413][INFO] tracker name:tracker_1 seq index:5 seq name:Cycling aver IoU:0.743 total mIoU:0.660 fps:0.631
+[2023-05-24 12:54:25,815][test.py][line:396][INFO] tracker name:tracker_1 seq index:6 seq name:DarkNig start track
+[2023-05-24 12:56:53,539][test.py][line:413][INFO] tracker name:tracker_2 seq index:10 seq name:Gathering aver IoU:0.735 total mIoU:0.735 fps:0.580
+[2023-05-24 12:56:53,586][test.py][line:396][INFO] tracker name:tracker_2 seq index:11 seq name:GoTogether start track
+[2023-05-24 12:57:42,078][test.py][line:413][INFO] tracker name:tracker_1 seq index:6 seq name:DarkNig aver IoU:0.768 total mIoU:0.676 fps:0.622
+[2023-05-24 12:57:42,131][test.py][line:396][INFO] tracker name:tracker_1 seq index:7 seq name:Exposure2 start track
+[2023-05-24 13:00:36,216][test.py][line:413][INFO] tracker name:tracker_2 seq index:11 seq name:GoTogether aver IoU:0.789 total mIoU:0.762 fps:0.574
+[2023-05-24 13:00:36,276][test.py][line:396][INFO] tracker name:tracker_2 seq index:12 seq name:Jogging start track
+[2023-05-24 13:00:56,665][test.py][line:413][INFO] tracker name:tracker_1 seq index:7 seq name:Exposure2 aver IoU:0.617 total mIoU:0.668 fps:0.615
+[2023-05-24 13:00:56,724][test.py][line:396][INFO] tracker name:tracker_1 seq index:8 seq name:Exposure4 start track
+[2023-05-24 13:05:11,148][test.py][line:413][INFO] tracker name:tracker_1 seq index:8 seq name:Exposure4 aver IoU:0.776 total mIoU:0.680 fps:0.611
+[2023-05-24 13:05:11,209][test.py][line:396][INFO] tracker name:tracker_1 seq index:9 seq name:fastCar2 start track
+[2023-05-24 13:06:30,109][test.py][line:413][INFO] tracker name:tracker_1 seq index:9 seq name:fastCar2 aver IoU:0.694 total mIoU:0.682 fps:0.601
+[2023-05-24 13:10:49,450][test.py][line:413][INFO] tracker name:tracker_2 seq index:12 seq name:Jogging aver IoU:0.676 total mIoU:0.733 fps:0.587
+[2023-05-24 13:10:49,500][test.py][line:396][INFO] tracker name:tracker_2 seq index:13 seq name:LightOcc start track
+[2023-05-24 13:17:07,643][test.py][line:413][INFO] tracker name:tracker_2 seq index:13 seq name:LightOcc aver IoU:0.727 total mIoU:0.732 fps:0.606
+[2023-05-24 13:17:07,705][test.py][line:396][INFO] tracker name:tracker_2 seq index:14 seq name:Minibus start track
+[2023-05-24 13:21:48,449][test.py][line:413][INFO] tracker name:tracker_2 seq index:14 seq name:Minibus aver IoU:0.574 total mIoU:0.700 fps:0.620
+[2023-05-24 13:21:48,503][test.py][line:396][INFO] tracker name:tracker_2 seq index:15 seq name:Minibus1 start track
+[2023-05-24 13:23:25,824][test.py][line:413][INFO] tracker name:tracker_2 seq index:15 seq name:Minibus1 aver IoU:0.703 total mIoU:0.701 fps:0.644
+[2023-05-24 13:23:25,874][test.py][line:396][INFO] tracker name:tracker_2 seq index:16 seq name:MinibusNig start track
+[2023-05-24 13:26:12,266][test.py][line:413][INFO] tracker name:tracker_2 seq index:16 seq name:MinibusNig aver IoU:0.671 total mIoU:0.696 fps:0.642
+[2023-05-24 13:26:12,335][test.py][line:396][INFO] tracker name:tracker_2 seq index:17 seq name:MinibusNigOcc start track
+[2023-05-24 13:29:02,865][test.py][line:413][INFO] tracker name:tracker_2 seq index:17 seq name:MinibusNigOcc aver IoU:0.605 total mIoU:0.685 fps:0.645
+[2023-05-24 13:29:02,934][test.py][line:396][INFO] tracker name:tracker_2 seq index:18 seq name:OccCar-2 start track
+[2023-05-24 13:32:10,556][test.py][line:396][INFO] tracker name:tracker_1 seq index:20 seq name:Otcbvs1 start track
+[2023-05-24 13:32:46,440][test.py][line:413][INFO] tracker name:tracker_2 seq index:18 seq name:OccCar-2 aver IoU:0.672 total mIoU:0.684 fps:0.646
+[2023-05-24 13:32:46,498][test.py][line:396][INFO] tracker name:tracker_2 seq index:19 seq name:Otcbvs start track
+[2023-05-24 13:36:23,750][test.py][line:413][INFO] tracker name:tracker_1 seq index:20 seq name:Otcbvs1 aver IoU:0.755 total mIoU:0.755 fps:0.651
+[2023-05-24 13:36:23,817][test.py][line:396][INFO] tracker name:tracker_1 seq index:21 seq name:Pool start track
+[2023-05-24 13:41:48,059][test.py][line:413][INFO] tracker name:tracker_2 seq index:19 seq name:Otcbvs aver IoU:0.721 total mIoU:0.687 fps:0.646
+[2023-05-24 13:41:53,993][test.py][line:413][INFO] tracker name:tracker_1 seq index:21 seq name:Pool aver IoU:0.617 total mIoU:0.686 fps:0.597
+[2023-05-24 13:41:54,044][test.py][line:396][INFO] tracker name:tracker_1 seq index:22 seq name:Quarreling start track
+[2023-05-24 13:47:26,387][test.py][line:413][INFO] tracker name:tracker_1 seq index:22 seq name:Quarreling aver IoU:0.692 total mIoU:0.688 fps:0.618
+[2023-05-24 13:47:26,439][test.py][line:396][INFO] tracker name:tracker_1 seq index:23 seq name:RainyCar1 start track
+[2023-05-24 13:48:01,455][test.py][line:396][INFO] tracker name:tracker_2 seq index:30 seq name:GarageHover start track
+[2023-05-24 13:49:13,102][test.py][line:413][INFO] tracker name:tracker_1 seq index:23 seq name:RainyCar1 aver IoU:0.626 total mIoU:0.673 fps:0.604
+[2023-05-24 13:49:13,153][test.py][line:396][INFO] tracker name:tracker_1 seq index:24 seq name:RainyCar2 start track
+[2023-05-24 13:52:49,649][test.py][line:413][INFO] tracker name:tracker_1 seq index:24 seq name:RainyCar2 aver IoU:0.713 total mIoU:0.681 fps:0.599
+[2023-05-24 13:52:49,714][test.py][line:396][INFO] tracker name:tracker_1 seq index:25 seq name:Torabi1 start track
+[2023-05-24 13:55:31,729][test.py][line:413][INFO] tracker name:tracker_2 seq index:30 seq name:GarageHover aver IoU:0.682 total mIoU:0.682 fps:0.561
+[2023-05-24 13:55:31,798][test.py][line:396][INFO] tracker name:tracker_2 seq index:31 seq name:Motorbike start track
+[2023-05-24 13:55:36,544][test.py][line:413][INFO] tracker name:tracker_1 seq index:25 seq name:Torabi1 aver IoU:0.694 total mIoU:0.683 fps:0.599
+[2023-05-24 13:55:36,610][test.py][line:396][INFO] tracker name:tracker_1 seq index:26 seq name:FastCarNig start track
+[2023-05-24 13:59:23,581][test.py][line:413][INFO] tracker name:tracker_2 seq index:31 seq name:Motorbike aver IoU:0.397 total mIoU:0.540 fps:0.561
+[2023-05-24 13:59:23,648][test.py][line:396][INFO] tracker name:tracker_2 seq index:32 seq name:Motorbike1 start track
+[2023-05-24 14:00:29,261][test.py][line:413][INFO] tracker name:tracker_1 seq index:26 seq name:FastCarNig aver IoU:0.697 total mIoU:0.685 fps:0.592
+[2023-05-24 14:00:29,309][test.py][line:396][INFO] tracker name:tracker_1 seq index:27 seq name:FastMotor start track
+[2023-05-24 14:02:27,032][test.py][line:413][INFO] tracker name:tracker_2 seq index:32 seq name:Motorbike1 aver IoU:0.743 total mIoU:0.607 fps:0.584
+[2023-05-24 14:02:27,083][test.py][line:396][INFO] tracker name:tracker_2 seq index:33 seq name:MotorNig start track
+[2023-05-24 14:03:36,353][test.py][line:413][INFO] tracker name:tracker_1 seq index:27 seq name:FastMotor aver IoU:0.572 total mIoU:0.671 fps:0.585
+[2023-05-24 14:03:36,416][test.py][line:396][INFO] tracker name:tracker_1 seq index:28 seq name:FastMotorNig start track
+[2023-05-24 14:05:34,671][test.py][line:413][INFO] tracker name:tracker_1 seq index:28 seq name:FastMotorNig aver IoU:0.627 total mIoU:0.666 fps:0.581
+[2023-05-24 14:05:34,719][test.py][line:396][INFO] tracker name:tracker_1 seq index:29 seq name:Football start track
+[2023-05-24 14:05:47,969][test.py][line:413][INFO] tracker name:tracker_2 seq index:33 seq name:MotorNig aver IoU:0.656 total mIoU:0.619 fps:0.575
+[2023-05-24 14:05:48,040][test.py][line:396][INFO] tracker name:tracker_2 seq index:34 seq name:occBike start track
+[2023-05-24 14:08:39,654][test.py][line:413][INFO] tracker name:tracker_1 seq index:29 seq name:Football aver IoU:0.666 total mIoU:0.666 fps:0.587
+[2023-05-24 14:12:26,458][test.py][line:413][INFO] tracker name:tracker_2 seq index:34 seq name:occBike aver IoU:0.566 total mIoU:0.609 fps:0.584
+[2023-05-24 14:12:26,511][test.py][line:396][INFO] tracker name:tracker_2 seq index:35 seq name:OccCar-1 start track
+[2023-05-24 14:16:40,131][test.py][line:413][INFO] tracker name:tracker_2 seq index:35 seq name:OccCar-1 aver IoU:0.605 total mIoU:0.608 fps:0.599
+[2023-05-24 14:16:40,192][test.py][line:396][INFO] tracker name:tracker_2 seq index:36 seq name:RainyMotor1 start track
+[2023-05-24 14:21:30,033][test.py][line:413][INFO] tracker name:tracker_2 seq index:36 seq name:RainyMotor1 aver IoU:0.732 total mIoU:0.626 fps:0.607
+[2023-05-24 14:21:30,092][test.py][line:396][INFO] tracker name:tracker_2 seq index:37 seq name:RainyMotor2 start track
+[2023-05-24 14:24:08,221][test.py][line:413][INFO] tracker name:tracker_2 seq index:37 seq name:RainyMotor2 aver IoU:0.525 total mIoU:0.613 fps:0.610
+[2023-05-24 14:24:08,274][test.py][line:396][INFO] tracker name:tracker_2 seq index:38 seq name:RainyPeople start track
+[2023-05-24 14:26:24,134][train.py][line:37][INFO] start training APFNet-ori-5_21-train_on_RGBT234, stage:4 challenge: ALL
+[2023-05-24 14:26:41,752][test.py][line:396][INFO] tracker name:tracker_1 seq index:40 seq name:Torabi start track
+[2023-05-24 14:27:04,934][test.py][line:413][INFO] tracker name:tracker_2 seq index:38 seq name:RainyPeople aver IoU:0.736 total mIoU:0.627 fps:0.609
+[2023-05-24 14:27:05,008][test.py][line:396][INFO] tracker name:tracker_2 seq index:39 seq name:Running start track
+[2023-05-24 14:29:44,761][test.py][line:413][INFO] tracker name:tracker_2 seq index:39 seq name:Running aver IoU:0.426 total mIoU:0.607 fps:0.611
+[2023-05-24 14:32:28,989][test.py][line:413][INFO] tracker name:tracker_1 seq index:40 seq name:Torabi aver IoU:0.760 total mIoU:0.760 fps:0.697
+[2023-05-24 14:32:29,036][test.py][line:396][INFO] tracker name:tracker_1 seq index:41 seq name:BusScale start track
+[2023-05-24 14:37:33,449][test.py][line:413][INFO] tracker name:tracker_1 seq index:41 seq name:BusScale aver IoU:0.778 total mIoU:0.769 fps:0.677
+[2023-05-24 14:37:33,498][test.py][line:396][INFO] tracker name:tracker_1 seq index:42 seq name:BusScale1 start track
+[2023-05-24 14:39:49,203][test.py][line:413][INFO] tracker name:tracker_1 seq index:42 seq name:BusScale1 aver IoU:0.563 total mIoU:0.701 fps:0.661
+[2023-05-24 14:39:49,258][test.py][line:396][INFO] tracker name:tracker_1 seq index:43 seq name:carNig start track
+[2023-05-24 14:43:47,705][test.py][line:413][INFO] tracker name:tracker_1 seq index:43 seq name:carNig aver IoU:0.328 total mIoU:0.607 fps:0.659
+[2023-05-24 14:43:47,764][test.py][line:396][INFO] tracker name:tracker_1 seq index:44 seq name:Walking start track
+[2023-05-24 14:48:51,167][test.py][line:413][INFO] tracker name:tracker_1 seq index:44 seq name:Walking aver IoU:0.684 total mIoU:0.623 fps:0.692
+[2023-05-24 14:48:51,223][test.py][line:396][INFO] tracker name:tracker_1 seq index:45 seq name:WalkingNig start track
+[2023-05-24 14:53:07,453][test.py][line:413][INFO] tracker name:tracker_1 seq index:45 seq name:WalkingNig aver IoU:0.693 total mIoU:0.634 fps:0.685
+[2023-05-24 14:53:07,513][test.py][line:396][INFO] tracker name:tracker_1 seq index:46 seq name:Tricycle start track
+[2023-05-24 14:55:51,451][test.py][line:413][INFO] tracker name:tracker_1 seq index:46 seq name:Tricycle aver IoU:0.794 total mIoU:0.657 fps:0.701
+[2023-05-24 14:55:51,511][test.py][line:396][INFO] tracker name:tracker_1 seq index:47 seq name:tunnel start track
+[2023-05-24 15:00:55,479][test.py][line:413][INFO] tracker name:tracker_1 seq index:47 seq name:tunnel aver IoU:0.815 total mIoU:0.677 fps:0.695
+[2023-05-24 15:00:55,523][test.py][line:396][INFO] tracker name:tracker_1 seq index:48 seq name:WalkingNig1 start track
+[2023-05-24 15:04:47,482][test.py][line:413][INFO] tracker name:tracker_1 seq index:48 seq name:WalkingNig1 aver IoU:0.772 total mIoU:0.688 fps:0.690
+[2023-05-24 15:04:47,545][test.py][line:396][INFO] tracker name:tracker_1 seq index:49 seq name:WalkingOcc start track
+[2023-05-24 15:09:21,240][test.py][line:413][INFO] tracker name:tracker_1 seq index:49 seq name:WalkingOcc aver IoU:0.688 total mIoU:0.688 fps:0.687
+[2023-05-24 22:04:31,765][test.py][line:396][INFO] tracker name:tracker_1 seq index:113 seq name:mancross start track
+[2023-05-24 22:07:51,209][test.py][line:413][INFO] tracker name:tracker_1 seq index:113 seq name:mancross aver IoU:0.009 total mIoU:0.009 fps:0.595

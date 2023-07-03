@@ -1,0 +1,268 @@
+[2023-05-26 14:48:19,777][train.py][line:39][INFO] start training APFNet-RepVGG-5_26-train_on_RGBT234, stage:1 challenge: FM
+[2023-05-26 14:51:47,233][train.py][line:87][INFO] Epoch:  1 Mean Precision:0.251, Epoch Time:207.454
+[2023-05-26 14:55:10,759][train.py][line:87][INFO] Epoch:  2 Mean Precision:0.253, Epoch Time:203.522
+[2023-05-26 14:58:34,154][train.py][line:87][INFO] Epoch:  3 Mean Precision:0.251, Epoch Time:203.391
+[2023-05-26 15:00:13,613][train.py][line:39][INFO] start training APFNet-RepVGG-5_26-train_on_RGBT234, stage:1 challenge: FM
+[2023-05-26 15:03:43,531][train.py][line:87][INFO] Epoch:  1 Mean Precision:0.256, Epoch Time:209.915
+[2023-05-26 15:07:08,668][train.py][line:87][INFO] Epoch:  2 Mean Precision:0.256, Epoch Time:205.134
+[2023-05-26 15:10:33,431][train.py][line:87][INFO] Epoch:  3 Mean Precision:0.260, Epoch Time:204.761
+[2023-05-26 15:13:57,833][train.py][line:87][INFO] Epoch:  4 Mean Precision:0.263, Epoch Time:204.398
+[2023-05-26 15:17:22,688][train.py][line:87][INFO] Epoch:  5 Mean Precision:0.262, Epoch Time:204.852
+[2023-05-26 15:20:47,120][train.py][line:87][INFO] Epoch:  6 Mean Precision:0.261, Epoch Time:204.429
+[2023-05-26 15:24:10,660][train.py][line:87][INFO] Epoch:  7 Mean Precision:0.262, Epoch Time:203.537
+[2023-05-26 15:27:33,661][train.py][line:87][INFO] Epoch:  8 Mean Precision:0.259, Epoch Time:202.998
+[2023-05-26 15:30:57,306][train.py][line:87][INFO] Epoch:  9 Mean Precision:0.272, Epoch Time:203.643
+[2023-05-26 15:34:21,350][train.py][line:87][INFO] Epoch: 10 Mean Precision:0.267, Epoch Time:204.042
+[2023-05-26 15:37:45,594][train.py][line:87][INFO] Epoch: 11 Mean Precision:0.263, Epoch Time:204.241
+[2023-05-26 15:41:08,889][train.py][line:87][INFO] Epoch: 12 Mean Precision:0.263, Epoch Time:203.292
+[2023-05-26 15:44:32,245][train.py][line:87][INFO] Epoch: 13 Mean Precision:0.268, Epoch Time:203.353
+[2023-05-26 15:47:56,436][train.py][line:87][INFO] Epoch: 14 Mean Precision:0.258, Epoch Time:204.188
+[2023-05-26 15:51:20,215][train.py][line:87][INFO] Epoch: 15 Mean Precision:0.274, Epoch Time:203.775
+[2023-05-26 15:54:43,761][train.py][line:87][INFO] Epoch: 16 Mean Precision:0.259, Epoch Time:203.543
+[2023-05-26 15:58:07,796][train.py][line:87][INFO] Epoch: 17 Mean Precision:0.261, Epoch Time:204.033
+[2023-05-26 16:01:31,562][train.py][line:87][INFO] Epoch: 18 Mean Precision:0.263, Epoch Time:203.762
+[2023-05-26 16:04:55,974][train.py][line:87][INFO] Epoch: 19 Mean Precision:0.267, Epoch Time:204.409
+[2023-05-26 16:08:20,144][train.py][line:87][INFO] Epoch: 20 Mean Precision:0.257, Epoch Time:204.167
+[2023-05-26 16:11:43,937][train.py][line:87][INFO] Epoch: 21 Mean Precision:0.267, Epoch Time:203.790
+[2023-05-26 16:15:06,613][train.py][line:87][INFO] Epoch: 22 Mean Precision:0.268, Epoch Time:202.673
+[2023-05-26 16:18:30,316][train.py][line:87][INFO] Epoch: 23 Mean Precision:0.268, Epoch Time:203.699
+[2023-05-26 16:21:54,482][train.py][line:87][INFO] Epoch: 24 Mean Precision:0.266, Epoch Time:204.163
+[2023-05-26 16:25:18,638][train.py][line:87][INFO] Epoch: 25 Mean Precision:0.267, Epoch Time:204.153
+[2023-05-26 16:25:18,997][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_25.pth
+[2023-05-26 16:28:43,118][train.py][line:87][INFO] Epoch: 26 Mean Precision:0.267, Epoch Time:203.957
+[2023-05-26 16:32:06,760][train.py][line:87][INFO] Epoch: 27 Mean Precision:0.264, Epoch Time:203.639
+[2023-05-26 16:35:30,568][train.py][line:87][INFO] Epoch: 28 Mean Precision:0.269, Epoch Time:203.804
+[2023-05-26 16:38:54,246][train.py][line:87][INFO] Epoch: 29 Mean Precision:0.266, Epoch Time:203.676
+[2023-05-26 16:42:18,355][train.py][line:87][INFO] Epoch: 30 Mean Precision:0.255, Epoch Time:204.106
+[2023-05-26 16:45:41,475][train.py][line:87][INFO] Epoch: 31 Mean Precision:0.261, Epoch Time:203.115
+[2023-05-26 16:49:04,993][train.py][line:87][INFO] Epoch: 32 Mean Precision:0.265, Epoch Time:203.514
+[2023-05-26 16:52:28,767][train.py][line:87][INFO] Epoch: 33 Mean Precision:0.269, Epoch Time:203.770
+[2023-05-26 16:55:52,746][train.py][line:87][INFO] Epoch: 34 Mean Precision:0.265, Epoch Time:203.976
+[2023-05-26 16:59:17,088][train.py][line:87][INFO] Epoch: 35 Mean Precision:0.270, Epoch Time:204.339
+[2023-05-26 17:02:41,454][train.py][line:87][INFO] Epoch: 36 Mean Precision:0.267, Epoch Time:204.362
+[2023-05-26 17:06:06,243][train.py][line:87][INFO] Epoch: 37 Mean Precision:0.261, Epoch Time:204.787
+[2023-05-26 17:09:30,188][train.py][line:87][INFO] Epoch: 38 Mean Precision:0.259, Epoch Time:203.942
+[2023-05-26 17:12:54,073][train.py][line:87][INFO] Epoch: 39 Mean Precision:0.264, Epoch Time:203.882
+[2023-05-26 17:16:18,456][train.py][line:87][INFO] Epoch: 40 Mean Precision:0.261, Epoch Time:204.379
+[2023-05-26 17:19:42,652][train.py][line:87][INFO] Epoch: 41 Mean Precision:0.270, Epoch Time:204.193
+[2023-05-26 17:23:07,296][train.py][line:87][INFO] Epoch: 42 Mean Precision:0.263, Epoch Time:204.640
+[2023-05-26 17:26:31,613][train.py][line:87][INFO] Epoch: 43 Mean Precision:0.272, Epoch Time:204.314
+[2023-05-26 17:29:55,840][train.py][line:87][INFO] Epoch: 44 Mean Precision:0.265, Epoch Time:204.224
+[2023-05-26 17:33:20,487][train.py][line:87][INFO] Epoch: 45 Mean Precision:0.257, Epoch Time:204.644
+[2023-05-26 17:37:43,426][train.py][line:39][INFO] start training APFNet-RepVGG-5_26-train_on_RGBT234, stage:1 challenge: FM
+[2023-05-26 17:38:33,505][train.py][line:39][INFO] start training APFNet-RepVGG-5_26-train_on_RGBT234, stage:1 challenge: FM
+[2023-05-26 18:01:51,143][train.py][line:39][INFO] start training APFNet-RepVGG-5_26-train_on_RGBT234, stage:1 challenge: FM
+[2023-05-26 18:05:18,183][train.py][line:87][INFO] Epoch:  1 Mean Precision:0.251, Epoch Time:207.037
+[2023-05-26 18:08:45,201][train.py][line:87][INFO] Epoch:  2 Mean Precision:0.251, Epoch Time:207.015
+[2023-05-26 18:12:11,061][train.py][line:87][INFO] Epoch:  3 Mean Precision:0.256, Epoch Time:205.858
+[2023-05-26 18:15:37,726][train.py][line:87][INFO] Epoch:  4 Mean Precision:0.255, Epoch Time:206.661
+[2023-05-26 18:19:04,210][train.py][line:87][INFO] Epoch:  5 Mean Precision:0.247, Epoch Time:206.482
+[2023-05-26 18:20:01,945][train.py][line:39][INFO] start training APFNet-RepVGG-5_26-train_on_RGBT234, stage:1 challenge: FM
+[2023-05-26 18:23:33,619][train.py][line:87][INFO] Epoch:  1 Mean Precision:0.255, Epoch Time:211.672
+[2023-05-26 18:27:00,372][train.py][line:87][INFO] Epoch:  2 Mean Precision:0.260, Epoch Time:206.750
+[2023-05-26 18:30:27,000][train.py][line:87][INFO] Epoch:  3 Mean Precision:0.259, Epoch Time:206.624
+[2023-05-26 18:33:53,009][train.py][line:87][INFO] Epoch:  4 Mean Precision:0.259, Epoch Time:206.007
+[2023-05-26 18:37:19,389][train.py][line:87][INFO] Epoch:  5 Mean Precision:0.255, Epoch Time:206.377
+[2023-05-26 18:40:45,889][train.py][line:87][INFO] Epoch:  6 Mean Precision:0.251, Epoch Time:206.496
+[2023-05-26 18:44:12,910][train.py][line:87][INFO] Epoch:  7 Mean Precision:0.261, Epoch Time:207.019
+[2023-05-26 18:47:39,471][train.py][line:87][INFO] Epoch:  8 Mean Precision:0.254, Epoch Time:206.558
+[2023-05-26 18:51:05,056][train.py][line:87][INFO] Epoch:  9 Mean Precision:0.257, Epoch Time:205.581
+[2023-05-26 18:54:31,377][train.py][line:87][INFO] Epoch: 10 Mean Precision:0.258, Epoch Time:206.318
+[2023-05-26 18:57:57,569][train.py][line:87][INFO] Epoch: 11 Mean Precision:0.262, Epoch Time:206.190
+[2023-05-26 19:01:23,671][train.py][line:87][INFO] Epoch: 12 Mean Precision:0.262, Epoch Time:206.098
+[2023-05-26 19:04:50,043][train.py][line:87][INFO] Epoch: 13 Mean Precision:0.262, Epoch Time:206.369
+[2023-05-26 19:08:16,343][train.py][line:87][INFO] Epoch: 14 Mean Precision:0.268, Epoch Time:206.296
+[2023-05-26 19:11:42,372][train.py][line:87][INFO] Epoch: 15 Mean Precision:0.264, Epoch Time:206.026
+[2023-05-26 19:15:08,439][train.py][line:87][INFO] Epoch: 16 Mean Precision:0.262, Epoch Time:206.064
+[2023-05-26 19:18:35,074][train.py][line:87][INFO] Epoch: 17 Mean Precision:0.267, Epoch Time:206.632
+[2023-05-26 19:22:02,158][train.py][line:87][INFO] Epoch: 18 Mean Precision:0.262, Epoch Time:207.082
+[2023-05-26 19:25:29,045][train.py][line:87][INFO] Epoch: 19 Mean Precision:0.266, Epoch Time:206.884
+[2023-05-26 19:28:54,452][train.py][line:87][INFO] Epoch: 20 Mean Precision:0.258, Epoch Time:205.404
+[2023-05-26 19:32:20,216][train.py][line:87][INFO] Epoch: 21 Mean Precision:0.270, Epoch Time:205.761
+[2023-05-26 19:35:45,931][train.py][line:87][INFO] Epoch: 22 Mean Precision:0.261, Epoch Time:205.713
+[2023-05-26 19:39:11,928][train.py][line:87][INFO] Epoch: 23 Mean Precision:0.260, Epoch Time:205.994
+[2023-05-26 19:42:38,014][train.py][line:87][INFO] Epoch: 24 Mean Precision:0.266, Epoch Time:206.082
+[2023-05-26 19:46:03,649][train.py][line:87][INFO] Epoch: 25 Mean Precision:0.269, Epoch Time:205.632
+[2023-05-26 19:46:04,120][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_25.pth
+[2023-05-26 19:49:29,882][train.py][line:87][INFO] Epoch: 26 Mean Precision:0.261, Epoch Time:205.562
+[2023-05-26 19:52:55,231][train.py][line:87][INFO] Epoch: 27 Mean Precision:0.260, Epoch Time:205.345
+[2023-05-26 19:56:20,965][train.py][line:87][INFO] Epoch: 28 Mean Precision:0.270, Epoch Time:205.729
+[2023-05-26 19:59:46,500][train.py][line:87][INFO] Epoch: 29 Mean Precision:0.265, Epoch Time:205.532
+[2023-05-26 20:03:12,278][train.py][line:87][INFO] Epoch: 30 Mean Precision:0.263, Epoch Time:205.775
+[2023-05-26 20:06:37,685][train.py][line:87][INFO] Epoch: 31 Mean Precision:0.269, Epoch Time:205.405
+[2023-05-26 20:10:03,033][train.py][line:87][INFO] Epoch: 32 Mean Precision:0.268, Epoch Time:205.345
+[2023-05-26 20:13:28,389][train.py][line:87][INFO] Epoch: 33 Mean Precision:0.262, Epoch Time:205.354
+[2023-05-26 20:16:54,433][train.py][line:87][INFO] Epoch: 34 Mean Precision:0.265, Epoch Time:206.041
+[2023-05-26 20:20:20,514][train.py][line:87][INFO] Epoch: 35 Mean Precision:0.263, Epoch Time:206.078
+[2023-05-26 20:23:45,428][train.py][line:87][INFO] Epoch: 36 Mean Precision:0.270, Epoch Time:204.912
+[2023-05-26 20:27:10,385][train.py][line:87][INFO] Epoch: 37 Mean Precision:0.260, Epoch Time:204.953
+[2023-05-26 20:30:35,506][train.py][line:87][INFO] Epoch: 38 Mean Precision:0.262, Epoch Time:205.118
+[2023-05-26 20:34:00,574][train.py][line:87][INFO] Epoch: 39 Mean Precision:0.265, Epoch Time:205.064
+[2023-05-26 20:37:25,969][train.py][line:87][INFO] Epoch: 40 Mean Precision:0.274, Epoch Time:205.393
+[2023-05-26 20:40:51,184][train.py][line:87][INFO] Epoch: 41 Mean Precision:0.264, Epoch Time:205.212
+[2023-05-26 20:44:16,461][train.py][line:87][INFO] Epoch: 42 Mean Precision:0.270, Epoch Time:205.274
+[2023-05-26 20:47:42,752][train.py][line:87][INFO] Epoch: 43 Mean Precision:0.278, Epoch Time:206.288
+[2023-05-26 20:51:08,242][train.py][line:87][INFO] Epoch: 44 Mean Precision:0.264, Epoch Time:205.488
+[2023-05-26 20:54:33,701][train.py][line:87][INFO] Epoch: 45 Mean Precision:0.268, Epoch Time:205.456
+[2023-05-26 20:57:58,742][train.py][line:87][INFO] Epoch: 46 Mean Precision:0.265, Epoch Time:205.037
+[2023-05-26 21:01:23,897][train.py][line:87][INFO] Epoch: 47 Mean Precision:0.270, Epoch Time:205.153
+[2023-05-26 21:04:48,634][train.py][line:87][INFO] Epoch: 48 Mean Precision:0.265, Epoch Time:204.734
+[2023-05-26 21:08:14,000][train.py][line:87][INFO] Epoch: 49 Mean Precision:0.265, Epoch Time:205.363
+[2023-05-26 21:11:39,953][train.py][line:87][INFO] Epoch: 50 Mean Precision:0.263, Epoch Time:205.949
+[2023-05-26 21:11:40,421][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_50.pth
+[2023-05-26 21:15:05,984][train.py][line:87][INFO] Epoch: 51 Mean Precision:0.268, Epoch Time:205.365
+[2023-05-26 21:18:31,394][train.py][line:87][INFO] Epoch: 52 Mean Precision:0.272, Epoch Time:205.408
+[2023-05-26 21:21:56,596][train.py][line:87][INFO] Epoch: 53 Mean Precision:0.264, Epoch Time:205.199
+[2023-05-26 21:25:21,990][train.py][line:87][INFO] Epoch: 54 Mean Precision:0.265, Epoch Time:205.391
+[2023-05-26 21:28:47,210][train.py][line:87][INFO] Epoch: 55 Mean Precision:0.264, Epoch Time:205.217
+[2023-05-26 21:32:12,972][train.py][line:87][INFO] Epoch: 56 Mean Precision:0.265, Epoch Time:205.760
+[2023-05-26 21:35:38,242][train.py][line:87][INFO] Epoch: 57 Mean Precision:0.271, Epoch Time:205.267
+[2023-05-26 21:39:04,154][train.py][line:87][INFO] Epoch: 58 Mean Precision:0.267, Epoch Time:205.909
+[2023-05-26 21:42:29,814][train.py][line:87][INFO] Epoch: 59 Mean Precision:0.265, Epoch Time:205.657
+[2023-05-26 21:45:55,737][train.py][line:87][INFO] Epoch: 60 Mean Precision:0.263, Epoch Time:205.921
+[2023-05-26 21:49:20,815][train.py][line:87][INFO] Epoch: 61 Mean Precision:0.269, Epoch Time:205.074
+[2023-05-26 21:52:45,942][train.py][line:87][INFO] Epoch: 62 Mean Precision:0.269, Epoch Time:205.124
+[2023-05-26 21:56:11,789][train.py][line:87][INFO] Epoch: 63 Mean Precision:0.271, Epoch Time:205.844
+[2023-05-26 21:59:37,531][train.py][line:87][INFO] Epoch: 64 Mean Precision:0.264, Epoch Time:205.738
+[2023-05-26 22:03:02,870][train.py][line:87][INFO] Epoch: 65 Mean Precision:0.271, Epoch Time:205.335
+[2023-05-26 22:06:27,382][train.py][line:87][INFO] Epoch: 66 Mean Precision:0.267, Epoch Time:204.508
+[2023-05-26 22:09:52,331][train.py][line:87][INFO] Epoch: 67 Mean Precision:0.274, Epoch Time:204.947
+[2023-05-26 22:13:17,333][train.py][line:87][INFO] Epoch: 68 Mean Precision:0.269, Epoch Time:205.000
+[2023-05-26 22:16:42,416][train.py][line:87][INFO] Epoch: 69 Mean Precision:0.266, Epoch Time:205.079
+[2023-05-26 22:20:07,565][train.py][line:87][INFO] Epoch: 70 Mean Precision:0.270, Epoch Time:205.147
+[2023-05-26 22:23:32,819][train.py][line:87][INFO] Epoch: 71 Mean Precision:0.273, Epoch Time:205.251
+[2023-05-26 22:26:57,204][train.py][line:87][INFO] Epoch: 72 Mean Precision:0.271, Epoch Time:204.382
+[2023-05-26 22:30:22,075][train.py][line:87][INFO] Epoch: 73 Mean Precision:0.267, Epoch Time:204.868
+[2023-05-26 22:33:46,914][train.py][line:87][INFO] Epoch: 74 Mean Precision:0.274, Epoch Time:204.836
+[2023-05-26 22:37:12,126][train.py][line:87][INFO] Epoch: 75 Mean Precision:0.265, Epoch Time:205.209
+[2023-05-26 22:37:12,505][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_75.pth
+[2023-05-26 22:40:38,346][train.py][line:87][INFO] Epoch: 76 Mean Precision:0.270, Epoch Time:205.642
+[2023-05-26 22:44:02,979][train.py][line:87][INFO] Epoch: 77 Mean Precision:0.272, Epoch Time:204.630
+[2023-05-26 22:47:28,063][train.py][line:87][INFO] Epoch: 78 Mean Precision:0.277, Epoch Time:205.081
+[2023-05-26 22:50:53,692][train.py][line:87][INFO] Epoch: 79 Mean Precision:0.269, Epoch Time:205.627
+[2023-05-26 22:54:18,688][train.py][line:87][INFO] Epoch: 80 Mean Precision:0.264, Epoch Time:204.993
+[2023-05-26 22:57:43,579][train.py][line:87][INFO] Epoch: 81 Mean Precision:0.264, Epoch Time:204.887
+[2023-05-26 23:01:08,844][train.py][line:87][INFO] Epoch: 82 Mean Precision:0.272, Epoch Time:205.262
+[2023-05-26 23:04:34,319][train.py][line:87][INFO] Epoch: 83 Mean Precision:0.270, Epoch Time:205.472
+[2023-05-26 23:07:59,514][train.py][line:87][INFO] Epoch: 84 Mean Precision:0.272, Epoch Time:205.192
+[2023-05-26 23:11:24,612][train.py][line:87][INFO] Epoch: 85 Mean Precision:0.261, Epoch Time:205.095
+[2023-05-26 23:14:50,428][train.py][line:87][INFO] Epoch: 86 Mean Precision:0.268, Epoch Time:205.814
+[2023-05-26 23:18:15,555][train.py][line:87][INFO] Epoch: 87 Mean Precision:0.279, Epoch Time:205.124
+[2023-05-26 23:21:41,156][train.py][line:87][INFO] Epoch: 88 Mean Precision:0.263, Epoch Time:205.598
+[2023-05-26 23:25:07,066][train.py][line:87][INFO] Epoch: 89 Mean Precision:0.264, Epoch Time:205.907
+[2023-05-26 23:28:31,648][train.py][line:87][INFO] Epoch: 90 Mean Precision:0.277, Epoch Time:204.578
+[2023-05-26 23:31:57,066][train.py][line:87][INFO] Epoch: 91 Mean Precision:0.259, Epoch Time:205.415
+[2023-05-26 23:35:22,010][train.py][line:87][INFO] Epoch: 92 Mean Precision:0.272, Epoch Time:204.941
+[2023-05-26 23:38:47,895][train.py][line:87][INFO] Epoch: 93 Mean Precision:0.271, Epoch Time:205.881
+[2023-05-26 23:42:12,943][train.py][line:87][INFO] Epoch: 94 Mean Precision:0.273, Epoch Time:205.044
+[2023-05-26 23:45:38,083][train.py][line:87][INFO] Epoch: 95 Mean Precision:0.269, Epoch Time:205.136
+[2023-05-26 23:49:04,146][train.py][line:87][INFO] Epoch: 96 Mean Precision:0.270, Epoch Time:206.060
+[2023-05-26 23:52:29,665][train.py][line:87][INFO] Epoch: 97 Mean Precision:0.270, Epoch Time:205.516
+[2023-05-26 23:55:55,198][train.py][line:87][INFO] Epoch: 98 Mean Precision:0.269, Epoch Time:205.530
+[2023-05-26 23:59:20,758][train.py][line:87][INFO] Epoch: 99 Mean Precision:0.270, Epoch Time:205.557
+[2023-05-27 00:02:46,930][train.py][line:87][INFO] Epoch:100 Mean Precision:0.273, Epoch Time:206.168
+[2023-05-27 00:02:47,336][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_100.pth
+[2023-05-27 00:06:13,080][train.py][line:87][INFO] Epoch:101 Mean Precision:0.266, Epoch Time:205.545
+[2023-05-27 00:09:39,074][train.py][line:87][INFO] Epoch:102 Mean Precision:0.276, Epoch Time:205.991
+[2023-05-27 00:13:05,391][train.py][line:87][INFO] Epoch:103 Mean Precision:0.260, Epoch Time:206.315
+[2023-05-27 00:16:31,043][train.py][line:87][INFO] Epoch:104 Mean Precision:0.259, Epoch Time:205.649
+[2023-05-27 00:19:56,968][train.py][line:87][INFO] Epoch:105 Mean Precision:0.267, Epoch Time:205.923
+[2023-05-27 00:23:22,907][train.py][line:87][INFO] Epoch:106 Mean Precision:0.270, Epoch Time:205.935
+[2023-05-27 00:26:48,779][train.py][line:87][INFO] Epoch:107 Mean Precision:0.269, Epoch Time:205.868
+[2023-05-27 00:30:14,336][train.py][line:87][INFO] Epoch:108 Mean Precision:0.263, Epoch Time:205.555
+[2023-05-27 00:33:40,542][train.py][line:87][INFO] Epoch:109 Mean Precision:0.270, Epoch Time:206.202
+[2023-05-27 00:37:06,511][train.py][line:87][INFO] Epoch:110 Mean Precision:0.273, Epoch Time:205.966
+[2023-05-27 00:40:32,978][train.py][line:87][INFO] Epoch:111 Mean Precision:0.281, Epoch Time:206.464
+[2023-05-27 00:43:59,165][train.py][line:87][INFO] Epoch:112 Mean Precision:0.273, Epoch Time:206.185
+[2023-05-27 00:47:25,828][train.py][line:87][INFO] Epoch:113 Mean Precision:0.273, Epoch Time:206.659
+[2023-05-27 00:50:51,848][train.py][line:87][INFO] Epoch:114 Mean Precision:0.271, Epoch Time:206.018
+[2023-05-27 00:54:17,036][train.py][line:87][INFO] Epoch:115 Mean Precision:0.270, Epoch Time:205.185
+[2023-05-27 00:57:42,884][train.py][line:87][INFO] Epoch:116 Mean Precision:0.274, Epoch Time:205.845
+[2023-05-27 01:01:08,189][train.py][line:87][INFO] Epoch:117 Mean Precision:0.274, Epoch Time:205.302
+[2023-05-27 01:04:34,035][train.py][line:87][INFO] Epoch:118 Mean Precision:0.276, Epoch Time:205.843
+[2023-05-27 01:07:59,646][train.py][line:87][INFO] Epoch:119 Mean Precision:0.269, Epoch Time:205.607
+[2023-05-27 01:11:25,634][train.py][line:87][INFO] Epoch:120 Mean Precision:0.272, Epoch Time:205.984
+[2023-05-27 01:14:52,082][train.py][line:87][INFO] Epoch:121 Mean Precision:0.276, Epoch Time:206.444
+[2023-05-27 01:18:18,141][train.py][line:87][INFO] Epoch:122 Mean Precision:0.273, Epoch Time:206.057
+[2023-05-27 01:21:44,346][train.py][line:87][INFO] Epoch:123 Mean Precision:0.273, Epoch Time:206.202
+[2023-05-27 01:25:10,291][train.py][line:87][INFO] Epoch:124 Mean Precision:0.269, Epoch Time:205.943
+[2023-05-27 01:28:36,347][train.py][line:87][INFO] Epoch:125 Mean Precision:0.266, Epoch Time:206.053
+[2023-05-27 01:28:36,769][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_125.pth
+[2023-05-27 01:32:02,703][train.py][line:87][INFO] Epoch:126 Mean Precision:0.268, Epoch Time:205.735
+[2023-05-27 01:35:28,532][train.py][line:87][INFO] Epoch:127 Mean Precision:0.279, Epoch Time:205.826
+[2023-05-27 01:38:54,467][train.py][line:87][INFO] Epoch:128 Mean Precision:0.268, Epoch Time:205.931
+[2023-05-27 01:42:20,546][train.py][line:87][INFO] Epoch:129 Mean Precision:0.272, Epoch Time:206.077
+[2023-05-27 01:45:46,992][train.py][line:87][INFO] Epoch:130 Mean Precision:0.272, Epoch Time:206.443
+[2023-05-27 01:49:13,357][train.py][line:87][INFO] Epoch:131 Mean Precision:0.272, Epoch Time:206.363
+[2023-05-27 01:52:39,194][train.py][line:87][INFO] Epoch:132 Mean Precision:0.273, Epoch Time:205.834
+[2023-05-27 01:56:04,727][train.py][line:87][INFO] Epoch:133 Mean Precision:0.272, Epoch Time:205.531
+[2023-05-27 01:59:30,532][train.py][line:87][INFO] Epoch:134 Mean Precision:0.269, Epoch Time:205.803
+[2023-05-27 02:02:56,417][train.py][line:87][INFO] Epoch:135 Mean Precision:0.268, Epoch Time:205.881
+[2023-05-27 02:06:22,436][train.py][line:87][INFO] Epoch:136 Mean Precision:0.269, Epoch Time:206.016
+[2023-05-27 02:09:47,887][train.py][line:87][INFO] Epoch:137 Mean Precision:0.269, Epoch Time:205.448
+[2023-05-27 02:13:14,069][train.py][line:87][INFO] Epoch:138 Mean Precision:0.274, Epoch Time:206.180
+[2023-05-27 02:16:40,344][train.py][line:87][INFO] Epoch:139 Mean Precision:0.282, Epoch Time:206.272
+[2023-05-27 02:20:06,670][train.py][line:87][INFO] Epoch:140 Mean Precision:0.276, Epoch Time:206.323
+[2023-05-27 02:23:32,820][train.py][line:87][INFO] Epoch:141 Mean Precision:0.280, Epoch Time:206.146
+[2023-05-27 02:26:58,674][train.py][line:87][INFO] Epoch:142 Mean Precision:0.268, Epoch Time:205.850
+[2023-05-27 02:30:24,489][train.py][line:87][INFO] Epoch:143 Mean Precision:0.275, Epoch Time:205.812
+[2023-05-27 02:33:50,891][train.py][line:87][INFO] Epoch:144 Mean Precision:0.277, Epoch Time:206.399
+[2023-05-27 02:37:17,556][train.py][line:87][INFO] Epoch:145 Mean Precision:0.270, Epoch Time:206.662
+[2023-05-27 02:40:43,101][train.py][line:87][INFO] Epoch:146 Mean Precision:0.272, Epoch Time:205.543
+[2023-05-27 02:44:08,764][train.py][line:87][INFO] Epoch:147 Mean Precision:0.268, Epoch Time:205.660
+[2023-05-27 02:47:34,606][train.py][line:87][INFO] Epoch:148 Mean Precision:0.280, Epoch Time:205.838
+[2023-05-27 02:51:00,952][train.py][line:87][INFO] Epoch:149 Mean Precision:0.276, Epoch Time:206.343
+[2023-05-27 02:54:27,702][train.py][line:87][INFO] Epoch:150 Mean Precision:0.278, Epoch Time:206.747
+[2023-05-27 02:54:28,122][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_150.pth
+[2023-05-27 02:57:54,629][train.py][line:87][INFO] Epoch:151 Mean Precision:0.272, Epoch Time:206.307
+[2023-05-27 03:01:20,909][train.py][line:87][INFO] Epoch:152 Mean Precision:0.273, Epoch Time:206.277
+[2023-05-27 03:04:47,188][train.py][line:87][INFO] Epoch:153 Mean Precision:0.273, Epoch Time:206.277
+[2023-05-27 03:08:13,292][train.py][line:87][INFO] Epoch:154 Mean Precision:0.269, Epoch Time:206.101
+[2023-05-27 03:11:39,496][train.py][line:87][INFO] Epoch:155 Mean Precision:0.282, Epoch Time:206.201
+[2023-05-27 03:15:04,752][train.py][line:87][INFO] Epoch:156 Mean Precision:0.271, Epoch Time:205.253
+[2023-05-27 03:18:30,494][train.py][line:87][INFO] Epoch:157 Mean Precision:0.277, Epoch Time:205.739
+[2023-05-27 03:21:57,042][train.py][line:87][INFO] Epoch:158 Mean Precision:0.269, Epoch Time:206.544
+[2023-05-27 03:25:23,355][train.py][line:87][INFO] Epoch:159 Mean Precision:0.262, Epoch Time:206.311
+[2023-05-27 03:28:48,901][train.py][line:87][INFO] Epoch:160 Mean Precision:0.267, Epoch Time:205.543
+[2023-05-27 03:32:15,017][train.py][line:87][INFO] Epoch:161 Mean Precision:0.266, Epoch Time:206.112
+[2023-05-27 03:35:41,268][train.py][line:87][INFO] Epoch:162 Mean Precision:0.275, Epoch Time:206.249
+[2023-05-27 03:39:07,417][train.py][line:87][INFO] Epoch:163 Mean Precision:0.271, Epoch Time:206.146
+[2023-05-27 03:42:33,094][train.py][line:87][INFO] Epoch:164 Mean Precision:0.266, Epoch Time:205.674
+[2023-05-27 03:45:59,042][train.py][line:87][INFO] Epoch:165 Mean Precision:0.277, Epoch Time:205.945
+[2023-05-27 03:49:25,314][train.py][line:87][INFO] Epoch:166 Mean Precision:0.275, Epoch Time:206.269
+[2023-05-27 03:52:51,528][train.py][line:87][INFO] Epoch:167 Mean Precision:0.271, Epoch Time:206.212
+[2023-05-27 03:56:17,682][train.py][line:87][INFO] Epoch:168 Mean Precision:0.287, Epoch Time:206.150
+[2023-05-27 03:59:43,964][train.py][line:87][INFO] Epoch:169 Mean Precision:0.276, Epoch Time:206.279
+[2023-05-27 04:03:10,200][train.py][line:87][INFO] Epoch:170 Mean Precision:0.282, Epoch Time:206.234
+[2023-05-27 04:06:35,475][train.py][line:87][INFO] Epoch:171 Mean Precision:0.273, Epoch Time:205.272
+[2023-05-27 04:10:01,646][train.py][line:87][INFO] Epoch:172 Mean Precision:0.271, Epoch Time:206.168
+[2023-05-27 04:13:28,321][train.py][line:87][INFO] Epoch:173 Mean Precision:0.272, Epoch Time:206.671
+[2023-05-27 04:16:54,864][train.py][line:87][INFO] Epoch:174 Mean Precision:0.263, Epoch Time:206.539
+[2023-05-27 04:20:20,739][train.py][line:87][INFO] Epoch:175 Mean Precision:0.268, Epoch Time:205.873
+[2023-05-27 04:20:21,150][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_175.pth
+[2023-05-27 04:23:47,111][train.py][line:87][INFO] Epoch:176 Mean Precision:0.269, Epoch Time:205.761
+[2023-05-27 04:27:12,819][train.py][line:87][INFO] Epoch:177 Mean Precision:0.272, Epoch Time:205.705
+[2023-05-27 04:30:38,421][train.py][line:87][INFO] Epoch:178 Mean Precision:0.279, Epoch Time:205.599
+[2023-05-27 04:34:04,289][train.py][line:87][INFO] Epoch:179 Mean Precision:0.270, Epoch Time:205.865
+[2023-05-27 04:37:30,618][train.py][line:87][INFO] Epoch:180 Mean Precision:0.263, Epoch Time:206.326
+[2023-05-27 04:40:57,366][train.py][line:87][INFO] Epoch:181 Mean Precision:0.269, Epoch Time:206.746
+[2023-05-27 04:44:23,199][train.py][line:87][INFO] Epoch:182 Mean Precision:0.270, Epoch Time:205.830
+[2023-05-27 04:47:49,222][train.py][line:87][INFO] Epoch:183 Mean Precision:0.272, Epoch Time:206.021
+[2023-05-27 04:51:15,771][train.py][line:87][INFO] Epoch:184 Mean Precision:0.274, Epoch Time:206.545
+[2023-05-27 04:54:41,992][train.py][line:87][INFO] Epoch:185 Mean Precision:0.269, Epoch Time:206.219
+[2023-05-27 04:58:08,100][train.py][line:87][INFO] Epoch:186 Mean Precision:0.268, Epoch Time:206.105
+[2023-05-27 05:01:34,359][train.py][line:87][INFO] Epoch:187 Mean Precision:0.278, Epoch Time:206.257
+[2023-05-27 05:05:00,595][train.py][line:87][INFO] Epoch:188 Mean Precision:0.271, Epoch Time:206.232
+[2023-05-27 05:08:26,469][train.py][line:87][INFO] Epoch:189 Mean Precision:0.286, Epoch Time:205.870
+[2023-05-27 05:11:53,018][train.py][line:87][INFO] Epoch:190 Mean Precision:0.271, Epoch Time:206.545
+[2023-05-27 05:15:19,826][train.py][line:87][INFO] Epoch:191 Mean Precision:0.268, Epoch Time:206.804
+[2023-05-27 05:18:45,377][train.py][line:87][INFO] Epoch:192 Mean Precision:0.259, Epoch Time:205.547
+[2023-05-27 05:22:11,777][train.py][line:87][INFO] Epoch:193 Mean Precision:0.274, Epoch Time:206.398
+[2023-05-27 05:25:36,915][train.py][line:87][INFO] Epoch:194 Mean Precision:0.274, Epoch Time:205.135
+[2023-05-27 05:29:02,499][train.py][line:87][INFO] Epoch:195 Mean Precision:0.273, Epoch Time:205.581
+[2023-05-27 05:32:29,240][train.py][line:87][INFO] Epoch:196 Mean Precision:0.264, Epoch Time:206.738
+[2023-05-27 05:35:55,378][train.py][line:87][INFO] Epoch:197 Mean Precision:0.270, Epoch Time:206.135
+[2023-05-27 05:39:21,297][train.py][line:87][INFO] Epoch:198 Mean Precision:0.264, Epoch Time:205.916
+[2023-05-27 05:42:47,742][train.py][line:87][INFO] Epoch:199 Mean Precision:0.271, Epoch Time:206.443
+[2023-05-27 05:46:13,814][train.py][line:87][INFO] Epoch:200 Mean Precision:0.275, Epoch Time:206.069
+[2023-05-27 05:46:14,220][model_saver.py][line:35][INFO] Save model to ./resume/stage_1/RGBT234/FM/FM_200.pth

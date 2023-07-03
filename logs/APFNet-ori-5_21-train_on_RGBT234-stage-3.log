@@ -1,0 +1,1008 @@
+[2023-05-23 22:00:34,154][train.py][line:37][INFO] start training APFNet-ori-5_21-train_on_RGBT234, stage:3 challenge: ALL
+[2023-05-23 22:02:08,644][train.py][line:79][INFO] Epoch:  1 Mean Precision:0.216, Epoch Time:94.487
+[2023-05-23 22:03:41,133][train.py][line:79][INFO] Epoch:  2 Mean Precision:0.246, Epoch Time:92.485
+[2023-05-23 22:05:13,861][train.py][line:79][INFO] Epoch:  3 Mean Precision:0.283, Epoch Time:92.723
+[2023-05-23 22:06:46,650][train.py][line:79][INFO] Epoch:  4 Mean Precision:0.319, Epoch Time:92.785
+[2023-05-23 22:08:19,541][train.py][line:79][INFO] Epoch:  5 Mean Precision:0.372, Epoch Time:92.888
+[2023-05-23 22:09:52,926][train.py][line:79][INFO] Epoch:  6 Mean Precision:0.428, Epoch Time:93.381
+[2023-05-23 22:11:26,535][train.py][line:79][INFO] Epoch:  7 Mean Precision:0.510, Epoch Time:93.606
+[2023-05-23 22:12:59,155][train.py][line:79][INFO] Epoch:  8 Mean Precision:0.586, Epoch Time:92.617
+[2023-05-23 22:14:31,714][train.py][line:79][INFO] Epoch:  9 Mean Precision:0.646, Epoch Time:92.556
+[2023-05-23 22:16:04,398][train.py][line:79][INFO] Epoch: 10 Mean Precision:0.688, Epoch Time:92.681
+[2023-05-23 22:17:37,081][train.py][line:79][INFO] Epoch: 11 Mean Precision:0.728, Epoch Time:92.680
+[2023-05-23 22:19:09,793][train.py][line:79][INFO] Epoch: 12 Mean Precision:0.763, Epoch Time:92.708
+[2023-05-23 22:20:42,715][train.py][line:79][INFO] Epoch: 13 Mean Precision:0.779, Epoch Time:92.919
+[2023-05-23 22:22:15,478][train.py][line:79][INFO] Epoch: 14 Mean Precision:0.798, Epoch Time:92.760
+[2023-05-23 22:23:48,579][train.py][line:79][INFO] Epoch: 15 Mean Precision:0.821, Epoch Time:93.099
+[2023-05-23 22:23:49,003][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:25:22,170][train.py][line:79][INFO] Epoch: 16 Mean Precision:0.819, Epoch Time:93.106
+[2023-05-23 22:26:55,518][train.py][line:79][INFO] Epoch: 17 Mean Precision:0.832, Epoch Time:93.338
+[2023-05-23 22:26:56,051][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:28:29,280][train.py][line:79][INFO] Epoch: 18 Mean Precision:0.842, Epoch Time:93.168
+[2023-05-23 22:28:29,841][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:30:03,084][train.py][line:79][INFO] Epoch: 19 Mean Precision:0.852, Epoch Time:93.182
+[2023-05-23 22:30:03,630][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:31:36,936][train.py][line:79][INFO] Epoch: 20 Mean Precision:0.856, Epoch Time:93.243
+[2023-05-23 22:31:37,404][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:33:10,866][train.py][line:79][INFO] Epoch: 21 Mean Precision:0.861, Epoch Time:93.401
+[2023-05-23 22:33:11,246][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:34:44,860][train.py][line:79][INFO] Epoch: 22 Mean Precision:0.870, Epoch Time:93.552
+[2023-05-23 22:34:45,372][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:36:18,639][train.py][line:79][INFO] Epoch: 23 Mean Precision:0.869, Epoch Time:93.205
+[2023-05-23 22:37:52,002][train.py][line:79][INFO] Epoch: 24 Mean Precision:0.882, Epoch Time:93.359
+[2023-05-23 22:37:52,613][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:39:25,939][train.py][line:79][INFO] Epoch: 25 Mean Precision:0.883, Epoch Time:93.264
+[2023-05-23 22:39:26,127][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_25.pth
+[2023-05-23 22:39:26,575][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:40:59,736][train.py][line:79][INFO] Epoch: 26 Mean Precision:0.885, Epoch Time:93.099
+[2023-05-23 22:41:00,270][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:42:33,190][train.py][line:79][INFO] Epoch: 27 Mean Precision:0.887, Epoch Time:92.859
+[2023-05-23 22:42:33,666][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:44:07,235][train.py][line:79][INFO] Epoch: 28 Mean Precision:0.888, Epoch Time:93.507
+[2023-05-23 22:44:07,715][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:45:40,670][train.py][line:79][INFO] Epoch: 29 Mean Precision:0.894, Epoch Time:92.894
+[2023-05-23 22:45:41,161][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:47:14,245][train.py][line:79][INFO] Epoch: 30 Mean Precision:0.895, Epoch Time:93.017
+[2023-05-23 22:47:14,666][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:48:47,934][train.py][line:79][INFO] Epoch: 31 Mean Precision:0.896, Epoch Time:93.205
+[2023-05-23 22:48:48,458][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:50:21,360][train.py][line:79][INFO] Epoch: 32 Mean Precision:0.900, Epoch Time:92.839
+[2023-05-23 22:50:21,897][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:51:54,843][train.py][line:79][INFO] Epoch: 33 Mean Precision:0.899, Epoch Time:92.884
+[2023-05-23 22:53:28,336][train.py][line:79][INFO] Epoch: 34 Mean Precision:0.906, Epoch Time:93.490
+[2023-05-23 22:53:28,831][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 22:55:02,358][train.py][line:79][INFO] Epoch: 35 Mean Precision:0.905, Epoch Time:93.466
+[2023-05-23 22:56:35,594][train.py][line:79][INFO] Epoch: 36 Mean Precision:0.905, Epoch Time:93.231
+[2023-05-23 22:58:08,914][train.py][line:79][INFO] Epoch: 37 Mean Precision:0.905, Epoch Time:93.317
+[2023-05-23 22:59:42,631][train.py][line:79][INFO] Epoch: 38 Mean Precision:0.908, Epoch Time:93.714
+[2023-05-23 22:59:43,125][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:01:16,360][train.py][line:79][INFO] Epoch: 39 Mean Precision:0.911, Epoch Time:93.173
+[2023-05-23 23:01:16,922][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:02:50,170][train.py][line:79][INFO] Epoch: 40 Mean Precision:0.911, Epoch Time:93.186
+[2023-05-23 23:02:50,633][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:04:23,990][train.py][line:79][INFO] Epoch: 41 Mean Precision:0.912, Epoch Time:93.296
+[2023-05-23 23:04:24,534][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:05:58,016][train.py][line:79][INFO] Epoch: 42 Mean Precision:0.912, Epoch Time:93.420
+[2023-05-23 23:05:58,514][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:07:31,858][train.py][line:79][INFO] Epoch: 43 Mean Precision:0.916, Epoch Time:93.283
+[2023-05-23 23:07:32,378][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:09:05,426][train.py][line:79][INFO] Epoch: 44 Mean Precision:0.915, Epoch Time:92.986
+[2023-05-23 23:10:38,679][train.py][line:79][INFO] Epoch: 45 Mean Precision:0.921, Epoch Time:93.249
+[2023-05-23 23:10:39,229][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:12:12,782][train.py][line:79][INFO] Epoch: 46 Mean Precision:0.916, Epoch Time:93.492
+[2023-05-23 23:13:46,214][train.py][line:79][INFO] Epoch: 47 Mean Precision:0.922, Epoch Time:93.429
+[2023-05-23 23:13:46,763][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:15:20,126][train.py][line:79][INFO] Epoch: 48 Mean Precision:0.920, Epoch Time:93.302
+[2023-05-23 23:16:53,811][train.py][line:79][INFO] Epoch: 49 Mean Precision:0.920, Epoch Time:93.682
+[2023-05-23 23:18:27,376][train.py][line:79][INFO] Epoch: 50 Mean Precision:0.922, Epoch Time:93.561
+[2023-05-23 23:18:27,545][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_50.pth
+[2023-05-23 23:18:28,066][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:20:01,806][train.py][line:79][INFO] Epoch: 51 Mean Precision:0.929, Epoch Time:93.678
+[2023-05-23 23:20:02,379][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:21:35,359][train.py][line:79][INFO] Epoch: 52 Mean Precision:0.927, Epoch Time:92.917
+[2023-05-23 23:23:08,686][train.py][line:79][INFO] Epoch: 53 Mean Precision:0.922, Epoch Time:93.323
+[2023-05-23 23:24:41,830][train.py][line:79][INFO] Epoch: 54 Mean Precision:0.927, Epoch Time:93.141
+[2023-05-23 23:26:15,174][train.py][line:79][INFO] Epoch: 55 Mean Precision:0.927, Epoch Time:93.341
+[2023-05-23 23:27:48,416][train.py][line:79][INFO] Epoch: 56 Mean Precision:0.927, Epoch Time:93.238
+[2023-05-23 23:29:21,875][train.py][line:79][INFO] Epoch: 57 Mean Precision:0.927, Epoch Time:93.455
+[2023-05-23 23:30:54,997][train.py][line:79][INFO] Epoch: 58 Mean Precision:0.932, Epoch Time:93.118
+[2023-05-23 23:30:55,537][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:32:28,863][train.py][line:79][INFO] Epoch: 59 Mean Precision:0.934, Epoch Time:93.265
+[2023-05-23 23:32:29,392][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:34:02,717][train.py][line:79][INFO] Epoch: 60 Mean Precision:0.930, Epoch Time:93.262
+[2023-05-23 23:35:35,916][train.py][line:79][INFO] Epoch: 61 Mean Precision:0.933, Epoch Time:93.195
+[2023-05-23 23:37:09,446][train.py][line:79][INFO] Epoch: 62 Mean Precision:0.932, Epoch Time:93.525
+[2023-05-23 23:38:43,103][train.py][line:79][INFO] Epoch: 63 Mean Precision:0.933, Epoch Time:93.652
+[2023-05-23 23:40:16,538][train.py][line:79][INFO] Epoch: 64 Mean Precision:0.935, Epoch Time:93.431
+[2023-05-23 23:40:17,108][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:41:50,564][train.py][line:79][INFO] Epoch: 65 Mean Precision:0.931, Epoch Time:93.396
+[2023-05-23 23:43:23,869][train.py][line:79][INFO] Epoch: 66 Mean Precision:0.936, Epoch Time:93.301
+[2023-05-23 23:43:24,402][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:44:57,379][train.py][line:79][INFO] Epoch: 67 Mean Precision:0.936, Epoch Time:92.915
+[2023-05-23 23:46:30,793][train.py][line:79][INFO] Epoch: 68 Mean Precision:0.934, Epoch Time:93.410
+[2023-05-23 23:48:04,099][train.py][line:79][INFO] Epoch: 69 Mean Precision:0.934, Epoch Time:93.303
+[2023-05-23 23:49:37,467][train.py][line:79][INFO] Epoch: 70 Mean Precision:0.938, Epoch Time:93.363
+[2023-05-23 23:49:38,056][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:51:11,777][train.py][line:79][INFO] Epoch: 71 Mean Precision:0.938, Epoch Time:93.658
+[2023-05-23 23:52:44,885][train.py][line:79][INFO] Epoch: 72 Mean Precision:0.940, Epoch Time:93.105
+[2023-05-23 23:52:45,450][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:54:19,126][train.py][line:79][INFO] Epoch: 73 Mean Precision:0.938, Epoch Time:93.614
+[2023-05-23 23:55:52,607][train.py][line:79][INFO] Epoch: 74 Mean Precision:0.941, Epoch Time:93.478
+[2023-05-23 23:55:53,206][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-23 23:57:26,985][train.py][line:79][INFO] Epoch: 75 Mean Precision:0.940, Epoch Time:93.713
+[2023-05-23 23:57:27,150][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_75.pth
+[2023-05-23 23:59:00,506][train.py][line:79][INFO] Epoch: 76 Mean Precision:0.945, Epoch Time:93.300
+[2023-05-23 23:59:01,023][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:00:34,284][train.py][line:79][INFO] Epoch: 77 Mean Precision:0.941, Epoch Time:93.199
+[2023-05-24 00:02:07,513][train.py][line:79][INFO] Epoch: 78 Mean Precision:0.943, Epoch Time:93.225
+[2023-05-24 00:03:40,629][train.py][line:79][INFO] Epoch: 79 Mean Precision:0.945, Epoch Time:93.110
+[2023-05-24 00:03:41,153][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:05:14,637][train.py][line:79][INFO] Epoch: 80 Mean Precision:0.939, Epoch Time:93.421
+[2023-05-24 00:06:48,109][train.py][line:79][INFO] Epoch: 81 Mean Precision:0.945, Epoch Time:93.468
+[2023-05-24 00:08:21,639][train.py][line:79][INFO] Epoch: 82 Mean Precision:0.944, Epoch Time:93.526
+[2023-05-24 00:09:54,864][train.py][line:79][INFO] Epoch: 83 Mean Precision:0.945, Epoch Time:93.222
+[2023-05-24 00:11:28,205][train.py][line:79][INFO] Epoch: 84 Mean Precision:0.945, Epoch Time:93.338
+[2023-05-24 00:13:01,511][train.py][line:79][INFO] Epoch: 85 Mean Precision:0.949, Epoch Time:93.303
+[2023-05-24 00:13:02,063][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:14:35,436][train.py][line:79][INFO] Epoch: 86 Mean Precision:0.947, Epoch Time:93.312
+[2023-05-24 00:16:08,598][train.py][line:79][INFO] Epoch: 87 Mean Precision:0.950, Epoch Time:93.160
+[2023-05-24 00:16:09,182][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:17:42,466][train.py][line:79][INFO] Epoch: 88 Mean Precision:0.945, Epoch Time:93.217
+[2023-05-24 00:19:15,893][train.py][line:79][INFO] Epoch: 89 Mean Precision:0.945, Epoch Time:93.422
+[2023-05-24 00:20:49,152][train.py][line:79][INFO] Epoch: 90 Mean Precision:0.947, Epoch Time:93.256
+[2023-05-24 00:22:22,734][train.py][line:79][INFO] Epoch: 91 Mean Precision:0.944, Epoch Time:93.579
+[2023-05-24 00:23:56,369][train.py][line:79][INFO] Epoch: 92 Mean Precision:0.949, Epoch Time:93.631
+[2023-05-24 00:25:29,927][train.py][line:79][INFO] Epoch: 93 Mean Precision:0.951, Epoch Time:93.555
+[2023-05-24 00:25:30,451][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:25:30,619][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_93.pth
+[2023-05-24 00:27:04,211][train.py][line:79][INFO] Epoch: 94 Mean Precision:0.946, Epoch Time:93.537
+[2023-05-24 00:28:37,656][train.py][line:79][INFO] Epoch: 95 Mean Precision:0.952, Epoch Time:93.440
+[2023-05-24 00:28:38,221][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:28:38,387][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_95.pth
+[2023-05-24 00:30:11,775][train.py][line:79][INFO] Epoch: 96 Mean Precision:0.950, Epoch Time:93.333
+[2023-05-24 00:30:11,946][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_96.pth
+[2023-05-24 00:31:44,902][train.py][line:79][INFO] Epoch: 97 Mean Precision:0.950, Epoch Time:92.901
+[2023-05-24 00:31:45,066][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_97.pth
+[2023-05-24 00:33:18,078][train.py][line:79][INFO] Epoch: 98 Mean Precision:0.952, Epoch Time:92.958
+[2023-05-24 00:33:18,226][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_98.pth
+[2023-05-24 00:34:51,668][train.py][line:79][INFO] Epoch: 99 Mean Precision:0.955, Epoch Time:93.386
+[2023-05-24 00:34:52,226][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:34:52,388][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_99.pth
+[2023-05-24 00:36:25,588][train.py][line:79][INFO] Epoch:100 Mean Precision:0.947, Epoch Time:93.140
+[2023-05-24 00:36:25,758][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_100.pth
+[2023-05-24 00:37:59,359][train.py][line:79][INFO] Epoch:101 Mean Precision:0.951, Epoch Time:93.546
+[2023-05-24 00:37:59,495][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_101.pth
+[2023-05-24 00:39:33,039][train.py][line:79][INFO] Epoch:102 Mean Precision:0.953, Epoch Time:93.489
+[2023-05-24 00:39:33,205][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_102.pth
+[2023-05-24 00:41:06,781][train.py][line:79][INFO] Epoch:103 Mean Precision:0.951, Epoch Time:93.521
+[2023-05-24 00:41:06,918][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_103.pth
+[2023-05-24 00:42:40,083][train.py][line:79][INFO] Epoch:104 Mean Precision:0.951, Epoch Time:93.109
+[2023-05-24 00:42:40,220][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_104.pth
+[2023-05-24 00:44:13,503][train.py][line:79][INFO] Epoch:105 Mean Precision:0.953, Epoch Time:93.228
+[2023-05-24 00:44:13,651][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_105.pth
+[2023-05-24 00:45:47,238][train.py][line:79][INFO] Epoch:106 Mean Precision:0.952, Epoch Time:93.531
+[2023-05-24 00:45:47,388][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_106.pth
+[2023-05-24 00:47:20,594][train.py][line:79][INFO] Epoch:107 Mean Precision:0.952, Epoch Time:93.152
+[2023-05-24 00:47:20,734][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_107.pth
+[2023-05-24 00:48:54,168][train.py][line:79][INFO] Epoch:108 Mean Precision:0.956, Epoch Time:93.378
+[2023-05-24 00:48:54,695][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:48:54,860][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_108.pth
+[2023-05-24 00:50:28,449][train.py][line:79][INFO] Epoch:109 Mean Precision:0.956, Epoch Time:93.533
+[2023-05-24 00:50:28,587][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_109.pth
+[2023-05-24 00:52:02,115][train.py][line:79][INFO] Epoch:110 Mean Precision:0.952, Epoch Time:93.473
+[2023-05-24 00:52:02,257][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_110.pth
+[2023-05-24 00:53:35,217][train.py][line:79][INFO] Epoch:111 Mean Precision:0.955, Epoch Time:92.905
+[2023-05-24 00:53:35,360][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_111.pth
+[2023-05-24 00:55:08,801][train.py][line:79][INFO] Epoch:112 Mean Precision:0.957, Epoch Time:93.386
+[2023-05-24 00:55:09,339][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 00:55:09,503][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_112.pth
+[2023-05-24 00:56:43,373][train.py][line:79][INFO] Epoch:113 Mean Precision:0.954, Epoch Time:93.815
+[2023-05-24 00:56:43,513][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_113.pth
+[2023-05-24 00:58:17,003][train.py][line:79][INFO] Epoch:114 Mean Precision:0.953, Epoch Time:93.435
+[2023-05-24 00:58:17,143][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_114.pth
+[2023-05-24 00:59:50,488][train.py][line:79][INFO] Epoch:115 Mean Precision:0.956, Epoch Time:93.288
+[2023-05-24 00:59:50,653][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_115.pth
+[2023-05-24 01:01:23,667][train.py][line:79][INFO] Epoch:116 Mean Precision:0.957, Epoch Time:92.959
+[2023-05-24 01:01:23,805][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_116.pth
+[2023-05-24 01:02:57,190][train.py][line:79][INFO] Epoch:117 Mean Precision:0.957, Epoch Time:93.330
+[2023-05-24 01:02:57,339][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_117.pth
+[2023-05-24 01:04:30,578][train.py][line:79][INFO] Epoch:118 Mean Precision:0.955, Epoch Time:93.184
+[2023-05-24 01:04:30,713][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_118.pth
+[2023-05-24 01:06:03,812][train.py][line:79][INFO] Epoch:119 Mean Precision:0.958, Epoch Time:93.044
+[2023-05-24 01:06:04,414][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:06:04,579][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_119.pth
+[2023-05-24 01:07:38,800][train.py][line:79][INFO] Epoch:120 Mean Precision:0.960, Epoch Time:94.166
+[2023-05-24 01:07:39,357][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:07:39,524][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_120.pth
+[2023-05-24 01:09:12,833][train.py][line:79][INFO] Epoch:121 Mean Precision:0.954, Epoch Time:93.253
+[2023-05-24 01:09:12,972][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_121.pth
+[2023-05-24 01:10:46,158][train.py][line:79][INFO] Epoch:122 Mean Precision:0.957, Epoch Time:93.130
+[2023-05-24 01:10:46,297][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_122.pth
+[2023-05-24 01:12:19,434][train.py][line:79][INFO] Epoch:123 Mean Precision:0.955, Epoch Time:93.081
+[2023-05-24 01:12:19,572][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_123.pth
+[2023-05-24 01:13:53,148][train.py][line:79][INFO] Epoch:124 Mean Precision:0.961, Epoch Time:93.522
+[2023-05-24 01:13:53,707][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:13:53,871][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_124.pth
+[2023-05-24 01:15:26,893][train.py][line:79][INFO] Epoch:125 Mean Precision:0.958, Epoch Time:92.967
+[2023-05-24 01:15:27,057][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_125.pth
+[2023-05-24 01:15:27,213][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_125.pth
+[2023-05-24 01:17:00,420][train.py][line:79][INFO] Epoch:126 Mean Precision:0.962, Epoch Time:93.151
+[2023-05-24 01:17:00,959][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:17:01,124][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_126.pth
+[2023-05-24 01:18:34,597][train.py][line:79][INFO] Epoch:127 Mean Precision:0.963, Epoch Time:93.418
+[2023-05-24 01:18:35,143][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:18:35,310][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_127.pth
+[2023-05-24 01:20:08,436][train.py][line:79][INFO] Epoch:128 Mean Precision:0.960, Epoch Time:93.070
+[2023-05-24 01:20:08,576][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_128.pth
+[2023-05-24 01:21:42,076][train.py][line:79][INFO] Epoch:129 Mean Precision:0.957, Epoch Time:93.445
+[2023-05-24 01:21:42,212][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_129.pth
+[2023-05-24 01:23:15,445][train.py][line:79][INFO] Epoch:130 Mean Precision:0.961, Epoch Time:93.172
+[2023-05-24 01:23:15,607][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_130.pth
+[2023-05-24 01:24:49,291][train.py][line:79][INFO] Epoch:131 Mean Precision:0.957, Epoch Time:93.628
+[2023-05-24 01:24:49,463][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_131.pth
+[2023-05-24 01:26:23,005][train.py][line:79][INFO] Epoch:132 Mean Precision:0.962, Epoch Time:93.487
+[2023-05-24 01:26:23,158][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_132.pth
+[2023-05-24 01:27:56,612][train.py][line:79][INFO] Epoch:133 Mean Precision:0.960, Epoch Time:93.399
+[2023-05-24 01:27:56,753][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_133.pth
+[2023-05-24 01:29:30,053][train.py][line:79][INFO] Epoch:134 Mean Precision:0.959, Epoch Time:93.244
+[2023-05-24 01:29:30,194][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_134.pth
+[2023-05-24 01:31:03,219][train.py][line:79][INFO] Epoch:135 Mean Precision:0.960, Epoch Time:92.970
+[2023-05-24 01:31:03,355][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_135.pth
+[2023-05-24 01:32:36,984][train.py][line:79][INFO] Epoch:136 Mean Precision:0.961, Epoch Time:93.574
+[2023-05-24 01:32:37,126][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_136.pth
+[2023-05-24 01:34:10,669][train.py][line:79][INFO] Epoch:137 Mean Precision:0.963, Epoch Time:93.487
+[2023-05-24 01:34:11,213][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:34:11,374][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_137.pth
+[2023-05-24 01:35:44,159][train.py][line:79][INFO] Epoch:138 Mean Precision:0.961, Epoch Time:92.730
+[2023-05-24 01:35:44,305][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_138.pth
+[2023-05-24 01:37:17,955][train.py][line:79][INFO] Epoch:139 Mean Precision:0.965, Epoch Time:93.595
+[2023-05-24 01:37:18,552][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:37:18,718][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_139.pth
+[2023-05-24 01:38:52,505][train.py][line:79][INFO] Epoch:140 Mean Precision:0.962, Epoch Time:93.732
+[2023-05-24 01:38:52,643][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_140.pth
+[2023-05-24 01:40:25,835][train.py][line:79][INFO] Epoch:141 Mean Precision:0.958, Epoch Time:93.137
+[2023-05-24 01:40:25,977][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_141.pth
+[2023-05-24 01:41:59,280][train.py][line:79][INFO] Epoch:142 Mean Precision:0.962, Epoch Time:93.248
+[2023-05-24 01:41:59,421][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_142.pth
+[2023-05-24 01:43:32,908][train.py][line:79][INFO] Epoch:143 Mean Precision:0.964, Epoch Time:93.432
+[2023-05-24 01:43:33,055][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_143.pth
+[2023-05-24 01:45:05,950][train.py][line:79][INFO] Epoch:144 Mean Precision:0.964, Epoch Time:92.840
+[2023-05-24 01:45:06,091][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_144.pth
+[2023-05-24 01:46:39,255][train.py][line:79][INFO] Epoch:145 Mean Precision:0.964, Epoch Time:93.107
+[2023-05-24 01:46:39,392][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_145.pth
+[2023-05-24 01:48:12,739][train.py][line:79][INFO] Epoch:146 Mean Precision:0.964, Epoch Time:93.292
+[2023-05-24 01:48:12,888][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_146.pth
+[2023-05-24 01:49:46,080][train.py][line:79][INFO] Epoch:147 Mean Precision:0.963, Epoch Time:93.137
+[2023-05-24 01:49:46,227][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_147.pth
+[2023-05-24 01:51:19,481][train.py][line:79][INFO] Epoch:148 Mean Precision:0.962, Epoch Time:93.198
+[2023-05-24 01:51:19,623][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_148.pth
+[2023-05-24 01:52:53,162][train.py][line:79][INFO] Epoch:149 Mean Precision:0.965, Epoch Time:93.482
+[2023-05-24 01:52:53,328][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_149.pth
+[2023-05-24 01:54:26,813][train.py][line:79][INFO] Epoch:150 Mean Precision:0.966, Epoch Time:93.430
+[2023-05-24 01:54:26,952][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_150.pth
+[2023-05-24 01:54:27,587][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:54:27,753][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_150.pth
+[2023-05-24 01:56:00,808][train.py][line:79][INFO] Epoch:151 Mean Precision:0.961, Epoch Time:93.000
+[2023-05-24 01:56:00,946][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_151.pth
+[2023-05-24 01:57:34,634][train.py][line:79][INFO] Epoch:152 Mean Precision:0.965, Epoch Time:93.633
+[2023-05-24 01:57:34,773][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_152.pth
+[2023-05-24 01:59:08,284][train.py][line:79][INFO] Epoch:153 Mean Precision:0.967, Epoch Time:93.456
+[2023-05-24 01:59:08,926][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 01:59:09,091][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_153.pth
+[2023-05-24 02:00:42,507][train.py][line:79][INFO] Epoch:154 Mean Precision:0.961, Epoch Time:93.361
+[2023-05-24 02:00:42,650][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_154.pth
+[2023-05-24 02:02:16,715][train.py][line:79][INFO] Epoch:155 Mean Precision:0.964, Epoch Time:94.009
+[2023-05-24 02:02:16,885][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_155.pth
+[2023-05-24 02:03:50,314][train.py][line:79][INFO] Epoch:156 Mean Precision:0.967, Epoch Time:93.374
+[2023-05-24 02:03:50,475][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_156.pth
+[2023-05-24 02:05:24,258][train.py][line:79][INFO] Epoch:157 Mean Precision:0.966, Epoch Time:93.729
+[2023-05-24 02:05:24,400][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_157.pth
+[2023-05-24 02:06:57,814][train.py][line:79][INFO] Epoch:158 Mean Precision:0.968, Epoch Time:93.359
+[2023-05-24 02:06:58,457][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 02:06:58,623][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_158.pth
+[2023-05-24 02:08:31,382][train.py][line:79][INFO] Epoch:159 Mean Precision:0.966, Epoch Time:92.704
+[2023-05-24 02:08:31,521][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_159.pth
+[2023-05-24 02:10:05,334][train.py][line:79][INFO] Epoch:160 Mean Precision:0.967, Epoch Time:93.757
+[2023-05-24 02:10:05,478][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_160.pth
+[2023-05-24 02:11:38,961][train.py][line:79][INFO] Epoch:161 Mean Precision:0.965, Epoch Time:93.428
+[2023-05-24 02:11:39,105][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_161.pth
+[2023-05-24 02:13:12,570][train.py][line:79][INFO] Epoch:162 Mean Precision:0.965, Epoch Time:93.409
+[2023-05-24 02:13:12,709][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_162.pth
+[2023-05-24 02:14:46,838][train.py][line:79][INFO] Epoch:163 Mean Precision:0.963, Epoch Time:94.073
+[2023-05-24 02:14:46,977][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_163.pth
+[2023-05-24 02:16:20,304][train.py][line:79][INFO] Epoch:164 Mean Precision:0.969, Epoch Time:93.267
+[2023-05-24 02:16:20,931][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 02:16:21,095][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_164.pth
+[2023-05-24 02:17:55,097][train.py][line:79][INFO] Epoch:165 Mean Precision:0.965, Epoch Time:93.947
+[2023-05-24 02:17:55,239][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_165.pth
+[2023-05-24 02:19:28,824][train.py][line:79][INFO] Epoch:166 Mean Precision:0.967, Epoch Time:93.531
+[2023-05-24 02:19:28,966][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_166.pth
+[2023-05-24 02:21:02,407][train.py][line:79][INFO] Epoch:167 Mean Precision:0.965, Epoch Time:93.386
+[2023-05-24 02:21:02,548][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_167.pth
+[2023-05-24 02:22:35,610][train.py][line:79][INFO] Epoch:168 Mean Precision:0.968, Epoch Time:93.007
+[2023-05-24 02:22:35,747][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_168.pth
+[2023-05-24 02:24:08,988][train.py][line:79][INFO] Epoch:169 Mean Precision:0.970, Epoch Time:93.186
+[2023-05-24 02:24:09,561][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 02:24:09,724][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_169.pth
+[2023-05-24 02:25:43,057][train.py][line:79][INFO] Epoch:170 Mean Precision:0.965, Epoch Time:93.277
+[2023-05-24 02:25:43,201][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_170.pth
+[2023-05-24 02:27:16,484][train.py][line:79][INFO] Epoch:171 Mean Precision:0.966, Epoch Time:93.228
+[2023-05-24 02:27:16,622][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_171.pth
+[2023-05-24 02:28:49,729][train.py][line:79][INFO] Epoch:172 Mean Precision:0.970, Epoch Time:93.052
+[2023-05-24 02:28:49,869][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_172.pth
+[2023-05-24 02:30:23,249][train.py][line:79][INFO] Epoch:173 Mean Precision:0.969, Epoch Time:93.325
+[2023-05-24 02:30:23,396][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_173.pth
+[2023-05-24 02:31:56,835][train.py][line:79][INFO] Epoch:174 Mean Precision:0.967, Epoch Time:93.384
+[2023-05-24 02:31:56,979][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_174.pth
+[2023-05-24 02:33:30,326][train.py][line:79][INFO] Epoch:175 Mean Precision:0.968, Epoch Time:93.292
+[2023-05-24 02:33:30,463][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_175.pth
+[2023-05-24 02:33:30,619][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_175.pth
+[2023-05-24 02:35:03,903][train.py][line:79][INFO] Epoch:176 Mean Precision:0.967, Epoch Time:93.228
+[2023-05-24 02:35:04,054][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_176.pth
+[2023-05-24 02:36:37,718][train.py][line:79][INFO] Epoch:177 Mean Precision:0.966, Epoch Time:93.609
+[2023-05-24 02:36:37,856][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_177.pth
+[2023-05-24 02:38:10,715][train.py][line:79][INFO] Epoch:178 Mean Precision:0.963, Epoch Time:92.804
+[2023-05-24 02:38:10,857][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_178.pth
+[2023-05-24 02:39:44,080][train.py][line:79][INFO] Epoch:179 Mean Precision:0.970, Epoch Time:93.168
+[2023-05-24 02:39:44,624][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 02:39:44,800][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_179.pth
+[2023-05-24 02:41:17,981][train.py][line:79][INFO] Epoch:180 Mean Precision:0.969, Epoch Time:93.125
+[2023-05-24 02:41:18,119][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_180.pth
+[2023-05-24 02:42:51,526][train.py][line:79][INFO] Epoch:181 Mean Precision:0.970, Epoch Time:93.352
+[2023-05-24 02:42:51,670][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_181.pth
+[2023-05-24 02:44:24,707][train.py][line:79][INFO] Epoch:182 Mean Precision:0.969, Epoch Time:92.983
+[2023-05-24 02:44:24,856][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_182.pth
+[2023-05-24 02:45:57,807][train.py][line:79][INFO] Epoch:183 Mean Precision:0.968, Epoch Time:92.897
+[2023-05-24 02:45:57,947][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_183.pth
+[2023-05-24 02:47:31,335][train.py][line:79][INFO] Epoch:184 Mean Precision:0.968, Epoch Time:93.333
+[2023-05-24 02:47:31,475][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_184.pth
+[2023-05-24 02:49:04,892][train.py][line:79][INFO] Epoch:185 Mean Precision:0.968, Epoch Time:93.362
+[2023-05-24 02:49:05,071][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_185.pth
+[2023-05-24 02:50:38,072][train.py][line:79][INFO] Epoch:186 Mean Precision:0.970, Epoch Time:92.946
+[2023-05-24 02:50:38,212][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_186.pth
+[2023-05-24 02:52:11,832][train.py][line:79][INFO] Epoch:187 Mean Precision:0.970, Epoch Time:93.561
+[2023-05-24 02:52:11,973][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_187.pth
+[2023-05-24 02:53:45,056][train.py][line:79][INFO] Epoch:188 Mean Precision:0.965, Epoch Time:93.028
+[2023-05-24 02:53:45,223][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_188.pth
+[2023-05-24 02:55:17,970][train.py][line:79][INFO] Epoch:189 Mean Precision:0.972, Epoch Time:92.692
+[2023-05-24 02:55:18,493][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 02:55:18,656][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_189.pth
+[2023-05-24 02:56:52,024][train.py][line:79][INFO] Epoch:190 Mean Precision:0.972, Epoch Time:93.312
+[2023-05-24 02:56:52,198][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_190.pth
+[2023-05-24 02:58:25,844][train.py][line:79][INFO] Epoch:191 Mean Precision:0.974, Epoch Time:93.589
+[2023-05-24 02:58:26,334][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 02:58:26,498][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_191.pth
+[2023-05-24 02:59:59,909][train.py][line:79][INFO] Epoch:192 Mean Precision:0.970, Epoch Time:93.354
+[2023-05-24 03:00:00,052][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_192.pth
+[2023-05-24 03:01:33,225][train.py][line:79][INFO] Epoch:193 Mean Precision:0.968, Epoch Time:93.118
+[2023-05-24 03:01:33,368][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_193.pth
+[2023-05-24 03:03:06,740][train.py][line:79][INFO] Epoch:194 Mean Precision:0.970, Epoch Time:93.317
+[2023-05-24 03:03:06,880][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_194.pth
+[2023-05-24 03:04:40,225][train.py][line:79][INFO] Epoch:195 Mean Precision:0.972, Epoch Time:93.291
+[2023-05-24 03:04:40,367][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_195.pth
+[2023-05-24 03:06:13,739][train.py][line:79][INFO] Epoch:196 Mean Precision:0.970, Epoch Time:93.318
+[2023-05-24 03:06:13,905][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_196.pth
+[2023-05-24 03:07:47,385][train.py][line:79][INFO] Epoch:197 Mean Precision:0.969, Epoch Time:93.425
+[2023-05-24 03:07:47,527][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_197.pth
+[2023-05-24 03:09:20,648][train.py][line:79][INFO] Epoch:198 Mean Precision:0.970, Epoch Time:93.065
+[2023-05-24 03:09:20,794][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_198.pth
+[2023-05-24 03:10:54,086][train.py][line:79][INFO] Epoch:199 Mean Precision:0.971, Epoch Time:93.237
+[2023-05-24 03:10:54,227][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_199.pth
+[2023-05-24 03:12:27,770][train.py][line:79][INFO] Epoch:200 Mean Precision:0.970, Epoch Time:93.488
+[2023-05-24 03:12:27,912][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_200.pth
+[2023-05-24 03:12:28,067][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_200.pth
+[2023-05-24 03:14:01,845][train.py][line:79][INFO] Epoch:201 Mean Precision:0.971, Epoch Time:93.723
+[2023-05-24 03:14:01,983][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_201.pth
+[2023-05-24 03:15:35,839][train.py][line:79][INFO] Epoch:202 Mean Precision:0.974, Epoch Time:93.801
+[2023-05-24 03:15:35,981][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_202.pth
+[2023-05-24 03:17:09,563][train.py][line:79][INFO] Epoch:203 Mean Precision:0.970, Epoch Time:93.527
+[2023-05-24 03:17:09,703][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_203.pth
+[2023-05-24 03:18:42,967][train.py][line:79][INFO] Epoch:204 Mean Precision:0.974, Epoch Time:93.208
+[2023-05-24 03:18:43,137][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_204.pth
+[2023-05-24 03:20:16,771][train.py][line:79][INFO] Epoch:205 Mean Precision:0.968, Epoch Time:93.578
+[2023-05-24 03:20:16,912][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_205.pth
+[2023-05-24 03:21:50,026][train.py][line:79][INFO] Epoch:206 Mean Precision:0.973, Epoch Time:93.059
+[2023-05-24 03:21:50,171][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_206.pth
+[2023-05-24 03:23:23,567][train.py][line:79][INFO] Epoch:207 Mean Precision:0.975, Epoch Time:93.342
+[2023-05-24 03:23:24,186][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 03:23:24,348][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_207.pth
+[2023-05-24 03:24:57,935][train.py][line:79][INFO] Epoch:208 Mean Precision:0.973, Epoch Time:93.533
+[2023-05-24 03:24:58,096][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_208.pth
+[2023-05-24 03:26:31,250][train.py][line:79][INFO] Epoch:209 Mean Precision:0.972, Epoch Time:93.099
+[2023-05-24 03:26:31,386][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_209.pth
+[2023-05-24 03:28:05,191][train.py][line:79][INFO] Epoch:210 Mean Precision:0.970, Epoch Time:93.750
+[2023-05-24 03:28:05,338][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_210.pth
+[2023-05-24 03:29:38,984][train.py][line:79][INFO] Epoch:211 Mean Precision:0.973, Epoch Time:93.591
+[2023-05-24 03:29:39,126][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_211.pth
+[2023-05-24 03:31:12,534][train.py][line:79][INFO] Epoch:212 Mean Precision:0.971, Epoch Time:93.353
+[2023-05-24 03:31:12,695][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_212.pth
+[2023-05-24 03:32:45,982][train.py][line:79][INFO] Epoch:213 Mean Precision:0.974, Epoch Time:93.232
+[2023-05-24 03:32:46,119][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_213.pth
+[2023-05-24 03:34:19,562][train.py][line:79][INFO] Epoch:214 Mean Precision:0.974, Epoch Time:93.387
+[2023-05-24 03:34:19,704][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_214.pth
+[2023-05-24 03:35:52,712][train.py][line:79][INFO] Epoch:215 Mean Precision:0.974, Epoch Time:92.953
+[2023-05-24 03:35:52,854][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_215.pth
+[2023-05-24 03:37:26,532][train.py][line:79][INFO] Epoch:216 Mean Precision:0.973, Epoch Time:93.622
+[2023-05-24 03:37:26,695][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_216.pth
+[2023-05-24 03:39:00,070][train.py][line:79][INFO] Epoch:217 Mean Precision:0.973, Epoch Time:93.320
+[2023-05-24 03:39:00,211][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_217.pth
+[2023-05-24 03:40:33,624][train.py][line:79][INFO] Epoch:218 Mean Precision:0.974, Epoch Time:93.359
+[2023-05-24 03:40:33,769][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_218.pth
+[2023-05-24 03:42:06,820][train.py][line:79][INFO] Epoch:219 Mean Precision:0.972, Epoch Time:92.997
+[2023-05-24 03:42:06,961][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_219.pth
+[2023-05-24 03:43:40,461][train.py][line:79][INFO] Epoch:220 Mean Precision:0.974, Epoch Time:93.444
+[2023-05-24 03:43:40,609][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_220.pth
+[2023-05-24 03:45:13,998][train.py][line:79][INFO] Epoch:221 Mean Precision:0.974, Epoch Time:93.334
+[2023-05-24 03:45:14,137][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_221.pth
+[2023-05-24 03:46:47,350][train.py][line:79][INFO] Epoch:222 Mean Precision:0.972, Epoch Time:93.157
+[2023-05-24 03:46:47,488][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_222.pth
+[2023-05-24 03:48:20,858][train.py][line:79][INFO] Epoch:223 Mean Precision:0.974, Epoch Time:93.314
+[2023-05-24 03:48:21,022][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_223.pth
+[2023-05-24 03:49:54,532][train.py][line:79][INFO] Epoch:224 Mean Precision:0.972, Epoch Time:93.455
+[2023-05-24 03:49:54,674][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_224.pth
+[2023-05-24 03:51:28,020][train.py][line:79][INFO] Epoch:225 Mean Precision:0.974, Epoch Time:93.290
+[2023-05-24 03:51:28,159][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_225.pth
+[2023-05-24 03:51:28,314][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_225.pth
+[2023-05-24 03:53:01,795][train.py][line:79][INFO] Epoch:226 Mean Precision:0.971, Epoch Time:93.425
+[2023-05-24 03:53:01,962][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_226.pth
+[2023-05-24 03:54:35,413][train.py][line:79][INFO] Epoch:227 Mean Precision:0.972, Epoch Time:93.396
+[2023-05-24 03:54:35,551][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_227.pth
+[2023-05-24 03:56:08,761][train.py][line:79][INFO] Epoch:228 Mean Precision:0.974, Epoch Time:93.155
+[2023-05-24 03:56:08,900][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_228.pth
+[2023-05-24 03:57:42,046][train.py][line:79][INFO] Epoch:229 Mean Precision:0.972, Epoch Time:93.090
+[2023-05-24 03:57:42,184][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_229.pth
+[2023-05-24 03:59:15,503][train.py][line:79][INFO] Epoch:230 Mean Precision:0.973, Epoch Time:93.264
+[2023-05-24 03:59:15,645][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_230.pth
+[2023-05-24 04:00:48,983][train.py][line:79][INFO] Epoch:231 Mean Precision:0.973, Epoch Time:93.282
+[2023-05-24 04:00:49,157][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_231.pth
+[2023-05-24 04:02:22,933][train.py][line:79][INFO] Epoch:232 Mean Precision:0.972, Epoch Time:93.719
+[2023-05-24 04:02:23,098][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_232.pth
+[2023-05-24 04:03:57,380][train.py][line:79][INFO] Epoch:233 Mean Precision:0.978, Epoch Time:94.226
+[2023-05-24 04:03:57,941][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 04:03:58,109][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_233.pth
+[2023-05-24 04:05:31,564][train.py][line:79][INFO] Epoch:234 Mean Precision:0.974, Epoch Time:93.399
+[2023-05-24 04:05:31,701][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_234.pth
+[2023-05-24 04:07:05,204][train.py][line:79][INFO] Epoch:235 Mean Precision:0.975, Epoch Time:93.448
+[2023-05-24 04:07:05,370][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_235.pth
+[2023-05-24 04:08:38,576][train.py][line:79][INFO] Epoch:236 Mean Precision:0.975, Epoch Time:93.152
+[2023-05-24 04:08:38,720][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_236.pth
+[2023-05-24 04:10:11,894][train.py][line:79][INFO] Epoch:237 Mean Precision:0.973, Epoch Time:93.120
+[2023-05-24 04:10:12,033][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_237.pth
+[2023-05-24 04:11:45,843][train.py][line:79][INFO] Epoch:238 Mean Precision:0.976, Epoch Time:93.755
+[2023-05-24 04:11:46,009][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_238.pth
+[2023-05-24 04:13:19,462][train.py][line:79][INFO] Epoch:239 Mean Precision:0.975, Epoch Time:93.398
+[2023-05-24 04:13:19,603][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_239.pth
+[2023-05-24 04:14:53,042][train.py][line:79][INFO] Epoch:240 Mean Precision:0.973, Epoch Time:93.384
+[2023-05-24 04:14:53,181][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_240.pth
+[2023-05-24 04:16:26,826][train.py][line:79][INFO] Epoch:241 Mean Precision:0.976, Epoch Time:93.590
+[2023-05-24 04:16:26,967][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_241.pth
+[2023-05-24 04:18:00,498][train.py][line:79][INFO] Epoch:242 Mean Precision:0.976, Epoch Time:93.476
+[2023-05-24 04:18:00,642][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_242.pth
+[2023-05-24 04:19:34,025][train.py][line:79][INFO] Epoch:243 Mean Precision:0.975, Epoch Time:93.328
+[2023-05-24 04:19:34,164][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_243.pth
+[2023-05-24 04:21:07,511][train.py][line:79][INFO] Epoch:244 Mean Precision:0.975, Epoch Time:93.291
+[2023-05-24 04:21:07,648][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_244.pth
+[2023-05-24 04:22:41,002][train.py][line:79][INFO] Epoch:245 Mean Precision:0.973, Epoch Time:93.299
+[2023-05-24 04:22:41,145][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_245.pth
+[2023-05-24 04:24:14,524][train.py][line:79][INFO] Epoch:246 Mean Precision:0.974, Epoch Time:93.324
+[2023-05-24 04:24:14,662][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_246.pth
+[2023-05-24 04:25:48,046][train.py][line:79][INFO] Epoch:247 Mean Precision:0.975, Epoch Time:93.329
+[2023-05-24 04:25:48,184][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_247.pth
+[2023-05-24 04:27:21,820][train.py][line:79][INFO] Epoch:248 Mean Precision:0.976, Epoch Time:93.581
+[2023-05-24 04:27:21,962][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_248.pth
+[2023-05-24 04:28:55,499][train.py][line:79][INFO] Epoch:249 Mean Precision:0.975, Epoch Time:93.481
+[2023-05-24 04:28:55,639][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_249.pth
+[2023-05-24 04:30:29,421][train.py][line:79][INFO] Epoch:250 Mean Precision:0.975, Epoch Time:93.727
+[2023-05-24 04:30:29,564][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_250.pth
+[2023-05-24 04:30:29,720][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_250.pth
+[2023-05-24 04:32:03,177][train.py][line:79][INFO] Epoch:251 Mean Precision:0.976, Epoch Time:93.401
+[2023-05-24 04:32:03,316][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_251.pth
+[2023-05-24 04:33:36,906][train.py][line:79][INFO] Epoch:252 Mean Precision:0.976, Epoch Time:93.535
+[2023-05-24 04:33:37,045][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_252.pth
+[2023-05-24 04:35:10,310][train.py][line:79][INFO] Epoch:253 Mean Precision:0.974, Epoch Time:93.210
+[2023-05-24 04:35:10,448][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_253.pth
+[2023-05-24 04:36:43,721][train.py][line:79][INFO] Epoch:254 Mean Precision:0.975, Epoch Time:93.218
+[2023-05-24 04:36:43,859][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_254.pth
+[2023-05-24 04:38:17,392][train.py][line:79][INFO] Epoch:255 Mean Precision:0.974, Epoch Time:93.478
+[2023-05-24 04:38:17,530][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_255.pth
+[2023-05-24 04:39:50,452][train.py][line:79][INFO] Epoch:256 Mean Precision:0.975, Epoch Time:92.867
+[2023-05-24 04:39:50,590][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_256.pth
+[2023-05-24 04:41:23,776][train.py][line:79][INFO] Epoch:257 Mean Precision:0.975, Epoch Time:93.130
+[2023-05-24 04:41:23,913][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_257.pth
+[2023-05-24 04:42:57,108][train.py][line:79][INFO] Epoch:258 Mean Precision:0.975, Epoch Time:93.140
+[2023-05-24 04:42:57,247][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_258.pth
+[2023-05-24 04:44:30,524][train.py][line:79][INFO] Epoch:259 Mean Precision:0.976, Epoch Time:93.221
+[2023-05-24 04:44:30,665][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_259.pth
+[2023-05-24 04:46:04,177][train.py][line:79][INFO] Epoch:260 Mean Precision:0.977, Epoch Time:93.456
+[2023-05-24 04:46:04,317][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_260.pth
+[2023-05-24 04:47:37,802][train.py][line:79][INFO] Epoch:261 Mean Precision:0.976, Epoch Time:93.431
+[2023-05-24 04:47:37,945][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_261.pth
+[2023-05-24 04:49:11,767][train.py][line:79][INFO] Epoch:262 Mean Precision:0.978, Epoch Time:93.766
+[2023-05-24 04:49:11,915][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_262.pth
+[2023-05-24 04:50:45,104][train.py][line:79][INFO] Epoch:263 Mean Precision:0.977, Epoch Time:93.134
+[2023-05-24 04:50:45,242][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_263.pth
+[2023-05-24 04:52:18,150][train.py][line:79][INFO] Epoch:264 Mean Precision:0.977, Epoch Time:92.853
+[2023-05-24 04:52:18,290][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_264.pth
+[2023-05-24 04:53:51,688][train.py][line:79][INFO] Epoch:265 Mean Precision:0.977, Epoch Time:93.344
+[2023-05-24 04:53:51,826][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_265.pth
+[2023-05-24 04:55:25,143][train.py][line:79][INFO] Epoch:266 Mean Precision:0.978, Epoch Time:93.263
+[2023-05-24 04:55:25,307][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_266.pth
+[2023-05-24 04:56:58,681][train.py][line:79][INFO] Epoch:267 Mean Precision:0.978, Epoch Time:93.318
+[2023-05-24 04:56:58,832][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_267.pth
+[2023-05-24 04:58:32,287][train.py][line:79][INFO] Epoch:268 Mean Precision:0.975, Epoch Time:93.400
+[2023-05-24 04:58:32,465][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_268.pth
+[2023-05-24 05:00:05,851][train.py][line:79][INFO] Epoch:269 Mean Precision:0.978, Epoch Time:93.331
+[2023-05-24 05:00:05,994][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_269.pth
+[2023-05-24 05:01:39,709][train.py][line:79][INFO] Epoch:270 Mean Precision:0.980, Epoch Time:93.659
+[2023-05-24 05:01:40,204][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 05:01:40,369][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_270.pth
+[2023-05-24 05:03:13,798][train.py][line:79][INFO] Epoch:271 Mean Precision:0.976, Epoch Time:93.374
+[2023-05-24 05:03:13,939][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_271.pth
+[2023-05-24 05:04:47,351][train.py][line:79][INFO] Epoch:272 Mean Precision:0.978, Epoch Time:93.357
+[2023-05-24 05:04:47,488][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_272.pth
+[2023-05-24 05:06:20,620][train.py][line:79][INFO] Epoch:273 Mean Precision:0.976, Epoch Time:93.076
+[2023-05-24 05:06:20,764][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_273.pth
+[2023-05-24 05:07:54,456][train.py][line:79][INFO] Epoch:274 Mean Precision:0.977, Epoch Time:93.637
+[2023-05-24 05:07:54,616][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_274.pth
+[2023-05-24 05:09:28,069][train.py][line:79][INFO] Epoch:275 Mean Precision:0.977, Epoch Time:93.398
+[2023-05-24 05:09:28,208][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_275.pth
+[2023-05-24 05:09:28,362][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_275.pth
+[2023-05-24 05:11:02,072][train.py][line:79][INFO] Epoch:276 Mean Precision:0.976, Epoch Time:93.655
+[2023-05-24 05:11:02,241][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_276.pth
+[2023-05-24 05:12:35,935][train.py][line:79][INFO] Epoch:277 Mean Precision:0.976, Epoch Time:93.639
+[2023-05-24 05:12:36,087][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_277.pth
+[2023-05-24 05:14:09,568][train.py][line:79][INFO] Epoch:278 Mean Precision:0.978, Epoch Time:93.423
+[2023-05-24 05:14:09,734][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_278.pth
+[2023-05-24 05:15:43,291][train.py][line:79][INFO] Epoch:279 Mean Precision:0.978, Epoch Time:93.502
+[2023-05-24 05:15:43,429][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_279.pth
+[2023-05-24 05:17:17,137][train.py][line:79][INFO] Epoch:280 Mean Precision:0.977, Epoch Time:93.653
+[2023-05-24 05:17:17,274][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_280.pth
+[2023-05-24 05:18:50,786][train.py][line:79][INFO] Epoch:281 Mean Precision:0.977, Epoch Time:93.457
+[2023-05-24 05:18:50,931][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_281.pth
+[2023-05-24 05:20:24,399][train.py][line:79][INFO] Epoch:282 Mean Precision:0.976, Epoch Time:93.413
+[2023-05-24 05:20:24,535][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_282.pth
+[2023-05-24 05:21:58,031][train.py][line:79][INFO] Epoch:283 Mean Precision:0.977, Epoch Time:93.440
+[2023-05-24 05:21:58,168][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_283.pth
+[2023-05-24 05:23:31,795][train.py][line:79][INFO] Epoch:284 Mean Precision:0.980, Epoch Time:93.572
+[2023-05-24 05:23:32,409][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 05:23:32,571][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_284.pth
+[2023-05-24 05:25:05,946][train.py][line:79][INFO] Epoch:285 Mean Precision:0.979, Epoch Time:93.320
+[2023-05-24 05:25:06,110][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_285.pth
+[2023-05-24 05:26:39,552][train.py][line:79][INFO] Epoch:286 Mean Precision:0.976, Epoch Time:93.387
+[2023-05-24 05:26:39,704][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_286.pth
+[2023-05-24 05:28:12,698][train.py][line:79][INFO] Epoch:287 Mean Precision:0.979, Epoch Time:92.939
+[2023-05-24 05:28:12,837][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_287.pth
+[2023-05-24 05:29:45,822][train.py][line:79][INFO] Epoch:288 Mean Precision:0.978, Epoch Time:92.931
+[2023-05-24 05:29:45,963][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_288.pth
+[2023-05-24 05:31:19,365][train.py][line:79][INFO] Epoch:289 Mean Precision:0.979, Epoch Time:93.347
+[2023-05-24 05:31:19,530][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_289.pth
+[2023-05-24 05:32:53,294][train.py][line:79][INFO] Epoch:290 Mean Precision:0.978, Epoch Time:93.709
+[2023-05-24 05:32:53,431][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_290.pth
+[2023-05-24 05:34:26,567][train.py][line:79][INFO] Epoch:291 Mean Precision:0.981, Epoch Time:93.081
+[2023-05-24 05:34:27,137][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 05:34:27,304][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_291.pth
+[2023-05-24 05:36:00,572][train.py][line:79][INFO] Epoch:292 Mean Precision:0.980, Epoch Time:93.213
+[2023-05-24 05:36:00,710][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_292.pth
+[2023-05-24 05:37:34,031][train.py][line:79][INFO] Epoch:293 Mean Precision:0.979, Epoch Time:93.266
+[2023-05-24 05:37:34,169][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_293.pth
+[2023-05-24 05:39:07,603][train.py][line:79][INFO] Epoch:294 Mean Precision:0.980, Epoch Time:93.379
+[2023-05-24 05:39:07,743][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_294.pth
+[2023-05-24 05:40:41,515][train.py][line:79][INFO] Epoch:295 Mean Precision:0.978, Epoch Time:93.717
+[2023-05-24 05:40:41,655][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_295.pth
+[2023-05-24 05:42:15,152][train.py][line:79][INFO] Epoch:296 Mean Precision:0.976, Epoch Time:93.441
+[2023-05-24 05:42:15,289][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_296.pth
+[2023-05-24 05:43:48,718][train.py][line:79][INFO] Epoch:297 Mean Precision:0.977, Epoch Time:93.373
+[2023-05-24 05:43:48,858][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_297.pth
+[2023-05-24 05:45:22,332][train.py][line:79][INFO] Epoch:298 Mean Precision:0.979, Epoch Time:93.419
+[2023-05-24 05:45:22,470][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_298.pth
+[2023-05-24 05:46:56,072][train.py][line:79][INFO] Epoch:299 Mean Precision:0.979, Epoch Time:93.548
+[2023-05-24 05:46:56,214][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_299.pth
+[2023-05-24 05:48:29,918][train.py][line:79][INFO] Epoch:300 Mean Precision:0.980, Epoch Time:93.649
+[2023-05-24 05:48:30,063][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_300.pth
+[2023-05-24 05:48:30,220][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_300.pth
+[2023-05-24 05:50:03,677][train.py][line:79][INFO] Epoch:301 Mean Precision:0.982, Epoch Time:93.396
+[2023-05-24 05:50:04,269][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 05:50:04,432][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_301.pth
+[2023-05-24 05:51:38,033][train.py][line:79][INFO] Epoch:302 Mean Precision:0.980, Epoch Time:93.546
+[2023-05-24 05:51:38,175][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_302.pth
+[2023-05-24 05:53:11,254][train.py][line:79][INFO] Epoch:303 Mean Precision:0.980, Epoch Time:93.025
+[2023-05-24 05:53:11,392][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_303.pth
+[2023-05-24 05:54:44,825][train.py][line:79][INFO] Epoch:304 Mean Precision:0.976, Epoch Time:93.378
+[2023-05-24 05:54:44,992][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_304.pth
+[2023-05-24 05:56:18,426][train.py][line:79][INFO] Epoch:305 Mean Precision:0.981, Epoch Time:93.379
+[2023-05-24 05:56:18,588][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_305.pth
+[2023-05-24 05:57:52,124][train.py][line:79][INFO] Epoch:306 Mean Precision:0.980, Epoch Time:93.480
+[2023-05-24 05:57:52,263][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_306.pth
+[2023-05-24 05:59:25,778][train.py][line:79][INFO] Epoch:307 Mean Precision:0.979, Epoch Time:93.459
+[2023-05-24 05:59:25,917][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_307.pth
+[2023-05-24 06:00:59,727][train.py][line:79][INFO] Epoch:308 Mean Precision:0.981, Epoch Time:93.754
+[2023-05-24 06:00:59,888][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_308.pth
+[2023-05-24 06:02:33,073][train.py][line:79][INFO] Epoch:309 Mean Precision:0.981, Epoch Time:93.131
+[2023-05-24 06:02:33,212][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_309.pth
+[2023-05-24 06:04:06,850][train.py][line:79][INFO] Epoch:310 Mean Precision:0.982, Epoch Time:93.583
+[2023-05-24 06:04:07,444][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 06:04:07,607][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_310.pth
+[2023-05-24 06:05:40,728][train.py][line:79][INFO] Epoch:311 Mean Precision:0.982, Epoch Time:93.066
+[2023-05-24 06:05:40,870][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_311.pth
+[2023-05-24 06:07:14,485][train.py][line:79][INFO] Epoch:312 Mean Precision:0.981, Epoch Time:93.560
+[2023-05-24 06:07:14,627][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_312.pth
+[2023-05-24 06:08:48,181][train.py][line:79][INFO] Epoch:313 Mean Precision:0.977, Epoch Time:93.499
+[2023-05-24 06:08:48,323][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_313.pth
+[2023-05-24 06:10:21,847][train.py][line:79][INFO] Epoch:314 Mean Precision:0.979, Epoch Time:93.469
+[2023-05-24 06:10:21,992][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_314.pth
+[2023-05-24 06:11:55,605][train.py][line:79][INFO] Epoch:315 Mean Precision:0.980, Epoch Time:93.559
+[2023-05-24 06:11:55,747][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_315.pth
+[2023-05-24 06:13:29,089][train.py][line:79][INFO] Epoch:316 Mean Precision:0.979, Epoch Time:93.288
+[2023-05-24 06:13:29,295][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_316.pth
+[2023-05-24 06:15:02,853][train.py][line:79][INFO] Epoch:317 Mean Precision:0.978, Epoch Time:93.503
+[2023-05-24 06:15:03,027][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_317.pth
+[2023-05-24 06:16:36,690][train.py][line:79][INFO] Epoch:318 Mean Precision:0.980, Epoch Time:93.608
+[2023-05-24 06:16:36,831][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_318.pth
+[2023-05-24 06:18:10,312][train.py][line:79][INFO] Epoch:319 Mean Precision:0.980, Epoch Time:93.426
+[2023-05-24 06:18:10,450][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_319.pth
+[2023-05-24 06:19:43,673][train.py][line:79][INFO] Epoch:320 Mean Precision:0.982, Epoch Time:93.168
+[2023-05-24 06:19:43,810][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_320.pth
+[2023-05-24 06:21:17,443][train.py][line:79][INFO] Epoch:321 Mean Precision:0.978, Epoch Time:93.577
+[2023-05-24 06:21:17,598][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_321.pth
+[2023-05-24 06:22:51,302][train.py][line:79][INFO] Epoch:322 Mean Precision:0.978, Epoch Time:93.649
+[2023-05-24 06:22:51,465][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_322.pth
+[2023-05-24 06:24:24,865][train.py][line:79][INFO] Epoch:323 Mean Precision:0.978, Epoch Time:93.346
+[2023-05-24 06:24:25,004][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_323.pth
+[2023-05-24 06:25:58,600][train.py][line:79][INFO] Epoch:324 Mean Precision:0.982, Epoch Time:93.541
+[2023-05-24 06:25:59,157][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 06:25:59,323][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_324.pth
+[2023-05-24 06:27:32,764][train.py][line:79][INFO] Epoch:325 Mean Precision:0.978, Epoch Time:93.385
+[2023-05-24 06:27:32,937][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_325.pth
+[2023-05-24 06:27:33,096][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_325.pth
+[2023-05-24 06:29:06,312][train.py][line:79][INFO] Epoch:326 Mean Precision:0.982, Epoch Time:93.161
+[2023-05-24 06:29:06,455][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_326.pth
+[2023-05-24 06:30:40,105][train.py][line:79][INFO] Epoch:327 Mean Precision:0.982, Epoch Time:93.594
+[2023-05-24 06:30:40,756][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 06:30:40,921][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_327.pth
+[2023-05-24 06:32:14,536][train.py][line:79][INFO] Epoch:328 Mean Precision:0.981, Epoch Time:93.560
+[2023-05-24 06:32:14,674][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_328.pth
+[2023-05-24 06:33:48,773][train.py][line:79][INFO] Epoch:329 Mean Precision:0.981, Epoch Time:94.043
+[2023-05-24 06:33:48,923][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_329.pth
+[2023-05-24 06:35:21,871][train.py][line:79][INFO] Epoch:330 Mean Precision:0.981, Epoch Time:92.893
+[2023-05-24 06:35:22,010][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_330.pth
+[2023-05-24 06:36:55,556][train.py][line:79][INFO] Epoch:331 Mean Precision:0.981, Epoch Time:93.491
+[2023-05-24 06:36:55,701][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_331.pth
+[2023-05-24 06:38:29,353][train.py][line:79][INFO] Epoch:332 Mean Precision:0.981, Epoch Time:93.597
+[2023-05-24 06:38:29,495][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_332.pth
+[2023-05-24 06:40:03,151][train.py][line:79][INFO] Epoch:333 Mean Precision:0.982, Epoch Time:93.601
+[2023-05-24 06:40:03,317][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_333.pth
+[2023-05-24 06:41:36,545][train.py][line:79][INFO] Epoch:334 Mean Precision:0.981, Epoch Time:93.174
+[2023-05-24 06:41:36,686][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_334.pth
+[2023-05-24 06:43:10,378][train.py][line:79][INFO] Epoch:335 Mean Precision:0.983, Epoch Time:93.637
+[2023-05-24 06:43:10,938][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 06:43:11,103][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_335.pth
+[2023-05-24 06:44:44,280][train.py][line:79][INFO] Epoch:336 Mean Precision:0.983, Epoch Time:93.123
+[2023-05-24 06:44:44,882][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 06:44:45,045][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_336.pth
+[2023-05-24 06:46:18,527][train.py][line:79][INFO] Epoch:337 Mean Precision:0.981, Epoch Time:93.428
+[2023-05-24 06:46:18,668][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_337.pth
+[2023-05-24 06:47:51,821][train.py][line:79][INFO] Epoch:338 Mean Precision:0.981, Epoch Time:93.097
+[2023-05-24 06:47:51,988][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_338.pth
+[2023-05-24 06:49:25,077][train.py][line:79][INFO] Epoch:339 Mean Precision:0.982, Epoch Time:93.034
+[2023-05-24 06:49:25,239][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_339.pth
+[2023-05-24 06:50:59,007][train.py][line:79][INFO] Epoch:340 Mean Precision:0.978, Epoch Time:93.713
+[2023-05-24 06:50:59,149][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_340.pth
+[2023-05-24 06:52:32,483][train.py][line:79][INFO] Epoch:341 Mean Precision:0.982, Epoch Time:93.278
+[2023-05-24 06:52:32,646][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_341.pth
+[2023-05-24 06:54:06,364][train.py][line:79][INFO] Epoch:342 Mean Precision:0.980, Epoch Time:93.663
+[2023-05-24 06:54:06,501][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_342.pth
+[2023-05-24 06:55:40,207][train.py][line:79][INFO] Epoch:343 Mean Precision:0.981, Epoch Time:93.651
+[2023-05-24 06:55:40,355][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_343.pth
+[2023-05-24 06:57:13,689][train.py][line:79][INFO] Epoch:344 Mean Precision:0.982, Epoch Time:93.279
+[2023-05-24 06:57:13,859][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_344.pth
+[2023-05-24 06:58:47,545][train.py][line:79][INFO] Epoch:345 Mean Precision:0.982, Epoch Time:93.631
+[2023-05-24 06:58:47,689][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_345.pth
+[2023-05-24 07:00:20,901][train.py][line:79][INFO] Epoch:346 Mean Precision:0.983, Epoch Time:93.157
+[2023-05-24 07:00:21,527][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 07:00:21,700][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_346.pth
+[2023-05-24 07:01:55,186][train.py][line:79][INFO] Epoch:347 Mean Precision:0.981, Epoch Time:93.425
+[2023-05-24 07:01:55,358][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_347.pth
+[2023-05-24 07:03:28,887][train.py][line:79][INFO] Epoch:348 Mean Precision:0.981, Epoch Time:93.474
+[2023-05-24 07:03:29,029][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_348.pth
+[2023-05-24 07:05:02,599][train.py][line:79][INFO] Epoch:349 Mean Precision:0.981, Epoch Time:93.516
+[2023-05-24 07:05:02,741][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_349.pth
+[2023-05-24 07:06:36,819][train.py][line:79][INFO] Epoch:350 Mean Precision:0.980, Epoch Time:94.023
+[2023-05-24 07:06:36,957][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_350.pth
+[2023-05-24 07:06:37,113][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_350.pth
+[2023-05-24 07:08:10,852][train.py][line:79][INFO] Epoch:351 Mean Precision:0.982, Epoch Time:93.683
+[2023-05-24 07:08:10,991][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_351.pth
+[2023-05-24 07:09:44,322][train.py][line:79][INFO] Epoch:352 Mean Precision:0.981, Epoch Time:93.277
+[2023-05-24 07:09:44,467][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_352.pth
+[2023-05-24 07:11:17,831][train.py][line:79][INFO] Epoch:353 Mean Precision:0.983, Epoch Time:93.309
+[2023-05-24 07:11:17,982][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_353.pth
+[2023-05-24 07:12:52,468][train.py][line:79][INFO] Epoch:354 Mean Precision:0.978, Epoch Time:94.430
+[2023-05-24 07:12:52,605][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_354.pth
+[2023-05-24 07:14:26,020][train.py][line:79][INFO] Epoch:355 Mean Precision:0.983, Epoch Time:93.360
+[2023-05-24 07:14:26,548][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 07:14:26,714][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_355.pth
+[2023-05-24 07:15:59,919][train.py][line:79][INFO] Epoch:356 Mean Precision:0.982, Epoch Time:93.151
+[2023-05-24 07:16:00,062][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_356.pth
+[2023-05-24 07:17:33,811][train.py][line:79][INFO] Epoch:357 Mean Precision:0.981, Epoch Time:93.692
+[2023-05-24 07:17:33,947][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_357.pth
+[2023-05-24 07:19:07,244][train.py][line:79][INFO] Epoch:358 Mean Precision:0.980, Epoch Time:93.242
+[2023-05-24 07:19:07,391][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_358.pth
+[2023-05-24 07:20:40,669][train.py][line:79][INFO] Epoch:359 Mean Precision:0.981, Epoch Time:93.223
+[2023-05-24 07:20:40,805][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_359.pth
+[2023-05-24 07:22:14,410][train.py][line:79][INFO] Epoch:360 Mean Precision:0.984, Epoch Time:93.550
+[2023-05-24 07:22:14,819][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 07:22:14,984][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_360.pth
+[2023-05-24 07:23:48,539][train.py][line:79][INFO] Epoch:361 Mean Precision:0.981, Epoch Time:93.500
+[2023-05-24 07:23:48,677][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_361.pth
+[2023-05-24 07:25:22,200][train.py][line:79][INFO] Epoch:362 Mean Precision:0.982, Epoch Time:93.469
+[2023-05-24 07:25:22,348][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_362.pth
+[2023-05-24 07:26:55,766][train.py][line:79][INFO] Epoch:363 Mean Precision:0.981, Epoch Time:93.363
+[2023-05-24 07:26:55,917][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_363.pth
+[2023-05-24 07:28:29,337][train.py][line:79][INFO] Epoch:364 Mean Precision:0.981, Epoch Time:93.365
+[2023-05-24 07:28:29,479][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_364.pth
+[2023-05-24 07:30:02,859][train.py][line:79][INFO] Epoch:365 Mean Precision:0.982, Epoch Time:93.326
+[2023-05-24 07:30:03,000][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_365.pth
+[2023-05-24 07:31:36,554][train.py][line:79][INFO] Epoch:366 Mean Precision:0.983, Epoch Time:93.498
+[2023-05-24 07:31:36,695][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_366.pth
+[2023-05-24 07:33:09,863][train.py][line:79][INFO] Epoch:367 Mean Precision:0.981, Epoch Time:93.113
+[2023-05-24 07:33:10,002][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_367.pth
+[2023-05-24 07:34:43,669][train.py][line:79][INFO] Epoch:368 Mean Precision:0.984, Epoch Time:93.612
+[2023-05-24 07:34:43,814][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_368.pth
+[2023-05-24 07:36:17,318][train.py][line:79][INFO] Epoch:369 Mean Precision:0.985, Epoch Time:93.439
+[2023-05-24 07:36:17,753][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 07:36:17,919][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_369.pth
+[2023-05-24 07:37:51,180][train.py][line:79][INFO] Epoch:370 Mean Precision:0.981, Epoch Time:93.206
+[2023-05-24 07:37:51,319][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_370.pth
+[2023-05-24 07:39:24,775][train.py][line:79][INFO] Epoch:371 Mean Precision:0.981, Epoch Time:93.401
+[2023-05-24 07:39:24,911][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_371.pth
+[2023-05-24 07:40:58,298][train.py][line:79][INFO] Epoch:372 Mean Precision:0.982, Epoch Time:93.330
+[2023-05-24 07:40:58,434][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_372.pth
+[2023-05-24 07:42:31,546][train.py][line:79][INFO] Epoch:373 Mean Precision:0.983, Epoch Time:93.058
+[2023-05-24 07:42:31,685][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_373.pth
+[2023-05-24 07:44:05,668][train.py][line:79][INFO] Epoch:374 Mean Precision:0.984, Epoch Time:93.926
+[2023-05-24 07:44:05,836][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_374.pth
+[2023-05-24 07:45:39,503][train.py][line:79][INFO] Epoch:375 Mean Precision:0.982, Epoch Time:93.612
+[2023-05-24 07:45:39,643][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_375.pth
+[2023-05-24 07:45:39,797][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_375.pth
+[2023-05-24 07:47:13,587][train.py][line:79][INFO] Epoch:376 Mean Precision:0.983, Epoch Time:93.734
+[2023-05-24 07:47:13,732][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_376.pth
+[2023-05-24 07:48:46,735][train.py][line:79][INFO] Epoch:377 Mean Precision:0.981, Epoch Time:92.949
+[2023-05-24 07:48:46,880][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_377.pth
+[2023-05-24 07:50:20,558][train.py][line:79][INFO] Epoch:378 Mean Precision:0.983, Epoch Time:93.622
+[2023-05-24 07:50:20,696][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_378.pth
+[2023-05-24 07:51:54,141][train.py][line:79][INFO] Epoch:379 Mean Precision:0.985, Epoch Time:93.390
+[2023-05-24 07:51:54,278][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_379.pth
+[2023-05-24 07:53:27,878][train.py][line:79][INFO] Epoch:380 Mean Precision:0.981, Epoch Time:93.544
+[2023-05-24 07:53:28,017][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_380.pth
+[2023-05-24 07:55:01,588][train.py][line:79][INFO] Epoch:381 Mean Precision:0.984, Epoch Time:93.516
+[2023-05-24 07:55:01,725][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_381.pth
+[2023-05-24 07:56:34,795][train.py][line:79][INFO] Epoch:382 Mean Precision:0.982, Epoch Time:93.015
+[2023-05-24 07:56:34,937][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_382.pth
+[2023-05-24 07:58:07,964][train.py][line:79][INFO] Epoch:383 Mean Precision:0.983, Epoch Time:92.972
+[2023-05-24 07:58:08,105][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_383.pth
+[2023-05-24 07:59:41,875][train.py][line:79][INFO] Epoch:384 Mean Precision:0.983, Epoch Time:93.715
+[2023-05-24 07:59:42,020][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_384.pth
+[2023-05-24 08:01:15,231][train.py][line:79][INFO] Epoch:385 Mean Precision:0.981, Epoch Time:93.156
+[2023-05-24 08:01:15,370][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_385.pth
+[2023-05-24 08:02:49,169][train.py][line:79][INFO] Epoch:386 Mean Precision:0.984, Epoch Time:93.744
+[2023-05-24 08:02:49,312][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_386.pth
+[2023-05-24 08:04:22,763][train.py][line:79][INFO] Epoch:387 Mean Precision:0.982, Epoch Time:93.396
+[2023-05-24 08:04:22,904][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_387.pth
+[2023-05-24 08:05:56,529][train.py][line:79][INFO] Epoch:388 Mean Precision:0.982, Epoch Time:93.570
+[2023-05-24 08:05:56,675][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_388.pth
+[2023-05-24 08:07:30,422][train.py][line:79][INFO] Epoch:389 Mean Precision:0.984, Epoch Time:93.692
+[2023-05-24 08:07:30,560][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_389.pth
+[2023-05-24 08:09:04,674][train.py][line:79][INFO] Epoch:390 Mean Precision:0.985, Epoch Time:94.058
+[2023-05-24 08:09:04,811][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_390.pth
+[2023-05-24 08:10:38,586][train.py][line:79][INFO] Epoch:391 Mean Precision:0.984, Epoch Time:93.720
+[2023-05-24 08:10:38,724][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_391.pth
+[2023-05-24 08:12:12,194][train.py][line:79][INFO] Epoch:392 Mean Precision:0.984, Epoch Time:93.414
+[2023-05-24 08:12:12,336][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_392.pth
+[2023-05-24 08:13:46,001][train.py][line:79][INFO] Epoch:393 Mean Precision:0.983, Epoch Time:93.611
+[2023-05-24 08:13:46,138][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_393.pth
+[2023-05-24 08:15:19,657][train.py][line:79][INFO] Epoch:394 Mean Precision:0.984, Epoch Time:93.464
+[2023-05-24 08:15:19,805][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_394.pth
+[2023-05-24 08:16:53,598][train.py][line:79][INFO] Epoch:395 Mean Precision:0.986, Epoch Time:93.737
+[2023-05-24 08:16:54,046][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 08:16:54,215][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_395.pth
+[2023-05-24 08:18:27,746][train.py][line:79][INFO] Epoch:396 Mean Precision:0.984, Epoch Time:93.476
+[2023-05-24 08:18:27,888][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_396.pth
+[2023-05-24 08:20:01,038][train.py][line:79][INFO] Epoch:397 Mean Precision:0.982, Epoch Time:93.096
+[2023-05-24 08:20:01,180][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_397.pth
+[2023-05-24 08:21:34,735][train.py][line:79][INFO] Epoch:398 Mean Precision:0.985, Epoch Time:93.500
+[2023-05-24 08:21:34,872][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_398.pth
+[2023-05-24 08:23:08,168][train.py][line:79][INFO] Epoch:399 Mean Precision:0.983, Epoch Time:93.241
+[2023-05-24 08:23:08,306][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_399.pth
+[2023-05-24 08:24:42,171][train.py][line:79][INFO] Epoch:400 Mean Precision:0.986, Epoch Time:93.810
+[2023-05-24 08:24:42,318][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_400.pth
+[2023-05-24 08:24:42,810][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 08:24:42,977][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_400.pth
+[2023-05-24 08:26:16,654][train.py][line:79][INFO] Epoch:401 Mean Precision:0.983, Epoch Time:93.623
+[2023-05-24 08:26:16,798][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_401.pth
+[2023-05-24 08:27:50,399][train.py][line:79][INFO] Epoch:402 Mean Precision:0.982, Epoch Time:93.546
+[2023-05-24 08:27:50,538][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_402.pth
+[2023-05-24 08:29:23,888][train.py][line:79][INFO] Epoch:403 Mean Precision:0.984, Epoch Time:93.295
+[2023-05-24 08:29:24,026][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_403.pth
+[2023-05-24 08:30:57,337][train.py][line:79][INFO] Epoch:404 Mean Precision:0.984, Epoch Time:93.255
+[2023-05-24 08:30:57,482][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_404.pth
+[2023-05-24 08:32:31,060][train.py][line:79][INFO] Epoch:405 Mean Precision:0.984, Epoch Time:93.523
+[2023-05-24 08:32:31,200][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_405.pth
+[2023-05-24 08:34:04,324][train.py][line:79][INFO] Epoch:406 Mean Precision:0.983, Epoch Time:93.069
+[2023-05-24 08:34:04,464][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_406.pth
+[2023-05-24 08:35:37,851][train.py][line:79][INFO] Epoch:407 Mean Precision:0.983, Epoch Time:93.332
+[2023-05-24 08:35:37,997][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_407.pth
+[2023-05-24 08:37:11,278][train.py][line:79][INFO] Epoch:408 Mean Precision:0.983, Epoch Time:93.225
+[2023-05-24 08:37:11,421][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_408.pth
+[2023-05-24 08:38:44,811][train.py][line:79][INFO] Epoch:409 Mean Precision:0.986, Epoch Time:93.334
+[2023-05-24 08:38:44,954][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_409.pth
+[2023-05-24 08:40:18,067][train.py][line:79][INFO] Epoch:410 Mean Precision:0.985, Epoch Time:93.058
+[2023-05-24 08:40:18,213][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_410.pth
+[2023-05-24 08:41:51,865][train.py][line:79][INFO] Epoch:411 Mean Precision:0.984, Epoch Time:93.595
+[2023-05-24 08:41:52,010][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_411.pth
+[2023-05-24 08:43:25,422][train.py][line:79][INFO] Epoch:412 Mean Precision:0.985, Epoch Time:93.356
+[2023-05-24 08:43:25,563][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_412.pth
+[2023-05-24 08:44:59,352][train.py][line:79][INFO] Epoch:413 Mean Precision:0.982, Epoch Time:93.734
+[2023-05-24 08:44:59,490][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_413.pth
+[2023-05-24 08:46:32,954][train.py][line:79][INFO] Epoch:414 Mean Precision:0.983, Epoch Time:93.409
+[2023-05-24 08:46:33,092][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_414.pth
+[2023-05-24 08:48:06,526][train.py][line:79][INFO] Epoch:415 Mean Precision:0.983, Epoch Time:93.379
+[2023-05-24 08:48:06,671][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_415.pth
+[2023-05-24 08:49:39,909][train.py][line:79][INFO] Epoch:416 Mean Precision:0.985, Epoch Time:93.184
+[2023-05-24 08:49:40,057][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_416.pth
+[2023-05-24 08:51:13,634][train.py][line:79][INFO] Epoch:417 Mean Precision:0.985, Epoch Time:93.522
+[2023-05-24 08:51:13,783][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_417.pth
+[2023-05-24 08:52:47,238][train.py][line:79][INFO] Epoch:418 Mean Precision:0.986, Epoch Time:93.400
+[2023-05-24 08:52:47,811][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 08:52:47,974][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_418.pth
+[2023-05-24 08:54:21,525][train.py][line:79][INFO] Epoch:419 Mean Precision:0.985, Epoch Time:93.496
+[2023-05-24 08:54:21,669][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_419.pth
+[2023-05-24 08:55:55,348][train.py][line:79][INFO] Epoch:420 Mean Precision:0.982, Epoch Time:93.624
+[2023-05-24 08:55:55,491][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_420.pth
+[2023-05-24 08:57:29,114][train.py][line:79][INFO] Epoch:421 Mean Precision:0.985, Epoch Time:93.567
+[2023-05-24 08:57:29,258][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_421.pth
+[2023-05-24 08:59:02,837][train.py][line:79][INFO] Epoch:422 Mean Precision:0.985, Epoch Time:93.524
+[2023-05-24 08:59:02,976][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_422.pth
+[2023-05-24 09:00:36,334][train.py][line:79][INFO] Epoch:423 Mean Precision:0.984, Epoch Time:93.303
+[2023-05-24 09:00:36,471][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_423.pth
+[2023-05-24 09:02:10,101][train.py][line:79][INFO] Epoch:424 Mean Precision:0.982, Epoch Time:93.575
+[2023-05-24 09:02:10,239][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_424.pth
+[2023-05-24 09:03:43,825][train.py][line:79][INFO] Epoch:425 Mean Precision:0.986, Epoch Time:93.531
+[2023-05-24 09:03:43,966][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_425.pth
+[2023-05-24 09:03:44,582][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 09:03:44,748][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_425.pth
+[2023-05-24 09:05:18,188][train.py][line:79][INFO] Epoch:426 Mean Precision:0.983, Epoch Time:93.384
+[2023-05-24 09:05:18,327][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_426.pth
+[2023-05-24 09:06:51,987][train.py][line:79][INFO] Epoch:427 Mean Precision:0.985, Epoch Time:93.605
+[2023-05-24 09:06:52,126][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_427.pth
+[2023-05-24 09:08:25,239][train.py][line:79][INFO] Epoch:428 Mean Precision:0.982, Epoch Time:93.057
+[2023-05-24 09:08:25,380][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_428.pth
+[2023-05-24 09:09:58,920][train.py][line:79][INFO] Epoch:429 Mean Precision:0.985, Epoch Time:93.485
+[2023-05-24 09:09:59,057][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_429.pth
+[2023-05-24 09:11:32,297][train.py][line:79][INFO] Epoch:430 Mean Precision:0.986, Epoch Time:93.184
+[2023-05-24 09:11:32,444][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_430.pth
+[2023-05-24 09:13:06,078][train.py][line:79][INFO] Epoch:431 Mean Precision:0.985, Epoch Time:93.578
+[2023-05-24 09:13:06,219][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_431.pth
+[2023-05-24 09:14:39,323][train.py][line:79][INFO] Epoch:432 Mean Precision:0.985, Epoch Time:93.049
+[2023-05-24 09:14:39,462][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_432.pth
+[2023-05-24 09:16:12,503][train.py][line:79][INFO] Epoch:433 Mean Precision:0.986, Epoch Time:92.986
+[2023-05-24 09:16:12,646][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_433.pth
+[2023-05-24 09:17:46,430][train.py][line:79][INFO] Epoch:434 Mean Precision:0.983, Epoch Time:93.729
+[2023-05-24 09:17:46,571][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_434.pth
+[2023-05-24 09:19:20,091][train.py][line:79][INFO] Epoch:435 Mean Precision:0.985, Epoch Time:93.466
+[2023-05-24 09:19:20,234][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_435.pth
+[2023-05-24 09:20:53,477][train.py][line:79][INFO] Epoch:436 Mean Precision:0.985, Epoch Time:93.188
+[2023-05-24 09:20:53,616][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_436.pth
+[2023-05-24 09:22:27,123][train.py][line:79][INFO] Epoch:437 Mean Precision:0.985, Epoch Time:93.451
+[2023-05-24 09:22:27,260][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_437.pth
+[2023-05-24 09:24:00,662][train.py][line:79][INFO] Epoch:438 Mean Precision:0.982, Epoch Time:93.347
+[2023-05-24 09:24:00,801][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_438.pth
+[2023-05-24 09:25:34,546][train.py][line:79][INFO] Epoch:439 Mean Precision:0.984, Epoch Time:93.689
+[2023-05-24 09:25:34,686][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_439.pth
+[2023-05-24 09:27:08,270][train.py][line:79][INFO] Epoch:440 Mean Precision:0.986, Epoch Time:93.529
+[2023-05-24 09:27:08,410][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_440.pth
+[2023-05-24 09:28:41,987][train.py][line:79][INFO] Epoch:441 Mean Precision:0.986, Epoch Time:93.521
+[2023-05-24 09:28:42,128][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_441.pth
+[2023-05-24 09:30:15,933][train.py][line:79][INFO] Epoch:442 Mean Precision:0.984, Epoch Time:93.749
+[2023-05-24 09:30:16,082][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_442.pth
+[2023-05-24 09:31:49,242][train.py][line:79][INFO] Epoch:443 Mean Precision:0.986, Epoch Time:93.105
+[2023-05-24 09:31:49,381][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_443.pth
+[2023-05-24 09:33:22,960][train.py][line:79][INFO] Epoch:444 Mean Precision:0.984, Epoch Time:93.524
+[2023-05-24 09:33:23,097][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_444.pth
+[2023-05-24 09:34:56,398][train.py][line:79][INFO] Epoch:445 Mean Precision:0.984, Epoch Time:93.246
+[2023-05-24 09:34:56,534][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_445.pth
+[2023-05-24 09:36:30,270][train.py][line:79][INFO] Epoch:446 Mean Precision:0.987, Epoch Time:93.681
+[2023-05-24 09:36:30,729][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 09:36:30,897][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_446.pth
+[2023-05-24 09:38:04,730][train.py][line:79][INFO] Epoch:447 Mean Precision:0.984, Epoch Time:93.778
+[2023-05-24 09:38:04,869][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_447.pth
+[2023-05-24 09:39:38,437][train.py][line:79][INFO] Epoch:448 Mean Precision:0.985, Epoch Time:93.512
+[2023-05-24 09:39:38,573][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_448.pth
+[2023-05-24 09:41:11,947][train.py][line:79][INFO] Epoch:449 Mean Precision:0.985, Epoch Time:93.319
+[2023-05-24 09:41:12,090][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_449.pth
+[2023-05-24 09:42:45,766][train.py][line:79][INFO] Epoch:450 Mean Precision:0.985, Epoch Time:93.621
+[2023-05-24 09:42:45,910][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_450.pth
+[2023-05-24 09:42:46,076][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_450.pth
+[2023-05-24 09:44:19,858][train.py][line:79][INFO] Epoch:451 Mean Precision:0.985, Epoch Time:93.726
+[2023-05-24 09:44:19,997][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_451.pth
+[2023-05-24 09:45:53,240][train.py][line:79][INFO] Epoch:452 Mean Precision:0.985, Epoch Time:93.188
+[2023-05-24 09:45:53,378][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_452.pth
+[2023-05-24 09:47:27,055][train.py][line:79][INFO] Epoch:453 Mean Precision:0.984, Epoch Time:93.622
+[2023-05-24 09:47:27,193][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_453.pth
+[2023-05-24 09:49:00,453][train.py][line:79][INFO] Epoch:454 Mean Precision:0.984, Epoch Time:93.205
+[2023-05-24 09:49:00,596][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_454.pth
+[2023-05-24 09:50:33,639][train.py][line:79][INFO] Epoch:455 Mean Precision:0.986, Epoch Time:92.988
+[2023-05-24 09:50:33,780][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_455.pth
+[2023-05-24 09:52:06,859][train.py][line:79][INFO] Epoch:456 Mean Precision:0.986, Epoch Time:93.025
+[2023-05-24 09:52:06,997][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_456.pth
+[2023-05-24 09:53:40,271][train.py][line:79][INFO] Epoch:457 Mean Precision:0.985, Epoch Time:93.218
+[2023-05-24 09:53:40,415][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_457.pth
+[2023-05-24 09:55:13,480][train.py][line:79][INFO] Epoch:458 Mean Precision:0.986, Epoch Time:93.010
+[2023-05-24 09:55:13,629][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_458.pth
+[2023-05-24 09:56:47,004][train.py][line:79][INFO] Epoch:459 Mean Precision:0.987, Epoch Time:93.320
+[2023-05-24 09:56:47,141][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_459.pth
+[2023-05-24 09:58:20,444][train.py][line:79][INFO] Epoch:460 Mean Precision:0.987, Epoch Time:93.248
+[2023-05-24 09:58:20,583][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_460.pth
+[2023-05-24 09:59:54,340][train.py][line:79][INFO] Epoch:461 Mean Precision:0.986, Epoch Time:93.703
+[2023-05-24 09:59:54,484][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_461.pth
+[2023-05-24 10:01:27,938][train.py][line:79][INFO] Epoch:462 Mean Precision:0.984, Epoch Time:93.399
+[2023-05-24 10:01:28,083][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_462.pth
+[2023-05-24 10:03:01,565][train.py][line:79][INFO] Epoch:463 Mean Precision:0.986, Epoch Time:93.427
+[2023-05-24 10:03:01,703][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_463.pth
+[2023-05-24 10:04:35,111][train.py][line:79][INFO] Epoch:464 Mean Precision:0.986, Epoch Time:93.353
+[2023-05-24 10:04:35,252][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_464.pth
+[2023-05-24 10:06:08,401][train.py][line:79][INFO] Epoch:465 Mean Precision:0.987, Epoch Time:93.094
+[2023-05-24 10:06:09,010][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 10:06:09,178][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_465.pth
+[2023-05-24 10:07:43,146][train.py][line:79][INFO] Epoch:466 Mean Precision:0.986, Epoch Time:93.913
+[2023-05-24 10:07:43,285][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_466.pth
+[2023-05-24 10:09:16,849][train.py][line:79][INFO] Epoch:467 Mean Precision:0.985, Epoch Time:93.509
+[2023-05-24 10:09:16,993][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_467.pth
+[2023-05-24 10:10:50,853][train.py][line:79][INFO] Epoch:468 Mean Precision:0.983, Epoch Time:93.804
+[2023-05-24 10:10:50,997][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_468.pth
+[2023-05-24 10:12:24,522][train.py][line:79][INFO] Epoch:469 Mean Precision:0.985, Epoch Time:93.468
+[2023-05-24 10:12:24,663][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_469.pth
+[2023-05-24 10:13:58,151][train.py][line:79][INFO] Epoch:470 Mean Precision:0.985, Epoch Time:93.433
+[2023-05-24 10:13:58,289][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_470.pth
+[2023-05-24 10:15:31,556][train.py][line:79][INFO] Epoch:471 Mean Precision:0.985, Epoch Time:93.211
+[2023-05-24 10:15:31,695][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_471.pth
+[2023-05-24 10:17:05,276][train.py][line:79][INFO] Epoch:472 Mean Precision:0.986, Epoch Time:93.526
+[2023-05-24 10:17:05,417][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_472.pth
+[2023-05-24 10:18:38,715][train.py][line:79][INFO] Epoch:473 Mean Precision:0.987, Epoch Time:93.242
+[2023-05-24 10:18:38,852][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_473.pth
+[2023-05-24 10:20:12,551][train.py][line:79][INFO] Epoch:474 Mean Precision:0.988, Epoch Time:93.643
+[2023-05-24 10:20:13,113][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 10:20:13,280][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_474.pth
+[2023-05-24 10:21:46,692][train.py][line:79][INFO] Epoch:475 Mean Precision:0.986, Epoch Time:93.357
+[2023-05-24 10:21:46,871][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_475.pth
+[2023-05-24 10:21:47,028][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_475.pth
+[2023-05-24 10:23:20,465][train.py][line:79][INFO] Epoch:476 Mean Precision:0.985, Epoch Time:93.382
+[2023-05-24 10:23:20,603][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_476.pth
+[2023-05-24 10:24:53,669][train.py][line:79][INFO] Epoch:477 Mean Precision:0.986, Epoch Time:93.011
+[2023-05-24 10:24:53,811][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_477.pth
+[2023-05-24 10:26:27,432][train.py][line:79][INFO] Epoch:478 Mean Precision:0.985, Epoch Time:93.566
+[2023-05-24 10:26:27,574][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_478.pth
+[2023-05-24 10:28:01,027][train.py][line:79][INFO] Epoch:479 Mean Precision:0.985, Epoch Time:93.398
+[2023-05-24 10:28:01,182][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_479.pth
+[2023-05-24 10:29:34,331][train.py][line:79][INFO] Epoch:480 Mean Precision:0.987, Epoch Time:93.093
+[2023-05-24 10:29:34,481][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_480.pth
+[2023-05-24 10:31:08,027][train.py][line:79][INFO] Epoch:481 Mean Precision:0.986, Epoch Time:93.490
+[2023-05-24 10:31:08,169][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_481.pth
+[2023-05-24 10:32:41,869][train.py][line:79][INFO] Epoch:482 Mean Precision:0.989, Epoch Time:93.644
+[2023-05-24 10:32:42,291][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL.pth
+[2023-05-24 10:32:42,454][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_482.pth
+[2023-05-24 10:34:15,959][train.py][line:79][INFO] Epoch:483 Mean Precision:0.988, Epoch Time:93.449
+[2023-05-24 10:34:16,099][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_483.pth
+[2023-05-24 10:35:49,127][train.py][line:79][INFO] Epoch:484 Mean Precision:0.987, Epoch Time:92.973
+[2023-05-24 10:35:49,268][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_484.pth
+[2023-05-24 10:37:22,408][train.py][line:79][INFO] Epoch:485 Mean Precision:0.985, Epoch Time:93.085
+[2023-05-24 10:37:22,551][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_485.pth
+[2023-05-24 10:38:56,210][train.py][line:79][INFO] Epoch:486 Mean Precision:0.986, Epoch Time:93.604
+[2023-05-24 10:38:56,358][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_486.pth
+[2023-05-24 10:40:30,117][train.py][line:79][INFO] Epoch:487 Mean Precision:0.987, Epoch Time:93.705
+[2023-05-24 10:40:30,256][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_487.pth
+[2023-05-24 10:42:03,507][train.py][line:79][INFO] Epoch:488 Mean Precision:0.987, Epoch Time:93.196
+[2023-05-24 10:42:03,650][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_488.pth
+[2023-05-24 10:43:37,054][train.py][line:79][INFO] Epoch:489 Mean Precision:0.987, Epoch Time:93.349
+[2023-05-24 10:43:37,192][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_489.pth
+[2023-05-24 10:45:10,738][train.py][line:79][INFO] Epoch:490 Mean Precision:0.987, Epoch Time:93.490
+[2023-05-24 10:45:10,879][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_490.pth
+[2023-05-24 10:46:44,467][train.py][line:79][INFO] Epoch:491 Mean Precision:0.987, Epoch Time:93.533
+[2023-05-24 10:46:44,611][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_491.pth
+[2023-05-24 10:48:17,661][train.py][line:79][INFO] Epoch:492 Mean Precision:0.988, Epoch Time:92.994
+[2023-05-24 10:48:17,801][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_492.pth
+[2023-05-24 10:49:50,924][train.py][line:79][INFO] Epoch:493 Mean Precision:0.988, Epoch Time:93.069
+[2023-05-24 10:49:51,064][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_493.pth
+[2023-05-24 10:51:24,414][train.py][line:79][INFO] Epoch:494 Mean Precision:0.987, Epoch Time:93.296
+[2023-05-24 10:51:24,558][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_494.pth
+[2023-05-24 10:52:57,722][train.py][line:79][INFO] Epoch:495 Mean Precision:0.988, Epoch Time:93.109
+[2023-05-24 10:52:57,860][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_495.pth
+[2023-05-24 10:54:31,543][train.py][line:79][INFO] Epoch:496 Mean Precision:0.987, Epoch Time:93.628
+[2023-05-24 10:54:31,681][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_496.pth
+[2023-05-24 10:56:05,756][train.py][line:79][INFO] Epoch:497 Mean Precision:0.987, Epoch Time:94.019
+[2023-05-24 10:56:05,898][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_497.pth
+[2023-05-24 10:57:39,405][train.py][line:79][INFO] Epoch:498 Mean Precision:0.988, Epoch Time:93.452
+[2023-05-24 10:57:39,543][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_498.pth
+[2023-05-24 10:59:13,230][train.py][line:79][INFO] Epoch:499 Mean Precision:0.987, Epoch Time:93.632
+[2023-05-24 10:59:13,367][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_499.pth
+[2023-05-24 11:00:46,934][train.py][line:79][INFO] Epoch:500 Mean Precision:0.985, Epoch Time:93.512
+[2023-05-24 11:00:47,107][model_saver.py][line:35][INFO] Save model to ./resume/stage_3/RGBT234/ALL/ALL_500.pth
+[2023-05-24 11:00:47,265][model_saver.py][line:35][INFO] Save model to ./snapshot/stage_3/RGBT234/ALL/ALL_500.pth
